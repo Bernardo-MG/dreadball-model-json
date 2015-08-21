@@ -15,7 +15,9 @@
  */
 package com.wandrell.tabletop.dreadball.model.json.unit.stats;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
 /**
@@ -23,26 +25,29 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
  * 
  * @author Bernardo Martínez Garrido
  */
+@JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
+        isGetterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonPropertyOrder({ "armor", "movement", "skill", "speed", "strength" })
 public interface AttributesHolderMixIn extends AttributesHolder {
 
     @Override
-    @JsonProperty("armor")
+    @JsonProperty
     public Integer getArmor();
 
     @Override
-    @JsonProperty("movement")
+    @JsonProperty
     public Integer getMovement();
 
     @Override
-    @JsonProperty("skill")
+    @JsonProperty
     public Integer getSkill();
 
     @Override
-    @JsonProperty("speed")
+    @JsonProperty
     public Integer getSpeed();
 
     @Override
-    @JsonProperty("strength")
+    @JsonProperty
     public Integer getStrength();
 
 }

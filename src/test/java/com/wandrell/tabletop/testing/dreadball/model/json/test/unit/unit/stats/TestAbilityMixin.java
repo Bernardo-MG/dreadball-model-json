@@ -1,4 +1,4 @@
-package com.wandrell.tabletop.testing.dreadball.model.json.test.unit.stats;
+package com.wandrell.tabletop.testing.dreadball.model.json.test.unit.unit.stats;
 
 import org.mockito.Mockito;
 import org.testng.Assert;
@@ -19,8 +19,8 @@ public final class TestAbilityMixin {
     @Test
     public final void testJSON() throws JsonProcessingException {
         final ObjectMapper mapper;
-        final Ability ability;
         final ObjectWriter writer;
+        final Ability ability;
 
         mapper = new ObjectMapper();
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
