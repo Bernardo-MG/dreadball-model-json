@@ -26,6 +26,8 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
  * Jackson mix-in interface for {@link Team}.
  * 
  * @author Bernardo Martínez Garrido
+ * @param <U>
+ *            the type of unit the {@code Team} contains
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
