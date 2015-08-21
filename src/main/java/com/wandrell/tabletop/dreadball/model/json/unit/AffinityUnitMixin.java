@@ -22,6 +22,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityUnit;
 
+/**
+ * Jackson mix-in interface for {@link AffinityUnit}.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public interface AffinityUnitMixin extends AffinityUnit, UnitMixin {

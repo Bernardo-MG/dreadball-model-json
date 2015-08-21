@@ -22,6 +22,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
+/**
+ * Jackson mix-in interface for {@link Sponsor}.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public interface SponsorMixin extends Sponsor {

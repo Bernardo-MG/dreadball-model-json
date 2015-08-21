@@ -18,6 +18,11 @@ package com.wandrell.tabletop.dreadball.model.json.unit.stats;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
+/**
+ * Jackson mix-in interface for {@link AttributesHolder}.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public interface AttributesHolderMixin extends AttributesHolder {
 
     @Override

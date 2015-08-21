@@ -23,6 +23,11 @@ import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixin;
 import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAdvancementUnit;
 import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 
+/**
+ * Jackson mix-in interface for {@link CompositeAdvancementUnit}.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public interface CompositeAdvancementUnitMixin

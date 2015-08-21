@@ -20,6 +20,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wandrell.tabletop.dreadball.model.availability.team.TeamTypeAssetsAvailability;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 
+/**
+ * Jackson mix-in interface for {@link TeamTypeAssetsAvailability}.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public interface TeamTypeAssetsAvailabilityMixin

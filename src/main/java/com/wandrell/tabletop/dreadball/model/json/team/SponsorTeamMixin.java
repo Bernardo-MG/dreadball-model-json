@@ -21,6 +21,11 @@ import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.team.SponsorTeam;
 import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
+/**
+ * Jackson mix-in interface for {@link SponsorTeam}.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public interface SponsorTeamMixin extends SponsorTeam, TeamMixin<Unit> {

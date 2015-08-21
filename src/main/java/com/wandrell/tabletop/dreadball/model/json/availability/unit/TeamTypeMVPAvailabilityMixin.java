@@ -21,6 +21,11 @@ import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeMVPAvaila
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
+/**
+ * Jackson mix-in interface for {@link TeamTypeMVPAvailability}.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public interface TeamTypeMVPAvailabilityMixin extends TeamTypeMVPAvailability {

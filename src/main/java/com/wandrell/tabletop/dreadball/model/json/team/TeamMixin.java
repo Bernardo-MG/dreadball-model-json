@@ -22,6 +22,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wandrell.tabletop.dreadball.model.team.Team;
 import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
+/**
+ * Jackson mix-in interface for {@link Team}.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public interface TeamMixin<U extends Unit> extends Team<U> {

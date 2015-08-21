@@ -23,6 +23,11 @@ import com.wandrell.tabletop.dreadball.model.json.unit.AffinityUnitMixin;
 import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAffinityUnit;
 import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 
+/**
+ * Jackson mix-in interface for {@link CompositeAffinityUnit}.
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public interface CompositeAffinityUnitMixin
