@@ -26,7 +26,7 @@ import com.wandrell.tabletop.dreadball.model.availability.team.SponsorAssetsAvai
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface SponsorAssetsAvailabilityMixin
+public interface SponsorAssetsAvailabilityMixIn
         extends SponsorAssetsAvailability {
 
     @Override

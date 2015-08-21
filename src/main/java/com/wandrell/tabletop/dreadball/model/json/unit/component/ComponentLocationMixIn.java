@@ -15,26 +15,21 @@
  */
 package com.wandrell.tabletop.dreadball.model.json.unit.component;
 
-import java.util.Collection;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixin;
-import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAdvancementUnit;
-import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
+import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
 
 /**
- * Jackson mix-in interface for {@link CompositeAdvancementUnit}.
+ * Jackson mix-in interface for {@link ComponentLocation}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface CompositeAdvancementUnitMixin
-        extends CompositeAdvancementUnit, AdvancementUnitMixin {
+public interface ComponentLocationMixIn extends ComponentLocation {
 
     @Override
-    @JsonProperty("components")
-    public Collection<UnitComponent> getComponents();
+    @JsonProperty("component_location_name")
+    public String getComponentLocationName();
 
 }

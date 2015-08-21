@@ -13,35 +13,31 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.availability.unit;
-
-import java.util.Collection;
+package com.wandrell.tabletop.dreadball.model.json.unit.component;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.availability.unit.SponsorAffinityGroupAvailability;
-import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
+import com.wandrell.tabletop.dreadball.model.unit.component.AffinityUnitComponent;
 
 /**
- * Jackson mix-in interface for {@link SponsorAffinityGroupAvailability}.
+ * Jackson mix-in interface for {@link AffinityUnitComponent}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface SponsorAffinityGroupAvailabilityMixin
-        extends SponsorAffinityGroupAvailability {
+public interface AffinityUnitComponentMixIn
+        extends AffinityUnitComponent, UnitComponentMixIn {
+    @Override
+    @JsonProperty("ally_cost")
+    public Integer getAllyCost();
 
     @Override
-    @JsonProperty("affinity_groups")
-    public Collection<AffinityGroup> getAffinityGroups();
+    @JsonProperty("friend_cost")
+    public Integer getFriendCost();
 
     @Override
-    @JsonProperty("name")
-    public String getName();
-
-    @Override
-    @JsonProperty("rank_increase")
-    public Boolean isIncludingRankIncrease();
+    @JsonProperty("stranger_cost")
+    public Integer getStrangerCost();
 
 }

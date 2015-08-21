@@ -13,23 +13,35 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.unit.component;
+package com.wandrell.tabletop.dreadball.model.json.availability.unit;
+
+import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
+import com.wandrell.tabletop.dreadball.model.availability.unit.SponsorAffinityGroupAvailability;
+import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
 /**
- * Jackson mix-in interface for {@link ComponentLocation}.
+ * Jackson mix-in interface for {@link SponsorAffinityGroupAvailability}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface ComponentLocationMixin extends ComponentLocation {
+public interface SponsorAffinityGroupAvailabilityMixIn
+        extends SponsorAffinityGroupAvailability {
 
     @Override
-    @JsonProperty("component_location_name")
-    public String getComponentLocationName();
+    @JsonProperty("affinity_groups")
+    public Collection<AffinityGroup> getAffinityGroups();
+
+    @Override
+    @JsonProperty("name")
+    public String getName();
+
+    @Override
+    @JsonProperty("rank_increase")
+    public Boolean isIncludingRankIncrease();
 
 }

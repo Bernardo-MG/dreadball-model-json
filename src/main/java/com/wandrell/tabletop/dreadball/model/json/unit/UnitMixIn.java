@@ -13,23 +13,48 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.faction;
+package com.wandrell.tabletop.dreadball.model.json.unit;
+
+import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
+import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
+import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
+import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
 /**
- * Jackson mix-in interface for {@link TeamRule}.
+ * Jackson mix-in interface for {@link Unit}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface TeamRuleMixin extends TeamRule {
+public interface UnitMixIn extends Unit {
 
     @Override
-    @JsonProperty("team_rule_name")
-    public String getTeamRuleName();
+    @JsonProperty("abilities")
+    public Collection<Ability> getAbilities();
+
+    @Override
+    @JsonProperty("attributes")
+    public AttributesHolder getAttributes();
+
+    @Override
+    @JsonProperty("cost")
+    public Integer getCost();
+
+    @Override
+    @JsonProperty("team_position")
+    public TeamPosition getPosition();
+
+    @Override
+    @JsonProperty("template_name")
+    public String getTemplateName();
+
+    @Override
+    @JsonProperty("giant")
+    public Boolean isGiant();
 
 }

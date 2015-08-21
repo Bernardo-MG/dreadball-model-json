@@ -13,36 +13,23 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.unit.stats;
+package com.wandrell.tabletop.dreadball.model.json.faction;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
+import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 
 /**
- * Jackson mix-in interface for {@link AttributesHolder}.
+ * Jackson mix-in interface for {@link TeamRule}.
  * 
  * @author Bernardo Martínez Garrido
  */
-public interface AttributesHolderMixin extends AttributesHolder {
+@JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
+        isGetterVisibility = JsonAutoDetect.Visibility.NONE)
+public interface TeamRuleMixIn extends TeamRule {
 
     @Override
-    @JsonProperty("armor")
-    public Integer getArmor();
-
-    @Override
-    @JsonProperty("movement")
-    public Integer getMovement();
-
-    @Override
-    @JsonProperty("skill")
-    public Integer getSkill();
-
-    @Override
-    @JsonProperty("speed")
-    public Integer getSpeed();
-
-    @Override
-    @JsonProperty("strength")
-    public Integer getStrength();
+    @JsonProperty("team_rule_name")
+    public String getTeamRuleName();
 
 }

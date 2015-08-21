@@ -13,40 +13,28 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.team;
+package com.wandrell.tabletop.dreadball.model.json.unit.component;
 
-import java.util.Map;
+import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.team.Team;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixIn;
+import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAdvancementUnit;
+import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 
 /**
- * Jackson mix-in interface for {@link Team}.
+ * Jackson mix-in interface for {@link CompositeAdvancementUnit}.
  * 
  * @author Bernardo Martínez Garrido
- * @param <U>
- *            the type of unit the {@code Team} contains
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface TeamMixin<U extends Unit> extends Team<U> {
+public interface CompositeAdvancementUnitMixIn
+        extends CompositeAdvancementUnit, AdvancementUnitMixIn {
 
     @Override
-    @JsonProperty("cheerleaders")
-    public Integer getCheerleaders();
-
-    @Override
-    @JsonProperty("dice")
-    public Integer getDice();
-
-    @Override
-    @JsonProperty("players")
-    public Map<Integer, U> getPlayers();
-
-    @Override
-    @JsonProperty("valoration")
-    public Integer getValoration();
+    @JsonProperty("components")
+    public Collection<UnitComponent> getComponents();
 
 }

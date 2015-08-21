@@ -32,7 +32,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface UnitComponentMixin extends UnitComponent {
+public interface UnitComponentMixIn extends UnitComponent {
 
     @Override
     @JsonProperty("abilities")

@@ -13,31 +13,36 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.unit.component;
+package com.wandrell.tabletop.dreadball.model.json.unit.stats;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.unit.component.AffinityUnitComponent;
+import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
 /**
- * Jackson mix-in interface for {@link AffinityUnitComponent}.
+ * Jackson mix-in interface for {@link AttributesHolder}.
  * 
  * @author Bernardo Martínez Garrido
  */
-@JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
-        isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface AffinityUnitComponentMixin
-        extends AffinityUnitComponent, UnitComponentMixin {
-    @Override
-    @JsonProperty("ally_cost")
-    public Integer getAllyCost();
+public interface AttributesHolderMixIn extends AttributesHolder {
 
     @Override
-    @JsonProperty("friend_cost")
-    public Integer getFriendCost();
+    @JsonProperty("armor")
+    public Integer getArmor();
 
     @Override
-    @JsonProperty("stranger_cost")
-    public Integer getStrangerCost();
+    @JsonProperty("movement")
+    public Integer getMovement();
+
+    @Override
+    @JsonProperty("skill")
+    public Integer getSkill();
+
+    @Override
+    @JsonProperty("speed")
+    public Integer getSpeed();
+
+    @Override
+    @JsonProperty("strength")
+    public Integer getStrength();
 
 }

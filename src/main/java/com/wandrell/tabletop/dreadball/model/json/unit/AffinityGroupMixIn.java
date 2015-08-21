@@ -13,28 +13,23 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.unit.component;
-
-import java.util.Collection;
+package com.wandrell.tabletop.dreadball.model.json.unit;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.json.unit.AffinityUnitMixin;
-import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAffinityUnit;
-import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
+import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
 /**
- * Jackson mix-in interface for {@link CompositeAffinityUnit}.
+ * Jackson mix-in interface for {@link AffinityGroup}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface CompositeAffinityUnitMixin
-        extends CompositeAffinityUnit, AffinityUnitMixin {
+public interface AffinityGroupMixIn extends AffinityGroup {
 
     @Override
-    @JsonProperty("components")
-    public Collection<UnitComponent> getComponents();
+    @JsonProperty("affinity_group_name")
+    public String getAffinityGroupName();
 
 }

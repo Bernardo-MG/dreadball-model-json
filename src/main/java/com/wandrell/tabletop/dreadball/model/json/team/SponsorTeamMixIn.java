@@ -13,48 +13,41 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.unit;
-
-import java.util.Collection;
+package com.wandrell.tabletop.dreadball.model.json.team;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
+import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
+import com.wandrell.tabletop.dreadball.model.team.SponsorTeam;
 import com.wandrell.tabletop.dreadball.model.unit.Unit;
-import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
 /**
- * Jackson mix-in interface for {@link Unit}.
+ * Jackson mix-in interface for {@link SponsorTeam}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface UnitMixin extends Unit {
+public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<Unit> {
 
     @Override
-    @JsonProperty("abilities")
-    public Collection<Ability> getAbilities();
+    @JsonProperty("medibots")
+    public Integer getMediBots();
 
     @Override
-    @JsonProperty("attributes")
-    public AttributesHolder getAttributes();
+    @JsonProperty("sabotage_cards")
+    public Integer getSabotageCards();
 
     @Override
-    @JsonProperty("cost")
-    public Integer getCost();
+    @JsonProperty("special_move_cards")
+    public Integer getSpecialMoveCards();
 
     @Override
-    @JsonProperty("team_position")
-    public TeamPosition getPosition();
+    @JsonProperty("sponsor")
+    public Sponsor getSponsor();
 
     @Override
-    @JsonProperty("template_name")
-    public String getTemplateName();
-
-    @Override
-    @JsonProperty("giant")
-    public Boolean isGiant();
+    @JsonProperty("wagers")
+    public Integer getWagers();
 
 }

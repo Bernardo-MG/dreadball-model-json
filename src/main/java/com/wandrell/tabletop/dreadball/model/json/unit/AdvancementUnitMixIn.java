@@ -15,36 +15,29 @@
  */
 package com.wandrell.tabletop.dreadball.model.json.unit;
 
-import java.util.Collection;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
-import com.wandrell.tabletop.dreadball.model.unit.AffinityUnit;
+import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
 
 /**
- * Jackson mix-in interface for {@link AffinityUnit}.
+ * Jackson mix-in interface for {@link AdvancementUnit}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface AffinityUnitMixin extends AffinityUnit, UnitMixin {
+public interface AdvancementUnitMixIn extends AdvancementUnit, UnitMixIn {
 
     @Override
-    @JsonProperty("affinity_groups")
-    public Collection<AffinityGroup> getAffinityGroups();
+    @JsonProperty("rank")
+    public Integer getRank();
 
     @Override
-    @JsonProperty("ally_cost")
-    public Integer getAllyCost();
+    @JsonProperty("unspent_experience")
+    public Integer getUnspentExperience();
 
     @Override
-    @JsonProperty("friend_cost")
-    public Integer getFriendCost();
-
-    @Override
-    @JsonProperty("stranger_cost")
-    public Integer getStrangerCost();
+    @JsonProperty("valoration")
+    public Integer getValoration();
 
 }

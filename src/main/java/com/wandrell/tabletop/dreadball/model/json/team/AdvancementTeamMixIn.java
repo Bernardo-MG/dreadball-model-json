@@ -28,8 +28,8 @@ import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface AdvancementTeamMixin
-        extends AdvancementTeam, TeamMixin<AdvancementUnit> {
+public interface AdvancementTeamMixIn
+        extends AdvancementTeam, TeamMixIn<AdvancementUnit> {
 
     @Override
     @JsonProperty("cash")

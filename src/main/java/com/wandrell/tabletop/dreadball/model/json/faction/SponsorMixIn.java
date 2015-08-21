@@ -19,24 +19,32 @@ import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
-import com.wandrell.tabletop.dreadball.model.faction.TeamType;
+import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
+import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
 /**
- * Jackson mix-in interface for {@link TeamType}.
+ * Jackson mix-in interface for {@link Sponsor}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface TeamTypeMixin extends TeamType {
+public interface SponsorMixIn extends Sponsor {
 
     @Override
-    @JsonProperty("team_rules")
-    public Collection<TeamRule> getTeamRules();
+    @JsonProperty("affinity_groups")
+    public Collection<AffinityGroup> getAffinityGroups();
 
     @Override
-    @JsonProperty("team_type_name")
-    public String getTeamTypeName();
+    @JsonProperty("cash")
+    public Integer getCash();
+
+    @Override
+    @JsonProperty("rank")
+    public Integer getRank();
+
+    @Override
+    @JsonProperty("sponsor_name")
+    public String getSponsorName();
 
 }

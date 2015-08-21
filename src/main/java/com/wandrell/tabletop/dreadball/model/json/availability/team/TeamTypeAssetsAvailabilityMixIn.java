@@ -27,7 +27,7 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamType;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface TeamTypeAssetsAvailabilityMixin
+public interface TeamTypeAssetsAvailabilityMixIn
         extends TeamTypeAssetsAvailability {
 
     @Override

@@ -13,29 +13,38 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.availability.unit;
+package com.wandrell.tabletop.dreadball.model.json.unit;
+
+import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeMVPAvailability;
-import com.wandrell.tabletop.dreadball.model.faction.TeamType;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
+import com.wandrell.tabletop.dreadball.model.unit.AffinityUnit;
 
 /**
- * Jackson mix-in interface for {@link TeamTypeMVPAvailability}.
+ * Jackson mix-in interface for {@link AffinityUnit}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface TeamTypeMVPAvailabilityMixin extends TeamTypeMVPAvailability {
+public interface AffinityUnitMixIn extends AffinityUnit, UnitMixIn {
 
     @Override
-    @JsonProperty("team_type")
-    public TeamType getTeamType();
+    @JsonProperty("affinity_groups")
+    public Collection<AffinityGroup> getAffinityGroups();
 
     @Override
-    @JsonProperty("unit")
-    public Unit getUnit();
+    @JsonProperty("ally_cost")
+    public Integer getAllyCost();
+
+    @Override
+    @JsonProperty("friend_cost")
+    public Integer getFriendCost();
+
+    @Override
+    @JsonProperty("stranger_cost")
+    public Integer getStrangerCost();
 
 }

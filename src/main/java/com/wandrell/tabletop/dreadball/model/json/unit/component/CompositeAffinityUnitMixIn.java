@@ -13,31 +13,28 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.unit;
+package com.wandrell.tabletop.dreadball.model.json.unit.component;
+
+import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
+import com.wandrell.tabletop.dreadball.model.json.unit.AffinityUnitMixIn;
+import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAffinityUnit;
+import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 
 /**
- * Jackson mix-in interface for {@link AdvancementUnit}.
+ * Jackson mix-in interface for {@link CompositeAffinityUnit}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface AdvancementUnitMixin extends AdvancementUnit, UnitMixin {
+public interface CompositeAffinityUnitMixIn
+        extends CompositeAffinityUnit, AffinityUnitMixIn {
 
     @Override
-    @JsonProperty("rank")
-    public Integer getRank();
-
-    @Override
-    @JsonProperty("unspent_experience")
-    public Integer getUnspentExperience();
-
-    @Override
-    @JsonProperty("valoration")
-    public Integer getValoration();
+    @JsonProperty("components")
+    public Collection<UnitComponent> getComponents();
 
 }
