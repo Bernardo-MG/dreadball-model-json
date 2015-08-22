@@ -29,7 +29,7 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 public interface TeamRuleMixIn extends TeamRule {
 
     @Override
-    @JsonProperty("team_rule_name")
+    @JsonProperty("name")
     public String getTeamRuleName();
 
 }
