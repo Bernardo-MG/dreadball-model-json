@@ -17,6 +17,7 @@ package com.wandrell.tabletop.dreadball.model.json.unit.component;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.unit.component.AffinityUnitComponent;
 
 /**
@@ -26,6 +27,8 @@ import com.wandrell.tabletop.dreadball.model.unit.component.AffinityUnitComponen
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonPropertyOrder({ "abilities", "attributes", "name", "cost", "location",
+        "team_positions", "ally_cost", "friend_cost", "stranger_cost" })
 public interface AffinityUnitComponentMixIn
         extends AffinityUnitComponent, UnitComponentMixIn {
     @Override

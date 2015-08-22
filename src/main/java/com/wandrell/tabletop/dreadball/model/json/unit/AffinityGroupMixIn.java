@@ -29,7 +29,7 @@ import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 public interface AffinityGroupMixIn extends AffinityGroup {
 
     @Override
-    @JsonProperty("affinity_group_name")
+    @JsonProperty("name")
     public String getAffinityGroupName();
 
 }

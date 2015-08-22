@@ -19,6 +19,7 @@ import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
 import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
 import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
@@ -32,26 +33,28 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
+@JsonPropertyOrder({ "abilities", "attributes", "name", "cost", "location",
+        "team_positions" })
 public interface UnitComponentMixIn extends UnitComponent {
 
     @Override
-    @JsonProperty("abilities")
+    @JsonProperty
     public Collection<Ability> getAbilities();
 
     @Override
-    @JsonProperty("attributes")
+    @JsonProperty
     public AttributesHolder getAttributes();
 
     @Override
-    @JsonProperty("component_name")
+    @JsonProperty("name")
     public String getComponentName();
 
     @Override
-    @JsonProperty("cost")
+    @JsonProperty
     public Integer getCost();
 
     @Override
-    @JsonProperty("location")
+    @JsonProperty
     public ComponentLocation getLocation();
 
     @Override
