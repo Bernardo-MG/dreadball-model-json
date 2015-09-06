@@ -41,25 +41,44 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
+/**
+ * Unit tests for {@link SponsorMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestSponsorTeamMixIn {
 
+    /**
+     * Default constructor.
+     */
     public TestSponsorTeamMixIn() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final Collection<AffinityGroup> affinities;
-        final Collection<Ability> abilities;
-        final Map<Integer, Unit> units;
-        final Sponsor sponsor;
-        final AffinityGroup affinity;
-        final SponsorTeam team;
-        final Unit unit;
-        final Ability ability;
-        final AttributesHolder attributes;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final Collection<AffinityGroup> affinities; // Sponsor affinities
+        final Collection<Ability> abilities;        // Unit abilities
+        final Map<Integer, Unit> units;             // Team units
+        final Sponsor sponsor;                      // Team sponsor
+        final AffinityGroup affinity;               // Mocked affinity group
+        final SponsorTeam team;                     // Mocked team
+        final Unit unit;                            // Mocked unit
+        final Ability ability;                      // Mocked ability
+        final AttributesHolder attributes;          // Mocked attributes
 
         mapper = new ObjectMapper();
         mapper.addMixIn(Sponsor.class, SponsorMixIn.class);

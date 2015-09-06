@@ -26,6 +26,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
@@ -35,23 +36,42 @@ import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
+/**
+ * Unit tests for {@link UnitMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestAdvancementUnitMixIn {
 
+    /**
+     * Default constructor.
+     */
     public TestAdvancementUnitMixIn() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final Collection<Ability> abilities;
-        final AdvancementUnit unit;
-        final Ability ability;
-        final AttributesHolder attributes;
-        final UnitComponent implant;
-        final ComponentLocation location;
-        final Collection<TeamPosition> positions;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final Collection<Ability> abilities; // Unit abilities
+        final AdvancementUnit unit; // Mocked unit
+        final Ability ability;      // Mocked ability
+        final AttributesHolder attributes; // Mocked attributes
+        final UnitComponent implant;       // Mocked component
+        final ComponentLocation location;  // Mocked location
+        final Collection<TeamPosition> positions; // Unit positions
 
         mapper = new ObjectMapper();
         mapper.addMixIn(AdvancementUnit.class, AdvancementUnitMixIn.class);

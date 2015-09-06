@@ -25,17 +25,36 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 
+/**
+ * Unit tests for {@link AbilityMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestAbilityMixin {
 
+    /**
+     * Default constructor.
+     */
     public TestAbilityMixin() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final Ability ability;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final Ability ability;     // Mocked ability
 
         mapper = new ObjectMapper();
         mapper.addMixIn(Ability.class, AbilityMixIn.class);

@@ -25,17 +25,36 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
+/**
+ * Unit tests for {@link AffinityGroupMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestAffinityGroupMixIn {
 
+    /**
+     * Default constructor.
+     */
     public TestAffinityGroupMixIn() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final AffinityGroup affinity;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final AffinityGroup affinity; // Mocked affinity group
 
         mapper = new ObjectMapper();
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);

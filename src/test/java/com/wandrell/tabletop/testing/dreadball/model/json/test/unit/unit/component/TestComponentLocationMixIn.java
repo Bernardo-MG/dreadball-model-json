@@ -25,17 +25,36 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.json.unit.component.ComponentLocationMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
 
+/**
+ * Unit tests for {@link ComponentLocationMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestComponentLocationMixIn {
 
+    /**
+     * Default constructor.
+     */
     public TestComponentLocationMixIn() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final ComponentLocation location;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final ComponentLocation location; // Mocked location
 
         mapper = new ObjectMapper();
         mapper.addMixIn(ComponentLocation.class, ComponentLocationMixIn.class);

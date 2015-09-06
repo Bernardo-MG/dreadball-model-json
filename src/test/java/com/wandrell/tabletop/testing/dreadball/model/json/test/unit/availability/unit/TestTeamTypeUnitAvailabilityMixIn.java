@@ -39,24 +39,43 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
+/**
+ * Unit tests for {@link TeamTypeUnitAvailabilityMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestTeamTypeUnitAvailabilityMixIn {
 
+    /**
+     * Default constructor.
+     */
     public TestTeamTypeUnitAvailabilityMixIn() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final Collection<TeamRule> rules;
-        final Collection<Ability> abilities;
-        final TeamRule rule;
-        final TeamType team;
-        final TeamTypeUnitAvailability ava;
-        final Unit unit;
-        final Ability ability;
-        final AttributesHolder attributes;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final Collection<TeamRule> rules;    // Team rules
+        final Collection<Ability> abilities; // Unit abilities
+        final TeamRule rule;            // Mocked rule
+        final TeamType team;            // Mocked team
+        final TeamTypeUnitAvailability ava; // Mocked ava
+        final Unit unit;                // Mocked unit
+        final Ability ability;          // Mocked ability
+        final AttributesHolder attributes;  // Mocked attributes
 
         mapper = new ObjectMapper();
         mapper.addMixIn(TeamRule.class, TeamRuleMixIn.class);

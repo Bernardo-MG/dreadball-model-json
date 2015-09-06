@@ -25,17 +25,36 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.availability.team.SponsorAssetsAvailability;
 import com.wandrell.tabletop.dreadball.model.json.availability.team.SponsorAssetsAvailabilityMixIn;
 
+/**
+ * Unit tests for {@link SponsorAssetsAvailabilityMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestSponsorAssetsAvailabilityMixIn {
 
+    /**
+     * Default constructor.
+     */
     public TestSponsorAssetsAvailabilityMixIn() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final SponsorAssetsAvailability ava;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final SponsorAssetsAvailability ava; // Mocked ava
 
         mapper = new ObjectMapper();
         mapper.addMixIn(SponsorAssetsAvailability.class,

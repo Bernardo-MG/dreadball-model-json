@@ -28,21 +28,41 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.json.faction.SponsorMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
+/**
+ * Unit tests for {@link UnitMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestSponsorMixIn {
 
+    /**
+     * Default constructor.
+     */
     public TestSponsorMixIn() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final Collection<AffinityGroup> affinities;
-        final Sponsor sponsor;
-        final AffinityGroup affinity;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final Collection<AffinityGroup> affinities; // Sponsor affinities
+        final Sponsor sponsor;          // Mocked sponsor
+        final AffinityGroup affinity;   // Mocked affinity
 
         mapper = new ObjectMapper();
         mapper.addMixIn(Sponsor.class, SponsorMixIn.class);

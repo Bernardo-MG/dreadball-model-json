@@ -35,22 +35,41 @@ import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
+/**
+ * Unit tests for {@link AffinityUnitComponentMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestAffinityUnitComponentMixIn {
 
+    /**
+     * Default constructor.
+     */
     public TestAffinityUnitComponentMixIn() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final Collection<Ability> abilities;
-        final Collection<TeamPosition> positions;
-        final AffinityUnitComponent component;
-        final Ability ability;
-        final AttributesHolder attributes;
-        final ComponentLocation location;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final Collection<Ability> abilities; // Component abilities
+        final Collection<TeamPosition> positions; // Component positions
+        final AffinityUnitComponent component;    // Mocked component
+        final Ability ability;                    // Mocked ability
+        final AttributesHolder attributes;        // Mocked attributes
+        final ComponentLocation location;         // Mocked location
 
         mapper = new ObjectMapper();
         mapper.addMixIn(AffinityUnitComponent.class,

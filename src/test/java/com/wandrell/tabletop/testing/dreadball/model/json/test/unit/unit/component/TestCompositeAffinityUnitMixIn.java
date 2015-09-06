@@ -39,26 +39,45 @@ import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
+/**
+ * Unit tests for {@link CompositeAffinityUnitMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestCompositeAffinityUnitMixIn {
 
+    /**
+     * Default constructor.
+     */
     public TestCompositeAffinityUnitMixIn() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final Collection<Ability> abilities;
-        final Collection<AffinityGroup> affinities;
-        final Collection<UnitComponent> components;
-        final Collection<TeamPosition> positions;
-        final CompositeAffinityUnit unit;
-        final Ability ability;
-        final AffinityGroup affinity;
-        final AttributesHolder attributes;
-        final UnitComponent component;
-        final ComponentLocation location;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final Collection<Ability> abilities; // Unit abilities
+        final Collection<AffinityGroup> affinities; // Unit affinities
+        final Collection<UnitComponent> components; // Unit components
+        final Collection<TeamPosition> positions;   // Unit positions
+        final CompositeAffinityUnit unit;    // Mocked unit
+        final Ability ability;               // Mocked ability
+        final AffinityGroup affinity;        // Mocked affinity group
+        final AttributesHolder attributes;   // Mocked attributes
+        final UnitComponent component;       // Mocked component
+        final ComponentLocation location;    // Mocked location
 
         mapper = new ObjectMapper();
         mapper.addMixIn(CompositeAffinityUnit.class,

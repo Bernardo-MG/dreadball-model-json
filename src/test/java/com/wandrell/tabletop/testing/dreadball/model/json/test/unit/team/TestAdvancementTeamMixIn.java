@@ -34,6 +34,7 @@ import com.wandrell.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
 import com.wandrell.tabletop.dreadball.model.json.team.AdvancementTeamMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
 import com.wandrell.tabletop.dreadball.model.team.AdvancementTeam;
@@ -43,28 +44,47 @@ import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
+/**
+ * Unit tests for {@link UnitMixIn}.
+ * <p>
+ * Checks the following cases:
+ * <ol>
+ * <li>The JSON message is created correctly</li>
+ * </ol>
+ * 
+ * @author Bernardo Martínez Garrido
+ */
 public final class TestAdvancementTeamMixIn {
 
+    /**
+     * Default constructor.
+     */
     public TestAdvancementTeamMixIn() {
         super();
     }
 
+    /**
+     * Tests that the JSON message is created correctly.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper;
-        final ObjectWriter writer;
-        final Collection<AffinityGroup> affinities;
-        final Collection<Ability> abilities;
-        final Collection<TeamRule> rules;
-        final Map<Integer, AdvancementUnit> units;
-        final Sponsor sponsor;
-        final AffinityGroup affinity;
-        final AdvancementTeam team;
-        final AdvancementUnit unit;
-        final Ability ability;
-        final AttributesHolder attributes;
-        final TeamRule rule;
-        final TeamType teamType;
+        final ObjectMapper mapper; // Mapper for the JSON
+        final ObjectWriter writer; // Writer for the JSON
+        final Collection<AffinityGroup> affinities; // Sponsor affinities
+        final Collection<Ability> abilities;        // Unit abilities
+        final Collection<TeamRule> rules;           // Team rules
+        final Map<Integer, AdvancementUnit> units;  // Team units
+        final Sponsor sponsor;                      // Mocked sponsor
+        final AffinityGroup affinity;               // Mocked affinity
+        final AdvancementTeam team;                 // Mocked team
+        final AdvancementUnit unit;                 // Mocked unit
+        final Ability ability;                      // Mocked ability
+        final AttributesHolder attributes;          // Mocked attributes
+        final TeamRule rule;                        // Mocked rule
+        final TeamType teamType;                    // Mocked team type
 
         mapper = new ObjectMapper();
         mapper.addMixIn(AdvancementTeam.class, AdvancementTeamMixIn.class);
