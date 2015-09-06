@@ -2,6 +2,8 @@
 
 Implementation of the [Dreadball Model API][dreadball-model-api] for JSON messages.
 
+This covers both the original Dreadball and Dreadball Xtreme, and includes teams, units and the availabilities during team creation.
+
 [![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.tabletop.dreadball/dreadball-model-json.svg)][maven-repo]
 [![Bintray](https://api.bintray.com/packages/bernardo-mg/tabletop-toolkits/dreadball-model-json/images/download.svg)][bintray-repo]
 
