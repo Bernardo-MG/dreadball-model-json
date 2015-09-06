@@ -14,6 +14,6 @@
  * the License.
  */
 /**
- * Provides classes for creating JSOM messages from unit statistics.
+ * Provides classes for creating JSON messages from unit statistics.
  */
 package com.wandrell.tabletop.dreadball.model.json.unit.stats;

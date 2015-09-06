@@ -14,7 +14,7 @@
  * the License.
  */
 /**
- * Provides classes for creating JSOM messages from components and composite
+ * Provides classes for creating JSON messages from components and composite
  * units.
  */
 package com.wandrell.tabletop.dreadball.model.json.unit.component;
