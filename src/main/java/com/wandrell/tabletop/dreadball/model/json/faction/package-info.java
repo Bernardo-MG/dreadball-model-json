@@ -14,6 +14,6 @@
  * the License.
  */
 /**
- * Provides classes for creating JSOM messages from unit availabilities.
+ * Provides classes for creating JSON messages from unit availabilities.
  */
 package com.wandrell.tabletop.dreadball.model.json.faction;

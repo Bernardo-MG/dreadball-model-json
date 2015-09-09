@@ -14,6 +14,6 @@
  * the License.
  */
 /**
- * Provides classes for creating JSOM messages from teams.
+ * Provides classes for creating JSON messages from teams.
  */
 package com.wandrell.tabletop.dreadball.model.json.availability.unit;
