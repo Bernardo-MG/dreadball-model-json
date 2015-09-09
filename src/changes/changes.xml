@@ -15,6 +15,9 @@
 			<action dev="bmg" type="update">
 				Updated API dependency.
 			</action>
+			<action dev="bmg" type="update">
+				Updated dependencies.
+			</action>
 		</release>
 	</body>
 </document>
