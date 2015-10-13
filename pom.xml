@@ -6,7 +6,7 @@
 
 	<groupId>com.wandrell.tabletop.dreadball</groupId>
 	<artifactId>dreadball-model-json</artifactId>
-	<version>0.1.1</version>
+	<version>0.1.2</version>
 	<packaging>jar</packaging>
 
 	<name>Dreadball JSON Model Implementation</name>
@@ -116,7 +116,7 @@
 		<jackson.version>2.6.1</jackson.version>
 		<mockito.version>1.10.19</mockito.version>
 		<slf4j.version>1.7.12</slf4j.version>
-		<tabletop.dreadball.model.api.version>0.3.3</tabletop.dreadball.model.api.version>
+		<tabletop.dreadball.model.api.version>0.3.4</tabletop.dreadball.model.api.version>
 		<testng.version>6.8.8</testng.version>
 		<!-- Plugins versions -->
 		<plugin.ant.version>1.8</plugin.ant.version>

@@ -66,9 +66,11 @@ public final class TestAffinityUnitMixIn {
         final ObjectWriter writer; // Writer for the JSON
         final Collection<Ability> abilities; // Unit abilities
         final Collection<AffinityGroup> affinities; // Unit affinities
+        final Collection<AffinityGroup> hated;      // Unit hated affinities
         final AffinityUnit unit;   // Mocked unit
         final Ability ability;     // Mocked ability
-        final AffinityGroup affinity;      // Mocked affinity
+        final AffinityGroup affinity1;      // Mocked affinity
+        final AffinityGroup affinity2;      // Mocked affinity
         final AttributesHolder attributes; // Mocked attributes
 
         mapper = new ObjectMapper();
@@ -83,10 +85,16 @@ public final class TestAffinityUnitMixIn {
         abilities.add(ability);
 
         affinities = new LinkedList<>();
-        affinity = Mockito.mock(AffinityGroup.class);
-        Mockito.when(affinity.getAffinityGroupName())
+        affinity1 = Mockito.mock(AffinityGroup.class);
+        Mockito.when(affinity1.getAffinityGroupName())
                 .thenReturn("affinity_group");
-        affinities.add(affinity);
+        affinities.add(affinity1);
+
+        hated = new LinkedList<>();
+        affinity2 = Mockito.mock(AffinityGroup.class);
+        Mockito.when(affinity2.getAffinityGroupName())
+                .thenReturn("affinity_group_2");
+        hated.add(affinity2);
 
         attributes = Mockito.mock(AttributesHolder.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
@@ -103,6 +111,7 @@ public final class TestAffinityUnitMixIn {
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
         Mockito.when(unit.isGiant()).thenReturn(true);
         Mockito.when(unit.getAffinityGroups()).thenReturn(affinities);
+        Mockito.when(unit.getHatedAffinityGroups()).thenReturn(hated);
         Mockito.when(unit.getAllyCost()).thenReturn(5);
         Mockito.when(unit.getFriendCost()).thenReturn(6);
         Mockito.when(unit.getStrangerCost()).thenReturn(7);
@@ -110,7 +119,7 @@ public final class TestAffinityUnitMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(unit),
-                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"team_position\":\"STRIKER\",\"template_name\":\"unit_template\",\"giant\":true,\"affinity_groups\":[{\"name\":\"affinity_group\"}],\"ally_cost\":5,\"friend_cost\":6,\"stranger_cost\":7}");
+                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"team_position\":\"STRIKER\",\"template_name\":\"unit_template\",\"giant\":true,\"affinity_groups\":[{\"name\":\"affinity_group\"}],\"hated_affinity_groups\":[{\"name\":\"affinity_group_2\"}],\"ally_cost\":5,\"friend_cost\":6,\"stranger_cost\":7}");
     }
 
 }
