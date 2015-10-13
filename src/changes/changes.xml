@@ -11,12 +11,18 @@
 				First release of the library.
 			</action>
 		</release>
-		<release version="0.1.1" date="2015-09-10" description="First release">
+		<release version="0.1.1" date="2015-09-10" description="Update">
 			<action dev="bmg" type="update">
 				Updated API dependency.
 			</action>
 			<action dev="bmg" type="update">
 				Updated dependencies.
+			</action>
+		</release>
+		<release version="0.1.2" date="2015-10-14" description="Added hated affinities">
+			<action dev="bmg" type="update">
+				Added the hated affinities on affinity
+				units.
 			</action>
 		</release>
 	</body>
