@@ -70,8 +70,7 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
 
         affinities = new LinkedList<>();
         affinity = Mockito.mock(AffinityGroup.class);
-        Mockito.when(affinity.getAffinityGroupName())
-                .thenReturn("affinity_group");
+        Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
 
         ava = Mockito.mock(SponsorAffinityGroupAvailability.class);

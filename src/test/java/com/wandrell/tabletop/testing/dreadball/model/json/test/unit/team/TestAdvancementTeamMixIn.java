@@ -34,7 +34,7 @@ import com.wandrell.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
 import com.wandrell.tabletop.dreadball.model.json.team.AdvancementTeamMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
 import com.wandrell.tabletop.dreadball.model.team.AdvancementTeam;
@@ -45,7 +45,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
 /**
- * Unit tests for {@link UnitMixIn}.
+ * Unit tests for {@link UnitTemplateMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -96,19 +96,18 @@ public final class TestAdvancementTeamMixIn {
 
         affinities = new LinkedList<>();
         affinity = Mockito.mock(AffinityGroup.class);
-        Mockito.when(affinity.getAffinityGroupName())
-                .thenReturn("affinity_group");
+        Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
 
         sponsor = Mockito.mock(Sponsor.class);
-        Mockito.when(sponsor.getSponsorName()).thenReturn("sponsor_name");
+        Mockito.when(sponsor.getName()).thenReturn("sponsor_name");
         Mockito.when(sponsor.getCash()).thenReturn(10);
         Mockito.when(sponsor.getRank()).thenReturn(20);
         Mockito.when(sponsor.getAffinityGroups()).thenReturn(affinities);
 
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
-        Mockito.when(ability.getAbilityName()).thenReturn("ability_name");
+        Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
         attributes = Mockito.mock(AttributesHolder.class);
@@ -133,21 +132,21 @@ public final class TestAdvancementTeamMixIn {
 
         rules = new LinkedList<>();
         rule = Mockito.mock(TeamRule.class);
-        Mockito.when(rule.getTeamRuleName()).thenReturn("team_rule");
+        Mockito.when(rule.getName()).thenReturn("team_rule");
         rules.add(rule);
 
         teamType = Mockito.mock(TeamType.class);
-        Mockito.when(teamType.getTeamTypeName()).thenReturn("team_name");
+        Mockito.when(teamType.getName()).thenReturn("team_name");
         Mockito.when(teamType.getTeamRules()).thenReturn(rules);
 
         team = Mockito.mock(AdvancementTeam.class);
         Mockito.when(team.getCheerleaders()).thenReturn(1);
-        Mockito.when(team.getDice()).thenReturn(2);
+        Mockito.when(team.getCoachingDice()).thenReturn(2);
         Mockito.when(team.getCash()).thenReturn(3);
         Mockito.when(team.getDreadballCards()).thenReturn(4);
         Mockito.when(team.getValoration()).thenReturn(5);
 
-        Mockito.when(team.getTeamName()).thenReturn("team_name");
+        Mockito.when(team.getName()).thenReturn("team_name");
         Mockito.when(team.getTeamType()).thenReturn(teamType);
 
         Mockito.when(team.getPlayers()).thenReturn(units);

@@ -31,13 +31,13 @@ import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.json.faction.SponsorMixIn;
 import com.wandrell.tabletop.dreadball.model.json.team.SponsorTeamMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
 import com.wandrell.tabletop.dreadball.model.team.SponsorTeam;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
@@ -72,11 +72,11 @@ public final class TestSponsorTeamMixIn {
         final ObjectWriter writer; // Writer for the JSON
         final Collection<AffinityGroup> affinities; // Sponsor affinities
         final Collection<Ability> abilities;        // Unit abilities
-        final Map<Integer, Unit> units;             // Team units
+        final Map<Integer, UnitTemplate> units;             // Team units
         final Sponsor sponsor;                      // Team sponsor
         final AffinityGroup affinity;               // Mocked affinity group
         final SponsorTeam team;                     // Mocked team
-        final Unit unit;                            // Mocked unit
+        final UnitTemplate unit;                    // Mocked unit
         final Ability ability;                      // Mocked ability
         final AttributesHolder attributes;          // Mocked attributes
 
@@ -84,25 +84,24 @@ public final class TestSponsorTeamMixIn {
         mapper.addMixIn(Sponsor.class, SponsorMixIn.class);
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
         mapper.addMixIn(SponsorTeam.class, SponsorTeamMixIn.class);
-        mapper.addMixIn(Unit.class, UnitMixIn.class);
+        mapper.addMixIn(UnitTemplate.class, UnitTemplateMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
 
         affinities = new LinkedList<>();
         affinity = Mockito.mock(AffinityGroup.class);
-        Mockito.when(affinity.getAffinityGroupName())
-                .thenReturn("affinity_group");
+        Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
 
         sponsor = Mockito.mock(Sponsor.class);
-        Mockito.when(sponsor.getSponsorName()).thenReturn("sponsor_name");
+        Mockito.when(sponsor.getName()).thenReturn("sponsor_name");
         Mockito.when(sponsor.getCash()).thenReturn(10);
         Mockito.when(sponsor.getRank()).thenReturn(20);
         Mockito.when(sponsor.getAffinityGroups()).thenReturn(affinities);
 
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
-        Mockito.when(ability.getAbilityName()).thenReturn("ability_name");
+        Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
         attributes = Mockito.mock(AttributesHolder.class);
@@ -113,7 +112,7 @@ public final class TestSponsorTeamMixIn {
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
         units = new LinkedHashMap<>();
-        unit = Mockito.mock(Unit.class);
+        unit = Mockito.mock(UnitTemplate.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
         Mockito.when(unit.getCost()).thenReturn(10);
@@ -124,7 +123,7 @@ public final class TestSponsorTeamMixIn {
 
         team = Mockito.mock(SponsorTeam.class);
         Mockito.when(team.getCheerleaders()).thenReturn(1);
-        Mockito.when(team.getDice()).thenReturn(2);
+        Mockito.when(team.getCoachingDice()).thenReturn(2);
         Mockito.when(team.getMediBots()).thenReturn(3);
         Mockito.when(team.getSabotageCards()).thenReturn(4);
         Mockito.when(team.getSpecialMoveCards()).thenReturn(5);

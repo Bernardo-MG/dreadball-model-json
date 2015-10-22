@@ -22,8 +22,8 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.wandrell.tabletop.dreadball.model.availability.team.SponsorAssetsAvailability;
-import com.wandrell.tabletop.dreadball.model.json.availability.team.SponsorAssetsAvailabilityMixIn;
+import com.wandrell.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
+import com.wandrell.tabletop.dreadball.model.json.availability.asset.SponsorAssetsAvailabilityMixIn;
 
 /**
  * Unit tests for {@link SponsorAssetsAvailabilityMixIn}.

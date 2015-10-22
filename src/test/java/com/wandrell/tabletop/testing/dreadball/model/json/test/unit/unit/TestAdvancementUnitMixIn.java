@@ -26,7 +26,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
@@ -37,7 +37,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
 /**
- * Unit tests for {@link UnitMixIn}.
+ * Unit tests for {@link UnitTemplateMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -80,7 +80,7 @@ public final class TestAdvancementUnitMixIn {
 
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
-        Mockito.when(ability.getAbilityName()).thenReturn("ability_name");
+        Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
         attributes = Mockito.mock(AttributesHolder.class);
@@ -91,8 +91,7 @@ public final class TestAdvancementUnitMixIn {
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
         location = Mockito.mock(ComponentLocation.class);
-        Mockito.when(location.getComponentLocationName())
-                .thenReturn("component_location");
+        Mockito.when(location.getName()).thenReturn("component_location");
 
         positions = new LinkedList<>();
         positions.add(TeamPosition.STRIKER);
@@ -100,7 +99,7 @@ public final class TestAdvancementUnitMixIn {
         implant = Mockito.mock(UnitComponent.class);
         Mockito.when(implant.getAbilities()).thenReturn(abilities);
         Mockito.when(implant.getAttributes()).thenReturn(attributes);
-        Mockito.when(implant.getComponentName()).thenReturn("component_name");
+        Mockito.when(implant.getName()).thenReturn("component_name");
         Mockito.when(implant.getCost()).thenReturn(10);
         Mockito.when(implant.getLocation()).thenReturn(location);
         Mockito.when(implant.getTeamPositions()).thenReturn(positions);

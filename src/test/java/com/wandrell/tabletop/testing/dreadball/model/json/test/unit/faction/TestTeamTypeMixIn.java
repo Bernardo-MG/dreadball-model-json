@@ -69,11 +69,11 @@ public final class TestTeamTypeMixIn {
 
         rules = new LinkedList<>();
         rule = Mockito.mock(TeamRule.class);
-        Mockito.when(rule.getTeamRuleName()).thenReturn("team_rule");
+        Mockito.when(rule.getName()).thenReturn("team_rule");
         rules.add(rule);
 
         team = Mockito.mock(TeamType.class);
-        Mockito.when(team.getTeamTypeName()).thenReturn("team_name");
+        Mockito.when(team.getName()).thenReturn("team_name");
         Mockito.when(team.getTeamRules()).thenReturn(rules);
 
         writer = mapper.writer();

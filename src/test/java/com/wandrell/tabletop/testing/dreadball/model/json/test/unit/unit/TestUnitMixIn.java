@@ -25,16 +25,16 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
 /**
- * Unit tests for {@link UnitMixIn}.
+ * Unit tests for {@link UnitTemplateMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -63,18 +63,18 @@ public final class TestUnitMixIn {
         final ObjectMapper mapper; // Mapper for the JSON
         final ObjectWriter writer; // Writer for the JSON
         final Collection<Ability> abilities; // Unit abilities
-        final Unit unit;           // Mocked unit
+        final UnitTemplate unit;   // Mocked unit
         final Ability ability;     // Mocked ability
         final AttributesHolder attributes; // Mocked attributes
 
         mapper = new ObjectMapper();
-        mapper.addMixIn(Unit.class, UnitMixIn.class);
+        mapper.addMixIn(UnitTemplate.class, UnitTemplateMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
 
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
-        Mockito.when(ability.getAbilityName()).thenReturn("ability_name");
+        Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
         attributes = Mockito.mock(AttributesHolder.class);
@@ -84,7 +84,7 @@ public final class TestUnitMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
-        unit = Mockito.mock(Unit.class);
+        unit = Mockito.mock(UnitTemplate.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
         Mockito.when(unit.getCost()).thenReturn(10);

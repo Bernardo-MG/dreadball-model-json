@@ -30,6 +30,6 @@ public interface TeamRuleMixIn extends TeamRule {
 
     @Override
     @JsonProperty("name")
-    public String getTeamRuleName();
+    public String getName();
 
 }

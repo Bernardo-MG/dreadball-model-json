@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeUnitAvailability;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 
 /**
  * Jackson mix-in interface for {@link TeamTypeUnitAvailability}.
@@ -47,6 +47,6 @@ public interface TeamTypeUnitAvailabilityMixIn
 
     @Override
     @JsonProperty
-    public Unit getUnit();
+    public UnitTemplate getUnit();
 
 }

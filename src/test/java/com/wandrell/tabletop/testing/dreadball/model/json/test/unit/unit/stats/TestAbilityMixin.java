@@ -60,7 +60,7 @@ public final class TestAbilityMixin {
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
 
         ability = Mockito.mock(Ability.class);
-        Mockito.when(ability.getAbilityName()).thenReturn("ability_name");
+        Mockito.when(ability.getName()).thenReturn("ability_name");
 
         writer = mapper.writer();
 

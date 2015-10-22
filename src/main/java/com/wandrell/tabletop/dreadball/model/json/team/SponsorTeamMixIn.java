@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.team.SponsorTeam;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 
 /**
  * Jackson mix-in interface for {@link SponsorTeam}.
@@ -32,7 +32,7 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
 @JsonPropertyOrder({ "cheerleaders", "dice", "players", "valoration",
         "medibots", "sabotage_cards", "special_move_cards", "sponsor",
         "wagers" })
-public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<Unit> {
+public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<UnitTemplate> {
 
     @Override
     @JsonProperty("medibots")
