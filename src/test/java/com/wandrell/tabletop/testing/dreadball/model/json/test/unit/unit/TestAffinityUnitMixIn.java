@@ -81,19 +81,17 @@ public final class TestAffinityUnitMixIn {
 
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
-        Mockito.when(ability.getAbilityName()).thenReturn("ability_name");
+        Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
         affinities = new LinkedList<>();
         affinity1 = Mockito.mock(AffinityGroup.class);
-        Mockito.when(affinity1.getAffinityGroupName())
-                .thenReturn("affinity_group");
+        Mockito.when(affinity1.getName()).thenReturn("affinity_group");
         affinities.add(affinity1);
 
         hated = new LinkedList<>();
         affinity2 = Mockito.mock(AffinityGroup.class);
-        Mockito.when(affinity2.getAffinityGroupName())
-                .thenReturn("affinity_group_2");
+        Mockito.when(affinity2.getName()).thenReturn("affinity_group_2");
         hated.add(affinity2);
 
         attributes = Mockito.mock(AttributesHolder.class);

@@ -34,11 +34,11 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 public interface TeamTypeMixIn extends TeamType {
 
     @Override
-    @JsonProperty("team_rules")
-    public Collection<TeamRule> getTeamRules();
+    @JsonProperty("name")
+    public String getName();
 
     @Override
-    @JsonProperty("name")
-    public String getTeamTypeName();
+    @JsonProperty("team_rules")
+    public Collection<TeamRule> getTeamRules();
 
 }

@@ -46,16 +46,16 @@ public interface UnitComponentMixIn extends UnitComponent {
     public AttributesHolder getAttributes();
 
     @Override
-    @JsonProperty("name")
-    public String getComponentName();
-
-    @Override
     @JsonProperty
     public Integer getCost();
 
     @Override
     @JsonProperty
     public ComponentLocation getLocation();
+
+    @Override
+    @JsonProperty("name")
+    public String getName();
 
     @Override
     @JsonProperty("team_positions")

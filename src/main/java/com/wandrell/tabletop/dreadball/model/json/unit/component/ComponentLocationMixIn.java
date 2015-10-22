@@ -30,6 +30,6 @@ public interface ComponentLocationMixIn extends ComponentLocation {
 
     @Override
     @JsonProperty("name")
-    public String getComponentLocationName();
+    public String getName();
 
 }

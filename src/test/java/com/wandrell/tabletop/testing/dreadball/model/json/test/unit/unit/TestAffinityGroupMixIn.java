@@ -60,8 +60,7 @@ public final class TestAffinityGroupMixIn {
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
 
         affinity = Mockito.mock(AffinityGroup.class);
-        Mockito.when(affinity.getAffinityGroupName())
-                .thenReturn("affinity_group");
+        Mockito.when(affinity.getName()).thenReturn("affinity_group");
 
         writer = mapper.writer();
 

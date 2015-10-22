@@ -92,19 +92,17 @@ public final class TestCompositeAffinityUnitMixIn {
 
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
-        Mockito.when(ability.getAbilityName()).thenReturn("ability_name");
+        Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
         affinities = new LinkedList<>();
         affinity1 = Mockito.mock(AffinityGroup.class);
-        Mockito.when(affinity1.getAffinityGroupName())
-                .thenReturn("affinity_group");
+        Mockito.when(affinity1.getName()).thenReturn("affinity_group");
         affinities.add(affinity1);
 
         hated = new LinkedList<>();
         affinity2 = Mockito.mock(AffinityGroup.class);
-        Mockito.when(affinity2.getAffinityGroupName())
-                .thenReturn("affinity_group_2");
+        Mockito.when(affinity2.getName()).thenReturn("affinity_group_2");
         hated.add(affinity2);
 
         attributes = Mockito.mock(AttributesHolder.class);
@@ -115,8 +113,7 @@ public final class TestCompositeAffinityUnitMixIn {
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
         location = Mockito.mock(ComponentLocation.class);
-        Mockito.when(location.getComponentLocationName())
-                .thenReturn("component_location");
+        Mockito.when(location.getName()).thenReturn("component_location");
 
         positions = new LinkedList<>();
         positions.add(TeamPosition.STRIKER);
@@ -125,7 +122,7 @@ public final class TestCompositeAffinityUnitMixIn {
         component = Mockito.mock(UnitComponent.class);
         Mockito.when(component.getAbilities()).thenReturn(abilities);
         Mockito.when(component.getAttributes()).thenReturn(attributes);
-        Mockito.when(component.getComponentName()).thenReturn("component_name");
+        Mockito.when(component.getName()).thenReturn("component_name");
         Mockito.when(component.getCost()).thenReturn(11);
         Mockito.when(component.getLocation()).thenReturn(location);
         Mockito.when(component.getTeamPositions()).thenReturn(positions);

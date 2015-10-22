@@ -28,11 +28,11 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.json.faction.SponsorMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
 /**
- * Unit tests for {@link UnitMixIn}.
+ * Unit tests for {@link UnitTemplateMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -70,12 +70,11 @@ public final class TestSponsorMixIn {
 
         affinities = new LinkedList<>();
         affinity = Mockito.mock(AffinityGroup.class);
-        Mockito.when(affinity.getAffinityGroupName())
-                .thenReturn("affinity_group");
+        Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
 
         sponsor = Mockito.mock(Sponsor.class);
-        Mockito.when(sponsor.getSponsorName()).thenReturn("sponsor_name");
+        Mockito.when(sponsor.getName()).thenReturn("sponsor_name");
         Mockito.when(sponsor.getCash()).thenReturn(10);
         Mockito.when(sponsor.getRank()).thenReturn(20);
         Mockito.when(sponsor.getAffinityGroups()).thenReturn(affinities);

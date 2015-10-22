@@ -13,12 +13,12 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.availability.team;
+package com.wandrell.tabletop.dreadball.model.json.availability.asset;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.wandrell.tabletop.dreadball.model.availability.team.TeamTypeAssetsAvailability;
+import com.wandrell.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 
 /**
@@ -39,15 +39,15 @@ public interface TeamTypeAssetsAvailabilityMixIn
 
     @Override
     @JsonProperty("cheerleader_cost")
-    public Integer getCheerleadersCost();
+    public Integer getCheerleaderCost();
 
     @Override
     @JsonProperty("cheerleader_initial")
-    public Integer getCheerleadersInitial();
+    public Integer getCheerleaderInitial();
 
     @Override
     @JsonProperty("cheerleader_max")
-    public Integer getCheerleadersMax();
+    public Integer getCheerleaderMax();
 
     @Override
     @JsonProperty("coaching_die_cost")

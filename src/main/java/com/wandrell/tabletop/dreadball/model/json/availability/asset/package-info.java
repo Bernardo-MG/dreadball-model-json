@@ -16,4 +16,4 @@
 /**
  * Provides classes for creating JSON messages from team assets availabilities.
  */
-package com.wandrell.tabletop.dreadball.model.json.availability.team;
+package com.wandrell.tabletop.dreadball.model.json.availability.asset;

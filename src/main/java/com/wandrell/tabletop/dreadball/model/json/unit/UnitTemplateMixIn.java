@@ -21,12 +21,12 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
 /**
- * Jackson mix-in interface for {@link Unit}.
+ * Jackson mix-in interface for {@link UnitTemplate}.
  * 
  * @author Bernardo Martínez Garrido
  */
@@ -34,7 +34,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "abilities", "attributes", "cost", "team_position",
         "template_name", "giant" })
-public interface UnitMixIn extends Unit {
+public interface UnitTemplateMixIn extends UnitTemplate {
 
     @Override
     @JsonProperty

@@ -25,10 +25,10 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.wandrell.tabletop.dreadball.model.availability.team.TeamTypeAssetsAvailability;
+import com.wandrell.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
 import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
-import com.wandrell.tabletop.dreadball.model.json.availability.team.TeamTypeAssetsAvailabilityMixIn;
+import com.wandrell.tabletop.dreadball.model.json.availability.asset.TeamTypeAssetsAvailabilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
 
@@ -74,17 +74,17 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         rules = new LinkedList<>();
         rule = Mockito.mock(TeamRule.class);
-        Mockito.when(rule.getTeamRuleName()).thenReturn("team_rule");
+        Mockito.when(rule.getName()).thenReturn("team_rule");
         rules.add(rule);
 
         team = Mockito.mock(TeamType.class);
-        Mockito.when(team.getTeamTypeName()).thenReturn("team_name");
+        Mockito.when(team.getName()).thenReturn("team_name");
         Mockito.when(team.getTeamRules()).thenReturn(rules);
 
         ava = Mockito.mock(TeamTypeAssetsAvailability.class);
-        Mockito.when(ava.getCheerleadersCost()).thenReturn(1);
-        Mockito.when(ava.getCheerleadersInitial()).thenReturn(2);
-        Mockito.when(ava.getCheerleadersMax()).thenReturn(3);
+        Mockito.when(ava.getCheerleaderCost()).thenReturn(1);
+        Mockito.when(ava.getCheerleaderInitial()).thenReturn(2);
+        Mockito.when(ava.getCheerleaderMax()).thenReturn(3);
         Mockito.when(ava.getCoachingDieCost()).thenReturn(4);
         Mockito.when(ava.getCoachingDieInitial()).thenReturn(5);
         Mockito.when(ava.getCoachingDieMax()).thenReturn(6);

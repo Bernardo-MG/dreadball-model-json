@@ -30,6 +30,6 @@ public interface AffinityGroupMixIn extends AffinityGroup {
 
     @Override
     @JsonProperty("name")
-    public String getAffinityGroupName();
+    public String getName();
 
 }

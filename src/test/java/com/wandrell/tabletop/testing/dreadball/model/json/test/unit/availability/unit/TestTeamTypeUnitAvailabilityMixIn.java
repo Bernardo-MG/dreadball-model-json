@@ -31,11 +31,11 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 import com.wandrell.tabletop.dreadball.model.json.availability.unit.TeamTypeUnitAvailabilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
-import com.wandrell.tabletop.dreadball.model.unit.Unit;
+import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
 
@@ -73,7 +73,7 @@ public final class TestTeamTypeUnitAvailabilityMixIn {
         final TeamRule rule;            // Mocked rule
         final TeamType team;            // Mocked team
         final TeamTypeUnitAvailability ava; // Mocked ava
-        final Unit unit;                // Mocked unit
+        final UnitTemplate unit;        // Mocked unit
         final Ability ability;          // Mocked ability
         final AttributesHolder attributes;  // Mocked attributes
 
@@ -82,17 +82,17 @@ public final class TestTeamTypeUnitAvailabilityMixIn {
         mapper.addMixIn(TeamType.class, TeamTypeMixIn.class);
         mapper.addMixIn(TeamTypeUnitAvailability.class,
                 TeamTypeUnitAvailabilityMixIn.class);
-        mapper.addMixIn(Unit.class, UnitMixIn.class);
+        mapper.addMixIn(UnitTemplate.class, UnitTemplateMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
 
         rules = new LinkedList<>();
         rule = Mockito.mock(TeamRule.class);
-        Mockito.when(rule.getTeamRuleName()).thenReturn("team_rule");
+        Mockito.when(rule.getName()).thenReturn("team_rule");
         rules.add(rule);
 
         team = Mockito.mock(TeamType.class);
-        Mockito.when(team.getTeamTypeName()).thenReturn("team_name");
+        Mockito.when(team.getName()).thenReturn("team_name");
         Mockito.when(team.getTeamRules()).thenReturn(rules);
 
         attributes = Mockito.mock(AttributesHolder.class);
@@ -104,10 +104,10 @@ public final class TestTeamTypeUnitAvailabilityMixIn {
 
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
-        Mockito.when(ability.getAbilityName()).thenReturn("ability_name");
+        Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
-        unit = Mockito.mock(Unit.class);
+        unit = Mockito.mock(UnitTemplate.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
         Mockito.when(unit.getCost()).thenReturn(10);

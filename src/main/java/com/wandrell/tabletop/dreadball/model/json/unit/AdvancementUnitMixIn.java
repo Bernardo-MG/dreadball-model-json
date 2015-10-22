@@ -31,7 +31,8 @@ import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 @JsonPropertyOrder({ "abilities", "attributes", "cost", "team_position",
         "template_name", "giant", "implant", "rank", "unspent_experience",
         "valoration" })
-public interface AdvancementUnitMixIn extends AdvancementUnit, UnitMixIn {
+public interface AdvancementUnitMixIn
+        extends AdvancementUnit, UnitTemplateMixIn {
 
     @Override
     @JsonProperty("implant")

@@ -45,7 +45,7 @@ public interface AdvancementTeamMixIn
 
     @Override
     @JsonProperty("name")
-    public String getTeamName();
+    public String getName();
 
     @Override
     @JsonProperty("type")

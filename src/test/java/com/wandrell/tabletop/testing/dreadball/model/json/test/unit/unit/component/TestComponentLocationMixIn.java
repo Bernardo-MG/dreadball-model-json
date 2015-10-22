@@ -60,8 +60,7 @@ public final class TestComponentLocationMixIn {
         mapper.addMixIn(ComponentLocation.class, ComponentLocationMixIn.class);
 
         location = Mockito.mock(ComponentLocation.class);
-        Mockito.when(location.getComponentLocationName())
-                .thenReturn("component_location");
+        Mockito.when(location.getName()).thenReturn("component_location");
 
         writer = mapper.writer();
 

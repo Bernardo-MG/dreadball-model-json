@@ -42,11 +42,11 @@ public interface SponsorMixIn extends Sponsor {
     public Integer getCash();
 
     @Override
-    @JsonProperty
-    public Integer getRank();
+    @JsonProperty("name")
+    public String getName();
 
     @Override
-    @JsonProperty("name")
-    public String getSponsorName();
+    @JsonProperty
+    public Integer getRank();
 
 }

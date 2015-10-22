@@ -60,7 +60,7 @@ public final class TestTeamRuleMixIn {
         mapper.addMixIn(TeamRule.class, TeamRuleMixIn.class);
 
         rule = Mockito.mock(TeamRule.class);
-        Mockito.when(rule.getTeamRuleName()).thenReturn("team_rule");
+        Mockito.when(rule.getName()).thenReturn("team_rule");
 
         writer = mapper.writer();
 

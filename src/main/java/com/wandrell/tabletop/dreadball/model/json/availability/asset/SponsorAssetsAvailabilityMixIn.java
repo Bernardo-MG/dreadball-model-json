@@ -13,12 +13,12 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.wandrell.tabletop.dreadball.model.json.availability.team;
+package com.wandrell.tabletop.dreadball.model.json.availability.asset;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.wandrell.tabletop.dreadball.model.availability.team.SponsorAssetsAvailability;
+import com.wandrell.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
 
 /**
  * Jackson mix-in interface for {@link SponsorAssetsAvailability}.

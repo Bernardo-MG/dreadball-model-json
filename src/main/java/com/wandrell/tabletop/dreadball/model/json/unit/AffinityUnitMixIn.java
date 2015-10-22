@@ -33,7 +33,7 @@ import com.wandrell.tabletop.dreadball.model.unit.AffinityUnit;
 @JsonPropertyOrder({ "abilities", "attributes", "cost", "team_position",
         "template_name", "giant", "affinity_groups", "hated_affinity_groups",
         "ally_cost", "friend_cost", "stranger_cost" })
-public interface AffinityUnitMixIn extends AffinityUnit, UnitMixIn {
+public interface AffinityUnitMixIn extends AffinityUnit, UnitTemplateMixIn {
 
     @Override
     @JsonProperty("affinity_groups")

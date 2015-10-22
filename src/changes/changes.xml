@@ -30,5 +30,10 @@
 				Updated Maven Site Skin.
 			</action>
 		</release>
+		<release version="0.2.0" date="2015-10-22" description="Adapted to new API">
+			<action dev="bmg" type="update">
+				Adapted to API version 0.4.0.
+			</action>
+		</release>
 	</body>
 </document>
