@@ -33,7 +33,7 @@ import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "cheerleaders", "dice", "players", "valoration" })
-public interface TeamMixIn<U extends UnitTemplate> extends BaseTeam<U> {
+public interface BaseTeamMixIn<U extends UnitTemplate> extends BaseTeam<U> {
 
     @Override
     @JsonProperty("cheerleaders")

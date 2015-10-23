@@ -32,7 +32,8 @@ import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 @JsonPropertyOrder({ "cheerleaders", "dice", "players", "valoration",
         "medibots", "sabotage_cards", "special_move_cards", "sponsor",
         "wagers" })
-public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<UnitTemplate> {
+public interface SponsorTeamMixIn
+        extends SponsorTeam, BaseTeamMixIn<UnitTemplate> {
 
     @Override
     @JsonProperty("medibots")
