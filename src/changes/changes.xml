@@ -35,5 +35,10 @@
 				Adapted to API version 0.4.0.
 			</action>
 		</release>
+		<release version="0.2.1" date="2015-10-23" description="Adapted to new API">
+			<action dev="bmg" type="fix">
+				Corrected the BaseTeam mix-in name.
+			</action>
+		</release>
 	</body>
 </document>
