@@ -10,7 +10,11 @@
 
 	<groupId>com.wandrell.tabletop.dreadball</groupId>
 	<artifactId>dreadball-model-json</artifactId>
+<<<<<<< HEAD
 	<version>0.2.2</version>
+=======
+	<version>0.2.1</version>
+>>>>>>> refs/heads/master
 	<packaging>jar</packaging>
 
 	<name>Dreadball JSON Model Implementation</name>
