@@ -14,6 +14,6 @@
  * the License.
  */
 /**
- * Provides classes for creating JSON messages from units.
+ * Jackson mix-ins for units.
  */
 package com.wandrell.tabletop.dreadball.model.json.unit;

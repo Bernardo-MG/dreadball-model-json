@@ -5,7 +5,7 @@
 	<test name="dreadball_default_model_unit">
 		<packages>
 			<package
-				name="com.wandrell.tabletop.testing.dreadball.model.json.test.unit.*" />
+				name="com.wandrell.tabletop.dreadball.model.json.test.unit.*" />
 		</packages>
 	</test>
 
