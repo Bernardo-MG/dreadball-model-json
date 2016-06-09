@@ -14,42 +14,31 @@
  * the License.
  */
 
-package com.wandrell.tabletop.dreadball.model.json.team;
-
-import java.util.Map;
+package com.wandrell.tabletop.dreadball.model.json.availability.unit;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.wandrell.tabletop.dreadball.model.team.BaseTeam;
-import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
+import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeMvpAvailability;
+import com.wandrell.tabletop.dreadball.model.faction.TeamType;
+import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
 /**
- * Jackson mix-in interface for {@link BaseTeam}.
+ * Jackson mix-in interface for {@link TeamTypeMVPAvailability}.
  * 
  * @author Bernardo Martínez Garrido
- * @param <U>
- *            the type of unit the {@code Team} contains
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "cheerleaders", "dice", "players", "valoration" })
-public interface BaseTeamMixIn<U extends UnitTemplate> extends BaseTeam<U> {
+@JsonPropertyOrder({ "team", "unit" })
+public interface TeamTypeMvpAvailabilityMixIn extends TeamTypeMvpAvailability {
 
     @Override
-    @JsonProperty("cheerleaders")
-    public Integer getCheerleaders();
-
-    @Override
-    @JsonProperty("dice")
-    public Integer getCoachingDice();
+    @JsonProperty("team")
+    public TeamType getTeamType();
 
     @Override
     @JsonProperty
-    public Map<Integer, U> getPlayers();
-
-    @Override
-    @JsonProperty("valoration")
-    public Integer getValoration();
+    public Unit getUnit();
 
 }

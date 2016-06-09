@@ -29,7 +29,6 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.json.faction.SponsorMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
 /**

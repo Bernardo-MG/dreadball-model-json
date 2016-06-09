@@ -34,7 +34,7 @@ import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
         "cards", "name", "type", "defensive_coach", "offensive_coach",
         "support_coach" })
 public interface AdvancementTeamMixIn
-        extends AdvancementTeam, BaseTeamMixIn<AdvancementUnit> {
+        extends AdvancementTeam, TeamMixIn<AdvancementUnit> {
 
     @Override
     @JsonProperty

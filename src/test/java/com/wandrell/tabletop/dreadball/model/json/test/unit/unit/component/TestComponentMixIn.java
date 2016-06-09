@@ -27,17 +27,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.json.unit.component.ComponentLocationMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.component.UnitComponentMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.component.ComponentMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
-import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
+import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
+import com.wandrell.tabletop.dreadball.model.unit.Role;
+import com.wandrell.tabletop.dreadball.model.unit.component.Component;
 import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
-import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
- * Unit tests for {@link UnitComponentMixIn}.
+ * Unit tests for {@link ComponentMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -46,12 +46,12 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
  * 
  * @author Bernardo Martínez Garrido
  */
-public final class TestUnitComponentMixIn {
+public final class TestComponentMixIn {
 
     /**
      * Default constructor.
      */
-    public TestUnitComponentMixIn() {
+    public TestComponentMixIn() {
         super();
     }
 
@@ -66,16 +66,16 @@ public final class TestUnitComponentMixIn {
         final ObjectMapper mapper; // Mapper for the JSON
         final ObjectWriter writer; // Writer for the JSON
         final Collection<Ability> abilities; // Component abilities
-        final Collection<TeamPosition> positions; // Component positions
-        final UnitComponent component;     // Mocked component
+        final Collection<Role> positions; // Component positions
+        final Component component;     // Mocked component
         final Ability ability;             // Mocked ability
-        final AttributesHolder attributes; // Mocked attributes
+        final Attributes attributes; // Mocked attributes
         final ComponentLocation location;  // Mocked location
 
         mapper = new ObjectMapper();
-        mapper.addMixIn(UnitComponent.class, UnitComponentMixIn.class);
+        mapper.addMixIn(Component.class, ComponentMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
-        mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
+        mapper.addMixIn(Attributes.class, AttributesMixIn.class);
         mapper.addMixIn(ComponentLocation.class, ComponentLocationMixIn.class);
 
         abilities = new LinkedList<>();
@@ -83,7 +83,7 @@ public final class TestUnitComponentMixIn {
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
-        attributes = Mockito.mock(AttributesHolder.class);
+        attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
         Mockito.when(attributes.getSkill()).thenReturn(3);
@@ -94,15 +94,15 @@ public final class TestUnitComponentMixIn {
         Mockito.when(location.getName()).thenReturn("component_location");
 
         positions = new LinkedList<>();
-        positions.add(TeamPosition.STRIKER);
+        positions.add(Role.STRIKER);
 
-        component = Mockito.mock(UnitComponent.class);
+        component = Mockito.mock(Component.class);
         Mockito.when(component.getAbilities()).thenReturn(abilities);
         Mockito.when(component.getAttributes()).thenReturn(attributes);
         Mockito.when(component.getName()).thenReturn("component_name");
         Mockito.when(component.getCost()).thenReturn(11);
         Mockito.when(component.getLocation()).thenReturn(location);
-        Mockito.when(component.getTeamPositions()).thenReturn(positions);
+        Mockito.when(component.getRoles()).thenReturn(positions);
 
         writer = mapper.writer();
 

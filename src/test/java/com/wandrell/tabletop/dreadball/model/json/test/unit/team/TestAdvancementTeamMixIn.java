@@ -35,15 +35,14 @@ import com.wandrell.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
 import com.wandrell.tabletop.dreadball.model.json.team.AdvancementTeamMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
 import com.wandrell.tabletop.dreadball.model.team.AdvancementTeam;
 import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
-import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
+import com.wandrell.tabletop.dreadball.model.unit.Role;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
  * Unit tests for {@link UnitTemplateMixIn}.
@@ -83,7 +82,7 @@ public final class TestAdvancementTeamMixIn {
         final AdvancementTeam team;                 // Mocked team
         final AdvancementUnit unit;                 // Mocked unit
         final Ability ability;                      // Mocked ability
-        final AttributesHolder attributes;          // Mocked attributes
+        final Attributes attributes;          // Mocked attributes
         final TeamRule rule;                        // Mocked rule
         final TeamType teamType;                    // Mocked team type
 
@@ -91,7 +90,7 @@ public final class TestAdvancementTeamMixIn {
         mapper.addMixIn(AdvancementTeam.class, AdvancementTeamMixIn.class);
         mapper.addMixIn(AdvancementUnit.class, AdvancementUnitMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
-        mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
+        mapper.addMixIn(Attributes.class, AttributesMixIn.class);
         mapper.addMixIn(TeamRule.class, TeamRuleMixIn.class);
         mapper.addMixIn(TeamType.class, TeamTypeMixIn.class);
 
@@ -111,7 +110,7 @@ public final class TestAdvancementTeamMixIn {
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
-        attributes = Mockito.mock(AttributesHolder.class);
+        attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
         Mockito.when(attributes.getSkill()).thenReturn(3);
@@ -123,7 +122,7 @@ public final class TestAdvancementTeamMixIn {
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
         Mockito.when(unit.getCost()).thenReturn(10);
-        Mockito.when(unit.getPosition()).thenReturn(TeamPosition.STRIKER);
+        Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
         Mockito.when(unit.isGiant()).thenReturn(true);
         Mockito.when(unit.getRank()).thenReturn(20);

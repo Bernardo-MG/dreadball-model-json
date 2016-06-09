@@ -16,4 +16,5 @@
 /**
  * Jackson mix-ins for factions.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.faction;

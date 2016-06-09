@@ -22,8 +22,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityUnitMixIn;
+import com.wandrell.tabletop.dreadball.model.unit.component.Component;
 import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAffinityUnit;
-import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 
 /**
  * Jackson mix-in interface for {@link CompositeAffinityUnit}.
@@ -40,6 +40,6 @@ public interface CompositeAffinityUnitMixIn
 
     @Override
     @JsonProperty
-    public Collection<UnitComponent> getComponents();
+    public Collection<Component> getComponents();
 
 }

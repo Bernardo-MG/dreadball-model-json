@@ -14,7 +14,7 @@
  * the License.
  */
 /**
- * Jackson mix-ins for components and composite
- * units.
+ * Jackson mix-ins for components and composite units.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.unit.component;

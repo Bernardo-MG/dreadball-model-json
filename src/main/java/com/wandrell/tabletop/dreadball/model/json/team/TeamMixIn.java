@@ -14,41 +14,42 @@
  * the License.
  */
 
-package com.wandrell.tabletop.dreadball.model.json.unit.stats;
+package com.wandrell.tabletop.dreadball.model.json.team;
+
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
+import com.wandrell.tabletop.dreadball.model.team.Team;
+import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
 /**
- * Jackson mix-in interface for {@link AttributesHolder}.
+ * Jackson mix-in interface for {@link Team}.
  * 
  * @author Bernardo Martínez Garrido
+ * @param <U>
+ *            the type of unit the {@code Team} contains
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "armor", "movement", "skill", "speed", "strength" })
-public interface AttributesHolderMixIn extends AttributesHolder {
+@JsonPropertyOrder({ "cheerleaders", "dice", "players", "valoration" })
+public interface TeamMixIn<U extends Unit> extends Team<U> {
+
+    @Override
+    @JsonProperty("cheerleaders")
+    public Integer getCheerleaders();
+
+    @Override
+    @JsonProperty("dice")
+    public Integer getCoachingDice();
 
     @Override
     @JsonProperty
-    public Integer getArmor();
+    public Map<Integer, U> getPlayers();
 
     @Override
-    @JsonProperty
-    public Integer getMovement();
-
-    @Override
-    @JsonProperty
-    public Integer getSkill();
-
-    @Override
-    @JsonProperty
-    public Integer getSpeed();
-
-    @Override
-    @JsonProperty
-    public Integer getStrength();
+    @JsonProperty("valoration")
+    public Integer getValoration();
 
 }

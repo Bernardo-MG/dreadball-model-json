@@ -19,9 +19,10 @@ package com.wandrell.tabletop.dreadball.model.json.availability.unit;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeRangedUnitAvailability;
 import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeUnitAvailability;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
-import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
+import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
 /**
  * Jackson mix-in interface for {@link TeamTypeUnitAvailability}.
@@ -31,8 +32,8 @@ import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "initial_number", "max_number", "team", "unit" })
-public interface TeamTypeUnitAvailabilityMixIn
-        extends TeamTypeUnitAvailability {
+public interface TeamTypeRangedUnitAvailabilityMixIn
+        extends TeamTypeRangedUnitAvailability {
 
     @Override
     @JsonProperty("initial_number")
@@ -48,6 +49,6 @@ public interface TeamTypeUnitAvailabilityMixIn
 
     @Override
     @JsonProperty
-    public UnitTemplate getUnit();
+    public Unit getUnit();
 
 }

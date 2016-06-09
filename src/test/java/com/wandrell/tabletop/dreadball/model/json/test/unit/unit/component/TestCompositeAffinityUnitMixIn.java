@@ -28,17 +28,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.component.ComponentLocationMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.component.ComponentMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.component.CompositeAffinityUnitMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.component.UnitComponentMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
-import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
+import com.wandrell.tabletop.dreadball.model.unit.Role;
+import com.wandrell.tabletop.dreadball.model.unit.component.Component;
 import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
 import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAffinityUnit;
-import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
  * Unit tests for {@link CompositeAffinityUnitMixIn}.
@@ -72,23 +72,23 @@ public final class TestCompositeAffinityUnitMixIn {
         final Collection<Ability> abilities; // Unit abilities
         final Collection<AffinityGroup> affinities; // Unit affinities
         final Collection<AffinityGroup> hated;      // Unit hated affinities
-        final Collection<UnitComponent> components; // Unit components
-        final Collection<TeamPosition> positions;   // Unit positions
+        final Collection<Component> components; // Unit components
+        final Collection<Role> positions;   // Unit positions
         final CompositeAffinityUnit unit;    // Mocked unit
         final Ability ability;               // Mocked ability
         final AffinityGroup affinity1;       // Mocked affinity
         final AffinityGroup affinity2;       // Mocked affinity
-        final AttributesHolder attributes;   // Mocked attributes
-        final UnitComponent component;       // Mocked component
+        final Attributes attributes;   // Mocked attributes
+        final Component component;       // Mocked component
         final ComponentLocation location;    // Mocked location
 
         mapper = new ObjectMapper();
         mapper.addMixIn(CompositeAffinityUnit.class,
                 CompositeAffinityUnitMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
-        mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
+        mapper.addMixIn(Attributes.class, AttributesMixIn.class);
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
-        mapper.addMixIn(UnitComponent.class, UnitComponentMixIn.class);
+        mapper.addMixIn(Component.class, ComponentMixIn.class);
         mapper.addMixIn(ComponentLocation.class, ComponentLocationMixIn.class);
 
         abilities = new LinkedList<>();
@@ -106,7 +106,7 @@ public final class TestCompositeAffinityUnitMixIn {
         Mockito.when(affinity2.getName()).thenReturn("affinity_group_2");
         hated.add(affinity2);
 
-        attributes = Mockito.mock(AttributesHolder.class);
+        attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
         Mockito.when(attributes.getSkill()).thenReturn(3);
@@ -117,23 +117,23 @@ public final class TestCompositeAffinityUnitMixIn {
         Mockito.when(location.getName()).thenReturn("component_location");
 
         positions = new LinkedList<>();
-        positions.add(TeamPosition.STRIKER);
+        positions.add(Role.STRIKER);
 
         components = new LinkedList<>();
-        component = Mockito.mock(UnitComponent.class);
+        component = Mockito.mock(Component.class);
         Mockito.when(component.getAbilities()).thenReturn(abilities);
         Mockito.when(component.getAttributes()).thenReturn(attributes);
         Mockito.when(component.getName()).thenReturn("component_name");
         Mockito.when(component.getCost()).thenReturn(11);
         Mockito.when(component.getLocation()).thenReturn(location);
-        Mockito.when(component.getTeamPositions()).thenReturn(positions);
+        Mockito.when(component.getRoles()).thenReturn(positions);
         components.add(component);
 
         unit = Mockito.mock(CompositeAffinityUnit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
         Mockito.when(unit.getCost()).thenReturn(10);
-        Mockito.when(unit.getPosition()).thenReturn(TeamPosition.STRIKER);
+        Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
         Mockito.when(unit.isGiant()).thenReturn(true);
         Mockito.when(unit.getAffinityGroups()).thenReturn(affinities);

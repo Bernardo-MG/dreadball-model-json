@@ -29,12 +29,12 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityUnitMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityUnit;
-import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
+import com.wandrell.tabletop.dreadball.model.unit.Role;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
  * Unit tests for {@link AffinityUnitMixIn}.
@@ -72,12 +72,12 @@ public final class TestAffinityUnitMixIn {
         final Ability ability;     // Mocked ability
         final AffinityGroup affinity1;      // Mocked affinity
         final AffinityGroup affinity2;      // Mocked affinity
-        final AttributesHolder attributes; // Mocked attributes
+        final Attributes attributes; // Mocked attributes
 
         mapper = new ObjectMapper();
         mapper.addMixIn(AffinityUnit.class, AffinityUnitMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
-        mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
+        mapper.addMixIn(Attributes.class, AttributesMixIn.class);
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
 
         abilities = new LinkedList<>();
@@ -95,7 +95,7 @@ public final class TestAffinityUnitMixIn {
         Mockito.when(affinity2.getName()).thenReturn("affinity_group_2");
         hated.add(affinity2);
 
-        attributes = Mockito.mock(AttributesHolder.class);
+        attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
         Mockito.when(attributes.getSkill()).thenReturn(3);
@@ -106,7 +106,7 @@ public final class TestAffinityUnitMixIn {
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
         Mockito.when(unit.getCost()).thenReturn(10);
-        Mockito.when(unit.getPosition()).thenReturn(TeamPosition.STRIKER);
+        Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
         Mockito.when(unit.isGiant()).thenReturn(true);
         Mockito.when(unit.getAffinityGroups()).thenReturn(affinities);

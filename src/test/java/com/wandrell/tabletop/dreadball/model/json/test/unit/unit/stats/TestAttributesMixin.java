@@ -23,11 +23,11 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
+import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
- * Unit tests for {@link AttributesHolderMixIn}.
+ * Unit tests for {@link AttributesMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -36,12 +36,12 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
  * 
  * @author Bernardo Martínez Garrido
  */
-public final class TestAttributesHolderMixin {
+public final class TestAttributesMixin {
 
     /**
      * Default constructor.
      */
-    public TestAttributesHolderMixin() {
+    public TestAttributesMixin() {
         super();
     }
 
@@ -55,12 +55,12 @@ public final class TestAttributesHolderMixin {
     public final void testJSON() throws JsonProcessingException {
         final ObjectMapper mapper; // Mapper for the JSON
         final ObjectWriter writer; // Writer for the JSON
-        final AttributesHolder attributes; // Mocked attributes
+        final Attributes attributes; // Mocked attributes
 
         mapper = new ObjectMapper();
-        mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
+        mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
-        attributes = Mockito.mock(AttributesHolder.class);
+        attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
         Mockito.when(attributes.getSkill()).thenReturn(3);

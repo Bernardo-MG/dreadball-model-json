@@ -14,52 +14,41 @@
  * the License.
  */
 
-package com.wandrell.tabletop.dreadball.model.json.unit.component;
-
-import java.util.Collection;
+package com.wandrell.tabletop.dreadball.model.json.unit.stats;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
-import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
-import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
-import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
- * Jackson mix-in interface for {@link UnitComponent}.
+ * Jackson mix-in interface for {@link Attributes}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "abilities", "attributes", "name", "cost", "location",
-        "team_positions" })
-public interface UnitComponentMixIn extends UnitComponent {
+@JsonPropertyOrder({ "armor", "movement", "skill", "speed", "strength" })
+public interface AttributesMixIn extends Attributes {
 
     @Override
     @JsonProperty
-    public Collection<Ability> getAbilities();
+    public Integer getArmor();
 
     @Override
     @JsonProperty
-    public AttributesHolder getAttributes();
+    public Integer getMovement();
 
     @Override
     @JsonProperty
-    public Integer getCost();
+    public Integer getSkill();
 
     @Override
     @JsonProperty
-    public ComponentLocation getLocation();
+    public Integer getSpeed();
 
     @Override
-    @JsonProperty("name")
-    public String getName();
-
-    @Override
-    @JsonProperty("team_positions")
-    public Collection<TeamPosition> getTeamPositions();
+    @JsonProperty
+    public Integer getStrength();
 
 }

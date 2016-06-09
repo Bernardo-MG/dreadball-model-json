@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
-import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
+import com.wandrell.tabletop.dreadball.model.unit.component.Component;
 
 /**
  * Jackson mix-in interface for {@link AdvancementUnit}.
@@ -32,12 +32,11 @@ import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 @JsonPropertyOrder({ "abilities", "attributes", "cost", "team_position",
         "template_name", "giant", "implant", "rank", "unspent_experience",
         "valoration" })
-public interface AdvancementUnitMixIn
-        extends AdvancementUnit, UnitTemplateMixIn {
+public interface AdvancementUnitMixIn extends AdvancementUnit, UnitMixIn {
 
     @Override
     @JsonProperty("implant")
-    public UnitComponent getGraftedImplant();
+    public Component getGraftedImplant();
 
     @Override
     @JsonProperty

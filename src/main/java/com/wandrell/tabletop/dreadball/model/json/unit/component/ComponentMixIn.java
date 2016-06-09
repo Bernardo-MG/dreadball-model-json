@@ -21,25 +21,45 @@ import java.util.Collection;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixIn;
+import com.wandrell.tabletop.dreadball.model.unit.Role;
 import com.wandrell.tabletop.dreadball.model.unit.component.Component;
-import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAdvancementUnit;
+import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
- * Jackson mix-in interface for {@link CompositeAdvancementUnit}.
+ * Jackson mix-in interface for {@link Component}.
  * 
  * @author Bernardo Martínez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "abilities", "attributes", "cost", "team_position",
-        "template_name", "giant", "implant", "rank", "unspent_experience",
-        "valoration", "components" })
-public interface CompositeAdvancementUnitMixIn
-        extends CompositeAdvancementUnit, AdvancementUnitMixIn {
+@JsonPropertyOrder({ "abilities", "attributes", "name", "cost", "location",
+        "team_positions" })
+public interface ComponentMixIn extends Component {
 
     @Override
     @JsonProperty
-    public Collection<Component> getComponents();
+    public Collection<Ability> getAbilities();
+
+    @Override
+    @JsonProperty
+    public Attributes getAttributes();
+
+    @Override
+    @JsonProperty
+    public Integer getCost();
+
+    @Override
+    @JsonProperty
+    public ComponentLocation getLocation();
+
+    @Override
+    @JsonProperty("name")
+    public String getName();
+
+    @Override
+    @JsonProperty("team_positions")
+    public Collection<Role> getRoles();
 
 }

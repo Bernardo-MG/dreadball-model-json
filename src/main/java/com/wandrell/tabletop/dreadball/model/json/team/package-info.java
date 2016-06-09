@@ -16,4 +16,5 @@
 /**
  * Jackson mix-ins for teams.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.team;

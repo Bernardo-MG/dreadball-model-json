@@ -26,16 +26,16 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
-import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
-import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
+import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
+import com.wandrell.tabletop.dreadball.model.unit.Role;
+import com.wandrell.tabletop.dreadball.model.unit.Unit;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
- * Unit tests for {@link UnitTemplateMixIn}.
+ * Unit tests for {@link UnitMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -64,32 +64,32 @@ public final class TestUnitMixIn {
         final ObjectMapper mapper; // Mapper for the JSON
         final ObjectWriter writer; // Writer for the JSON
         final Collection<Ability> abilities; // Unit abilities
-        final UnitTemplate unit;   // Mocked unit
+        final Unit unit;   // Mocked unit
         final Ability ability;     // Mocked ability
-        final AttributesHolder attributes; // Mocked attributes
+        final Attributes attributes; // Mocked attributes
 
         mapper = new ObjectMapper();
-        mapper.addMixIn(UnitTemplate.class, UnitTemplateMixIn.class);
+        mapper.addMixIn(Unit.class, UnitMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
-        mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
+        mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
-        attributes = Mockito.mock(AttributesHolder.class);
+        attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
         Mockito.when(attributes.getSkill()).thenReturn(3);
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
-        unit = Mockito.mock(UnitTemplate.class);
+        unit = Mockito.mock(Unit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
         Mockito.when(unit.getCost()).thenReturn(10);
-        Mockito.when(unit.getPosition()).thenReturn(TeamPosition.STRIKER);
+        Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
         Mockito.when(unit.isGiant()).thenReturn(true);
 

@@ -27,15 +27,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.UnitTemplateMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
-import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesHolderMixIn;
+import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
-import com.wandrell.tabletop.dreadball.model.unit.TeamPosition;
+import com.wandrell.tabletop.dreadball.model.unit.Role;
+import com.wandrell.tabletop.dreadball.model.unit.component.Component;
 import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
-import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
-import com.wandrell.tabletop.dreadball.model.unit.stats.AttributesHolder;
+import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
  * Unit tests for {@link UnitTemplateMixIn}.
@@ -69,22 +68,22 @@ public final class TestAdvancementUnitMixIn {
         final Collection<Ability> abilities; // Unit abilities
         final AdvancementUnit unit; // Mocked unit
         final Ability ability;      // Mocked ability
-        final AttributesHolder attributes; // Mocked attributes
-        final UnitComponent implant;       // Mocked component
+        final Attributes attributes; // Mocked attributes
+        final Component implant;       // Mocked component
         final ComponentLocation location;  // Mocked location
-        final Collection<TeamPosition> positions; // Unit positions
+        final Collection<Role> positions; // Unit positions
 
         mapper = new ObjectMapper();
         mapper.addMixIn(AdvancementUnit.class, AdvancementUnitMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
-        mapper.addMixIn(AttributesHolder.class, AttributesHolderMixIn.class);
+        mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
-        attributes = Mockito.mock(AttributesHolder.class);
+        attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
         Mockito.when(attributes.getSkill()).thenReturn(3);
@@ -95,21 +94,21 @@ public final class TestAdvancementUnitMixIn {
         Mockito.when(location.getName()).thenReturn("component_location");
 
         positions = new LinkedList<>();
-        positions.add(TeamPosition.STRIKER);
+        positions.add(Role.STRIKER);
 
-        implant = Mockito.mock(UnitComponent.class);
+        implant = Mockito.mock(Component.class);
         Mockito.when(implant.getAbilities()).thenReturn(abilities);
         Mockito.when(implant.getAttributes()).thenReturn(attributes);
         Mockito.when(implant.getName()).thenReturn("component_name");
         Mockito.when(implant.getCost()).thenReturn(10);
         Mockito.when(implant.getLocation()).thenReturn(location);
-        Mockito.when(implant.getTeamPositions()).thenReturn(positions);
+        Mockito.when(implant.getRoles()).thenReturn(positions);
 
         unit = Mockito.mock(AdvancementUnit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
         Mockito.when(unit.getCost()).thenReturn(10);
-        Mockito.when(unit.getPosition()).thenReturn(TeamPosition.STRIKER);
+        Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
         Mockito.when(unit.isGiant()).thenReturn(true);
         Mockito.when(unit.getRank()).thenReturn(20);

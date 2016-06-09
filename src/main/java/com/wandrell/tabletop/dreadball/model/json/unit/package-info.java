@@ -16,4 +16,5 @@
 /**
  * Jackson mix-ins for units.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.unit;
