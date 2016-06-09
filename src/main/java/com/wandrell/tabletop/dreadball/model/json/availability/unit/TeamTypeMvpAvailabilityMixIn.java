@@ -24,7 +24,7 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
 /**
- * Jackson mix-in interface for {@link TeamTypeMVPAvailability}.
+ * Jackson mix-in interface for {@link TeamTypeMvpAvailability}.
  * 
  * @author Bernardo Martínez Garrido
  */
