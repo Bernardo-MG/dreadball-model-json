@@ -30,6 +30,7 @@ import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeRangedUni
 import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 import com.wandrell.tabletop.dreadball.model.json.availability.unit.TeamTypeRangedUnitAvailabilityMixIn;
+import com.wandrell.tabletop.dreadball.model.json.availability.unit.TeamTypeUnitAvailabilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
