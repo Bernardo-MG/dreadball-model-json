@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.faction;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -22,7 +23,7 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 /**
  * Jackson mix-in interface for {@link TeamRule}.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)

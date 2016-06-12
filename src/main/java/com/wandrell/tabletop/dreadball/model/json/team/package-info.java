@@ -14,6 +14,7 @@
  * the License.
  */
 /**
- * Provides classes for creating JSON messages from teams.
+ * Jackson mix-ins for teams.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.team;

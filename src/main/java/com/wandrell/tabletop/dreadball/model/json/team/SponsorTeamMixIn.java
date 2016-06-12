@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.team;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -20,20 +21,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.team.SponsorTeam;
-import com.wandrell.tabletop.dreadball.model.unit.UnitTemplate;
+import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
 /**
  * Jackson mix-in interface for {@link SponsorTeam}.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "cheerleaders", "dice", "players", "valoration",
         "medibots", "sabotage_cards", "special_move_cards", "sponsor",
         "wagers" })
-public interface SponsorTeamMixIn
-        extends SponsorTeam, BaseTeamMixIn<UnitTemplate> {
+public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<Unit> {
 
     @Override
     @JsonProperty("medibots")

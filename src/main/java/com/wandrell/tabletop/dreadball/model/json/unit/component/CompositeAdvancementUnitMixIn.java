@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.unit.component;
 
 import java.util.Collection;
@@ -21,13 +22,13 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.json.unit.AdvancementUnitMixIn;
+import com.wandrell.tabletop.dreadball.model.unit.component.Component;
 import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAdvancementUnit;
-import com.wandrell.tabletop.dreadball.model.unit.component.UnitComponent;
 
 /**
  * Jackson mix-in interface for {@link CompositeAdvancementUnit}.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
@@ -39,6 +40,6 @@ public interface CompositeAdvancementUnitMixIn
 
     @Override
     @JsonProperty
-    public Collection<UnitComponent> getComponents();
+    public Collection<Component> getComponents();
 
 }

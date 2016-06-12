@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.team;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -25,7 +26,7 @@ import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
 /**
  * Jackson mix-in interface for {@link AdvancementTeam}.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
@@ -33,7 +34,7 @@ import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
         "cards", "name", "type", "defensive_coach", "offensive_coach",
         "support_coach" })
 public interface AdvancementTeamMixIn
-        extends AdvancementTeam, BaseTeamMixIn<AdvancementUnit> {
+        extends AdvancementTeam, TeamMixIn<AdvancementUnit> {
 
     @Override
     @JsonProperty

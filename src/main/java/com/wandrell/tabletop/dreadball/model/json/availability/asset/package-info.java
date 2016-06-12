@@ -14,6 +14,7 @@
  * the License.
  */
 /**
- * Provides classes for creating JSON messages from team assets availabilities.
+ * Jackson mix-ins for team assets availabilities.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.availability.asset;

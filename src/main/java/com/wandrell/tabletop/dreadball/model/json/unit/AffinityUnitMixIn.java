@@ -13,6 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+
 package com.wandrell.tabletop.dreadball.model.json.unit;
 
 import java.util.Collection;
@@ -26,14 +27,14 @@ import com.wandrell.tabletop.dreadball.model.unit.AffinityUnit;
 /**
  * Jackson mix-in interface for {@link AffinityUnit}.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "abilities", "attributes", "cost", "team_position",
         "template_name", "giant", "affinity_groups", "hated_affinity_groups",
         "ally_cost", "friend_cost", "stranger_cost" })
-public interface AffinityUnitMixIn extends AffinityUnit, UnitTemplateMixIn {
+public interface AffinityUnitMixIn extends AffinityUnit, UnitMixIn {
 
     @Override
     @JsonProperty("affinity_groups")
