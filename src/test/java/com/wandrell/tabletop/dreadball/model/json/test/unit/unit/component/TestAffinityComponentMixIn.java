@@ -44,7 +44,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
  * <li>The JSON message is created correctly</li>
  * </ol>
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class TestAffinityComponentMixIn {
 

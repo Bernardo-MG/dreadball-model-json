@@ -28,7 +28,7 @@ import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAffinityUni
 /**
  * Jackson mix-in interface for {@link CompositeAffinityUnit}.
  * 
- * @author Bernardo Martínez Garrido
+ * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
