@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.wandrell.tabletop.dreadball.model.json.test.unit.availability.team;
+package com.wandrell.tabletop.dreadball.model.json.test.unit.availability.asset;
 
 import org.mockito.Mockito;
 import org.testng.Assert;

@@ -5,7 +5,7 @@
 
 	<test name="all" verbose="2">
 		<packages>
-			<package name="com.wandrell.tabletop.dreadball.model.json.test.unit.availability.team" />
+			<package name="com.wandrell.tabletop.dreadball.model.json.test.unit.availability.asset" />
 		</packages>
 	</test>
 
