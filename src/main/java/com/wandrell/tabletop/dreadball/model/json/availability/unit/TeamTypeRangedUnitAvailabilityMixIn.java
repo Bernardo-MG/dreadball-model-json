@@ -20,12 +20,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeRangedUnitAvailability;
-import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeUnitAvailability;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
 /**
- * Jackson mix-in interface for {@link TeamTypeUnitAvailability}.
+ * Jackson mix-in interface for {@link TeamTypeRangedUnitAvailability}.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
