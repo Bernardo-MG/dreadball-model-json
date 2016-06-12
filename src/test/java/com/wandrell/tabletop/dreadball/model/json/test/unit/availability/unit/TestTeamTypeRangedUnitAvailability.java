@@ -30,7 +30,6 @@ import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeRangedUni
 import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 import com.wandrell.tabletop.dreadball.model.json.availability.unit.TeamTypeRangedUnitAvailabilityMixIn;
-import com.wandrell.tabletop.dreadball.model.json.availability.unit.TeamTypeUnitAvailabilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
@@ -42,7 +41,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
- * Unit tests for {@link TeamTypeUnitAvailabilityMixIn}.
+ * Unit tests for {@link TeamTypeRangedUnitAvailability}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -51,12 +50,12 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestTeamTypeUnitAvailabilityMixIn {
+public final class TestTeamTypeRangedUnitAvailability {
 
     /**
      * Default constructor.
      */
-    public TestTeamTypeUnitAvailabilityMixIn() {
+    public TestTeamTypeRangedUnitAvailability() {
         super();
     }
 
