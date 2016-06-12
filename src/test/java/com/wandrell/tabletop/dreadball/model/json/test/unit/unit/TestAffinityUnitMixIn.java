@@ -63,38 +63,43 @@ public final class TestAffinityUnitMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
-        final Collection<Ability> abilities; // Unit abilities
+        final ObjectMapper mapper;                  // Mapper for the JSON
+        final ObjectWriter writer;                  // Writer for the JSON
+        final Collection<Ability> abilities;        // Unit abilities
         final Collection<AffinityGroup> affinities; // Unit affinities
         final Collection<AffinityGroup> hated;      // Unit hated affinities
-        final AffinityUnit unit;   // Mocked unit
-        final Ability ability;     // Mocked ability
-        final AffinityGroup affinity1;      // Mocked affinity
-        final AffinityGroup affinity2;      // Mocked affinity
-        final Attributes attributes; // Mocked attributes
+        final AffinityUnit unit;                    // Mocked unit
+        final Ability ability;                      // Mocked ability
+        final AffinityGroup affinity1;              // Mocked affinity
+        final AffinityGroup affinity2;              // Mocked affinity
+        final Attributes attributes;                // Mocked attributes
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(AffinityUnit.class, AffinityUnitMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
 
+        // Mocks abilities
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
+        // Mocks affinities
         affinities = new LinkedList<>();
         affinity1 = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity1.getName()).thenReturn("affinity_group");
         affinities.add(affinity1);
 
+        // Mocks hated affinities
         hated = new LinkedList<>();
         affinity2 = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity2.getName()).thenReturn("affinity_group_2");
         hated.add(affinity2);
 
+        // Mocks attributes
         attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
@@ -102,6 +107,7 @@ public final class TestAffinityUnitMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
+        // Mocks unit
         unit = Mockito.mock(AffinityUnit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);

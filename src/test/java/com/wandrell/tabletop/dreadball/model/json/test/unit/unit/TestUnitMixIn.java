@@ -61,23 +61,26 @@ public final class TestUnitMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;           // Mapper for the JSON
+        final ObjectWriter writer;           // Writer for the JSON
         final Collection<Ability> abilities; // Unit abilities
-        final Unit unit;   // Mocked unit
-        final Ability ability;     // Mocked ability
-        final Attributes attributes; // Mocked attributes
+        final Unit unit;                     // Mocked unit
+        final Ability ability;               // Mocked ability
+        final Attributes attributes;         // Mocked attributes
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(Unit.class, UnitMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
+        // Mocks abilities
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
+        // Mocks attributes
         attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
@@ -85,6 +88,7 @@ public final class TestUnitMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
+        // Mocks unit
         unit = Mockito.mock(Unit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);

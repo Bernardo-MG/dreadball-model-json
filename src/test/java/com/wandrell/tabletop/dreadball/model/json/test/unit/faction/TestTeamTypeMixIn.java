@@ -64,15 +64,18 @@ public final class TestTeamTypeMixIn {
         final TeamRule rule;              // Mocked rule
         final TeamType team;              // Mocked team
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(TeamRule.class, TeamRuleMixIn.class);
         mapper.addMixIn(TeamType.class, TeamTypeMixIn.class);
 
+        // Mocks rules
         rules = new LinkedList<>();
         rule = Mockito.mock(TeamRule.class);
         Mockito.when(rule.getName()).thenReturn("team_rule");
         rules.add(rule);
 
+        // Mocks team
         team = Mockito.mock(TeamType.class);
         Mockito.when(team.getName()).thenReturn("team_name");
         Mockito.when(team.getTeamRules()).thenReturn(rules);

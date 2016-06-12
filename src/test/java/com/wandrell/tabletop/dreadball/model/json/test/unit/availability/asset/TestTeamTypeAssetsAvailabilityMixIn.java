@@ -60,28 +60,32 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;        // Mapper for the JSON
+        final ObjectWriter writer;        // Writer for the JSON
         final Collection<TeamRule> rules; // Team rules
-        final TeamRule rule;       // Mocked rule
-        final TeamType team;       // Mocked team type
+        final TeamRule rule;              // Mocked rule
+        final TeamType team;              // Mocked team type
         final TeamTypeAssetsAvailability ava; // Mocked ava
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(TeamRule.class, TeamRuleMixIn.class);
         mapper.addMixIn(TeamType.class, TeamTypeMixIn.class);
         mapper.addMixIn(TeamTypeAssetsAvailability.class,
                 TeamTypeAssetsAvailabilityMixIn.class);
 
+        // Mocks rules
         rules = new LinkedList<>();
         rule = Mockito.mock(TeamRule.class);
         Mockito.when(rule.getName()).thenReturn("team_rule");
         rules.add(rule);
 
+        // Mocks team
         team = Mockito.mock(TeamType.class);
         Mockito.when(team.getName()).thenReturn("team_name");
         Mockito.when(team.getTeamRules()).thenReturn(rules);
 
+        // Mocks availabilities
         ava = Mockito.mock(TeamTypeAssetsAvailability.class);
         Mockito.when(ava.getCheerleaderCost()).thenReturn(1);
         Mockito.when(ava.getCheerleaderInitial()).thenReturn(2);

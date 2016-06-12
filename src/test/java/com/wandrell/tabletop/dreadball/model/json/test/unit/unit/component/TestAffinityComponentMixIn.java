@@ -63,26 +63,29 @@ public final class TestAffinityComponentMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;           // Mapper for the JSON
+        final ObjectWriter writer;           // Writer for the JSON
         final Collection<Ability> abilities; // Component abilities
-        final Collection<Role> positions; // Component positions
-        final AffinityComponent component;    // Mocked component
-        final Ability ability;                    // Mocked ability
-        final Attributes attributes;        // Mocked attributes
-        final ComponentLocation location;         // Mocked location
+        final Collection<Role> roles;        // Component roles
+        final AffinityComponent component;   // Mocked component
+        final Ability ability;               // Mocked ability
+        final Attributes attributes;         // Mocked attributes
+        final ComponentLocation location;    // Mocked location
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(AffinityComponent.class, AffinityComponentMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
         mapper.addMixIn(ComponentLocation.class, ComponentLocationMixIn.class);
 
+        // Mocks abilities
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
+        // Mocks attributes
         attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
@@ -90,19 +93,22 @@ public final class TestAffinityComponentMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
+        // Mocks location
         location = Mockito.mock(ComponentLocation.class);
         Mockito.when(location.getName()).thenReturn("component_location");
 
-        positions = new LinkedList<>();
-        positions.add(Role.STRIKER);
+        // Sets roles
+        roles = new LinkedList<>();
+        roles.add(Role.STRIKER);
 
+        // Mocks component
         component = Mockito.mock(AffinityComponent.class);
         Mockito.when(component.getAbilities()).thenReturn(abilities);
         Mockito.when(component.getAttributes()).thenReturn(attributes);
         Mockito.when(component.getName()).thenReturn("component_name");
         Mockito.when(component.getCost()).thenReturn(11);
         Mockito.when(component.getLocation()).thenReturn(location);
-        Mockito.when(component.getRoles()).thenReturn(positions);
+        Mockito.when(component.getRoles()).thenReturn(roles);
         Mockito.when(component.getAllyCost()).thenReturn(5);
         Mockito.when(component.getFriendCost()).thenReturn(6);
         Mockito.when(component.getStrangerCost()).thenReturn(7);

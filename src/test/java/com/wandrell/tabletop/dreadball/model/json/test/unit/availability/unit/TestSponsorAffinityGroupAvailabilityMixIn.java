@@ -64,16 +64,19 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
         final AffinityGroup affinity;   // Mocked affinity
         final SponsorAffinityGroupAvailability ava; // Mocked ava
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(SponsorAffinityGroupAvailability.class,
                 SponsorAffinityGroupAvailabilityMixIn.class);
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
 
+        // Mocks affinities
         affinities = new LinkedList<>();
         affinity = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
 
+        // Mocks availabilities
         ava = Mockito.mock(SponsorAffinityGroupAvailability.class);
         Mockito.when(ava.getName()).thenReturn("group_name");
         Mockito.when(ava.getAffinityGroups()).thenReturn(affinities);

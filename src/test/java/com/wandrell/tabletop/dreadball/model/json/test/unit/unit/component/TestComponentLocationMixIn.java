@@ -53,13 +53,15 @@ public final class TestComponentLocationMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;        // Mapper for the JSON
+        final ObjectWriter writer;        // Writer for the JSON
         final ComponentLocation location; // Mocked location
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(ComponentLocation.class, ComponentLocationMixIn.class);
 
+        // Mocks location
         location = Mockito.mock(ComponentLocation.class);
         Mockito.when(location.getName()).thenReturn("component_location");
 

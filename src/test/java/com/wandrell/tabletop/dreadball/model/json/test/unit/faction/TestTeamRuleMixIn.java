@@ -57,9 +57,11 @@ public final class TestTeamRuleMixIn {
         final ObjectWriter writer; // Writer for the JSON
         final TeamRule rule;       // Mocked rule
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(TeamRule.class, TeamRuleMixIn.class);
 
+        // Mocks rule
         rule = Mockito.mock(TeamRule.class);
         Mockito.when(rule.getName()).thenReturn("team_rule");
 

@@ -53,14 +53,16 @@ public final class TestSponsorAssetsAvailabilityMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;           // Mapper for the JSON
+        final ObjectWriter writer;           // Writer for the JSON
         final SponsorAssetsAvailability ava; // Mocked ava
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(SponsorAssetsAvailability.class,
                 SponsorAssetsAvailabilityMixIn.class);
 
+        // Mocks availabilities
         ava = Mockito.mock(SponsorAssetsAvailability.class);
         Mockito.when(ava.getAffinityGroupCost()).thenReturn(1);
         Mockito.when(ava.getCheerleaderCost()).thenReturn(2);

@@ -57,9 +57,11 @@ public final class TestAbilityMixin {
         final ObjectWriter writer; // Writer for the JSON
         final Ability ability;     // Mocked ability
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
 
+        // Mocks ability
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
 

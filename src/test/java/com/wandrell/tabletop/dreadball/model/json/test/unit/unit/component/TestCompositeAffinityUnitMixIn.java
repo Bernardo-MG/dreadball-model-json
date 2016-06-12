@@ -67,21 +67,22 @@ public final class TestCompositeAffinityUnitMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
-        final Collection<Ability> abilities; // Unit abilities
+        final ObjectMapper mapper;                  // Mapper for the JSON
+        final ObjectWriter writer;                  // Writer for the JSON
+        final Collection<Ability> abilities;        // Unit abilities
         final Collection<AffinityGroup> affinities; // Unit affinities
         final Collection<AffinityGroup> hated;      // Unit hated affinities
-        final Collection<Component> components; // Unit components
-        final Collection<Role> positions;   // Unit positions
-        final CompositeAffinityUnit unit;    // Mocked unit
-        final Ability ability;               // Mocked ability
-        final AffinityGroup affinity1;       // Mocked affinity
-        final AffinityGroup affinity2;       // Mocked affinity
-        final Attributes attributes;   // Mocked attributes
-        final Component component;       // Mocked component
-        final ComponentLocation location;    // Mocked location
+        final Collection<Component> components;     // Unit components
+        final Collection<Role> roles;               // Unit roles
+        final CompositeAffinityUnit unit;           // Mocked unit
+        final Ability ability;                      // Mocked ability
+        final AffinityGroup affinity1;              // Mocked affinity
+        final AffinityGroup affinity2;              // Mocked affinity
+        final Attributes attributes;                // Mocked attributes
+        final Component component;                  // Mocked component
+        final ComponentLocation location;           // Mocked location
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(CompositeAffinityUnit.class,
                 CompositeAffinityUnitMixIn.class);
@@ -91,21 +92,25 @@ public final class TestCompositeAffinityUnitMixIn {
         mapper.addMixIn(Component.class, ComponentMixIn.class);
         mapper.addMixIn(ComponentLocation.class, ComponentLocationMixIn.class);
 
+        // Mocks abilities
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
+        // Mocks affinities
         affinities = new LinkedList<>();
         affinity1 = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity1.getName()).thenReturn("affinity_group");
         affinities.add(affinity1);
 
+        // Mocks hated affinities
         hated = new LinkedList<>();
         affinity2 = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity2.getName()).thenReturn("affinity_group_2");
         hated.add(affinity2);
 
+        // Mocks attributes
         attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
@@ -113,12 +118,15 @@ public final class TestCompositeAffinityUnitMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
+        // Mocks location
         location = Mockito.mock(ComponentLocation.class);
         Mockito.when(location.getName()).thenReturn("component_location");
 
-        positions = new LinkedList<>();
-        positions.add(Role.STRIKER);
+        // Sets roles
+        roles = new LinkedList<>();
+        roles.add(Role.STRIKER);
 
+        // Mocks components
         components = new LinkedList<>();
         component = Mockito.mock(Component.class);
         Mockito.when(component.getAbilities()).thenReturn(abilities);
@@ -126,9 +134,10 @@ public final class TestCompositeAffinityUnitMixIn {
         Mockito.when(component.getName()).thenReturn("component_name");
         Mockito.when(component.getCost()).thenReturn(11);
         Mockito.when(component.getLocation()).thenReturn(location);
-        Mockito.when(component.getRoles()).thenReturn(positions);
+        Mockito.when(component.getRoles()).thenReturn(roles);
         components.add(component);
 
+        // Mocks unit
         unit = Mockito.mock(CompositeAffinityUnit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);

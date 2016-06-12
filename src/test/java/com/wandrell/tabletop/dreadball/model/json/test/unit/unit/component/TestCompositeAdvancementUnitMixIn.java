@@ -65,17 +65,18 @@ public final class TestCompositeAdvancementUnitMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
-        final Collection<Ability> abilities; // Unit abilities
+        final ObjectMapper mapper;              // Mapper for the JSON
+        final ObjectWriter writer;              // Writer for the JSON
+        final Collection<Ability> abilities;    // Unit abilities
         final Collection<Component> components; // Unit components
-        final Collection<Role> positions;   // Unit positions
-        final CompositeAdvancementUnit unit; // Mocked unit
-        final Ability ability;               // Mocked ability
-        final Attributes attributes;   // Mocked attributes
-        final Component component;       // Mocked component
-        final ComponentLocation location;    // Mocked location
+        final Collection<Role> roles;           // Unit positions
+        final CompositeAdvancementUnit unit;    // Mocked unit
+        final Ability ability;                  // Mocked ability
+        final Attributes attributes;            // Mocked attributes
+        final Component component;              // Mocked component
+        final ComponentLocation location;       // Mocked location
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(CompositeAdvancementUnit.class,
                 CompositeAdvancementUnitMixIn.class);
@@ -84,11 +85,13 @@ public final class TestCompositeAdvancementUnitMixIn {
         mapper.addMixIn(Component.class, ComponentMixIn.class);
         mapper.addMixIn(ComponentLocation.class, ComponentLocationMixIn.class);
 
+        // Mocks abilities
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
+        // Mocks attributes
         attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
@@ -96,12 +99,15 @@ public final class TestCompositeAdvancementUnitMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
+        // Mocks location
         location = Mockito.mock(ComponentLocation.class);
         Mockito.when(location.getName()).thenReturn("component_location");
 
-        positions = new LinkedList<>();
-        positions.add(Role.STRIKER);
+        // Sets roles
+        roles = new LinkedList<>();
+        roles.add(Role.STRIKER);
 
+        // Mocks components
         components = new LinkedList<>();
         component = Mockito.mock(Component.class);
         Mockito.when(component.getAbilities()).thenReturn(abilities);
@@ -109,9 +115,10 @@ public final class TestCompositeAdvancementUnitMixIn {
         Mockito.when(component.getName()).thenReturn("component_name");
         Mockito.when(component.getCost()).thenReturn(11);
         Mockito.when(component.getLocation()).thenReturn(location);
-        Mockito.when(component.getRoles()).thenReturn(positions);
+        Mockito.when(component.getRoles()).thenReturn(roles);
         components.add(component);
 
+        // Mocks unit
         unit = Mockito.mock(CompositeAdvancementUnit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);

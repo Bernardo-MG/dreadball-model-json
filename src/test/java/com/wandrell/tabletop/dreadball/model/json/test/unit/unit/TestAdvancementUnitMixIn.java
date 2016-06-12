@@ -63,26 +63,29 @@ public final class TestAdvancementUnitMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;           // Mapper for the JSON
+        final ObjectWriter writer;           // Writer for the JSON
         final Collection<Ability> abilities; // Unit abilities
-        final AdvancementUnit unit; // Mocked unit
-        final Ability ability;      // Mocked ability
-        final Attributes attributes; // Mocked attributes
-        final Component implant;       // Mocked component
-        final ComponentLocation location;  // Mocked location
-        final Collection<Role> positions; // Unit positions
+        final AdvancementUnit unit;          // Mocked unit
+        final Ability ability;               // Mocked ability
+        final Attributes attributes;         // Mocked attributes
+        final Component implant;             // Mocked component
+        final ComponentLocation location;    // Mocked location
+        final Collection<Role> roles;        // Unit positions
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(AdvancementUnit.class, AdvancementUnitMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
+        // Mocks abilities
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
+        // Mocks attributes
         attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
@@ -90,20 +93,24 @@ public final class TestAdvancementUnitMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
+        // Mocks location
         location = Mockito.mock(ComponentLocation.class);
         Mockito.when(location.getName()).thenReturn("component_location");
 
-        positions = new LinkedList<>();
-        positions.add(Role.STRIKER);
+        // Sets roles
+        roles = new LinkedList<>();
+        roles.add(Role.STRIKER);
 
+        // Mocks implant
         implant = Mockito.mock(Component.class);
         Mockito.when(implant.getAbilities()).thenReturn(abilities);
         Mockito.when(implant.getAttributes()).thenReturn(attributes);
         Mockito.when(implant.getName()).thenReturn("component_name");
         Mockito.when(implant.getCost()).thenReturn(10);
         Mockito.when(implant.getLocation()).thenReturn(location);
-        Mockito.when(implant.getRoles()).thenReturn(positions);
+        Mockito.when(implant.getRoles()).thenReturn(roles);
 
+        // Mocks unit
         unit = Mockito.mock(AdvancementUnit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);

@@ -58,21 +58,24 @@ public final class TestSponsorMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;      // Mapper for the JSON
+        final ObjectWriter writer;      // Writer for the JSON
         final Collection<AffinityGroup> affinities; // Sponsor affinities
         final Sponsor sponsor;          // Mocked sponsor
         final AffinityGroup affinity;   // Mocked affinity
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(Sponsor.class, SponsorMixIn.class);
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
 
+        // Mocks affinities
         affinities = new LinkedList<>();
         affinity = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
 
+        // Mocks sponsor
         sponsor = Mockito.mock(Sponsor.class);
         Mockito.when(sponsor.getName()).thenReturn("sponsor_name");
         Mockito.when(sponsor.getCash()).thenReturn(10);

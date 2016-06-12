@@ -53,13 +53,15 @@ public final class TestAffinityGroupMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;    // Mapper for the JSON
+        final ObjectWriter writer;    // Writer for the JSON
         final AffinityGroup affinity; // Mocked affinity group
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
 
+        // Mocks affinity
         affinity = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity.getName()).thenReturn("affinity_group");
 

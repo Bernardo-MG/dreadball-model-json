@@ -69,18 +69,19 @@ public final class TestSponsorTeamMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;                  // Mapper for the JSON
+        final ObjectWriter writer;                  // Writer for the JSON
         final Collection<AffinityGroup> affinities; // Sponsor affinities
         final Collection<Ability> abilities;        // Unit abilities
         final Map<Integer, Unit> units;             // Team units
         final Sponsor sponsor;                      // Team sponsor
         final AffinityGroup affinity;               // Mocked affinity group
         final SponsorTeam team;                     // Mocked team
-        final Unit unit;                    // Mocked unit
+        final Unit unit;                            // Mocked unit
         final Ability ability;                      // Mocked ability
-        final Attributes attributes;          // Mocked attributes
+        final Attributes attributes;                // Mocked attributes
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(Sponsor.class, SponsorMixIn.class);
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
@@ -89,22 +90,26 @@ public final class TestSponsorTeamMixIn {
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
+        // Mocks affinities
         affinities = new LinkedList<>();
         affinity = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
 
+        // Mocks sponsor
         sponsor = Mockito.mock(Sponsor.class);
         Mockito.when(sponsor.getName()).thenReturn("sponsor_name");
         Mockito.when(sponsor.getCash()).thenReturn(10);
         Mockito.when(sponsor.getRank()).thenReturn(20);
         Mockito.when(sponsor.getAffinityGroups()).thenReturn(affinities);
 
+        // Mocks abilities
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
+        // Mocks attributes
         attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
@@ -112,6 +117,7 @@ public final class TestSponsorTeamMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
+        // Mocks units
         units = new LinkedHashMap<>();
         unit = Mockito.mock(Unit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
@@ -122,6 +128,7 @@ public final class TestSponsorTeamMixIn {
         Mockito.when(unit.isGiant()).thenReturn(true);
         units.put(1, unit);
 
+        // Mocks team
         team = Mockito.mock(SponsorTeam.class);
         Mockito.when(team.getCheerleaders()).thenReturn(1);
         Mockito.when(team.getCoachingDice()).thenReturn(2);

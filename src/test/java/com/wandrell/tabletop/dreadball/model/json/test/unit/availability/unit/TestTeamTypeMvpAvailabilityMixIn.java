@@ -67,17 +67,18 @@ public final class TestTeamTypeMvpAvailabilityMixIn {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;           // Mapper for the JSON
+        final ObjectWriter writer;           // Writer for the JSON
         final Collection<TeamRule> rules;    // Team rules
         final Collection<Ability> abilities; // Unit abilities
-        final TeamRule rule;            // Mocked rule
-        final TeamType team;            // Mocked team type
-        final TeamTypeMvpAvailability ava; // Mocked ava
-        final Unit unit;        // Mocked unit
-        final Ability ability;          // Mocked ability
-        final Attributes attributes; // Mocked attributes
+        final TeamRule rule;                 // Mocked rule
+        final TeamType team;                 // Mocked team type
+        final TeamTypeMvpAvailability ava;   // Mocked ava
+        final Unit unit;                     // Mocked unit
+        final Ability ability;               // Mocked ability
+        final Attributes attributes;         // Mocked attributes
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(TeamRule.class, TeamRuleMixIn.class);
         mapper.addMixIn(TeamType.class, TeamTypeMixIn.class);
@@ -87,15 +88,18 @@ public final class TestTeamTypeMvpAvailabilityMixIn {
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
+        // Mocks rules
         rules = new LinkedList<>();
         rule = Mockito.mock(TeamRule.class);
         Mockito.when(rule.getName()).thenReturn("team_rule");
         rules.add(rule);
 
+        // Mocks team
         team = Mockito.mock(TeamType.class);
         Mockito.when(team.getName()).thenReturn("team_name");
         Mockito.when(team.getTeamRules()).thenReturn(rules);
 
+        // Mocks attributes
         attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
@@ -103,11 +107,13 @@ public final class TestTeamTypeMvpAvailabilityMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
+        // Mocks abilities
         abilities = new LinkedList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
+        // Mocks unit
         unit = Mockito.mock(Unit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
@@ -116,6 +122,7 @@ public final class TestTeamTypeMvpAvailabilityMixIn {
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
         Mockito.when(unit.isGiant()).thenReturn(true);
 
+        // Mocks availabilities
         ava = Mockito.mock(TeamTypeMvpAvailability.class);
         Mockito.when(ava.getTeamType()).thenReturn(team);
         Mockito.when(ava.getUnit()).thenReturn(unit);

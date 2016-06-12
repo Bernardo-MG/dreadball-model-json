@@ -53,13 +53,15 @@ public final class TestAttributesMixin {
      */
     @Test
     public final void testJSON() throws JsonProcessingException {
-        final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
+        final ObjectMapper mapper;   // Mapper for the JSON
+        final ObjectWriter writer;   // Writer for the JSON
         final Attributes attributes; // Mocked attributes
 
+        // Creates mapper
         mapper = new ObjectMapper();
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
+        // Mocks attributes
         attributes = Mockito.mock(Attributes.class);
         Mockito.when(attributes.getArmor()).thenReturn(1);
         Mockito.when(attributes.getMovement()).thenReturn(2);
