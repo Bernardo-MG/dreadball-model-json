@@ -95,12 +95,13 @@ public final class TestUnitMixIn {
         Mockito.when(unit.getCost()).thenReturn(10);
         Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
-        Mockito.when(unit.isGiant()).thenReturn(true);
+        Mockito.when(unit.getMvp()).thenReturn(true);
+        Mockito.when(unit.getGiant()).thenReturn(true);
 
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(unit),
-                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"team_position\":\"STRIKER\",\"template_name\":\"unit_template\",\"giant\":true}");
+                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"team_position\":\"STRIKER\",\"template_name\":\"unit_template\",\"mvp\":true,\"giant\":true}");
     }
 
 }

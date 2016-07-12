@@ -125,7 +125,8 @@ public final class TestSponsorTeamMixIn {
         Mockito.when(unit.getCost()).thenReturn(10);
         Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
-        Mockito.when(unit.isGiant()).thenReturn(true);
+        Mockito.when(unit.getMvp()).thenReturn(true);
+        Mockito.when(unit.getGiant()).thenReturn(true);
         units.put(1, unit);
 
         // Mocks team
@@ -145,7 +146,7 @@ public final class TestSponsorTeamMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(team),
-                "{\"cheerleaders\":1,\"dice\":2,\"players\":{\"1\":{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"team_position\":\"STRIKER\",\"template_name\":\"unit_template\",\"giant\":true}},\"valoration\":6,\"medibots\":3,\"sabotage_cards\":4,\"special_move_cards\":5,\"sponsor\":{\"affinity_groups\":[{\"name\":\"affinity_group\"}],\"cash\":10,\"rank\":20,\"name\":\"sponsor_name\"},\"wagers\":7}");
+                "{\"cheerleaders\":1,\"dice\":2,\"players\":{\"1\":{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"team_position\":\"STRIKER\",\"template_name\":\"unit_template\",\"mvp\":true,\"giant\":true}},\"valoration\":6,\"medibots\":3,\"sabotage_cards\":4,\"special_move_cards\":5,\"sponsor\":{\"affinity_groups\":[{\"name\":\"affinity_group\"}],\"cash\":10,\"rank\":20,\"name\":\"sponsor_name\"},\"wagers\":7}");
     }
 
 }
