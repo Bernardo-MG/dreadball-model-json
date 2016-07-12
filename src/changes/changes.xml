@@ -55,5 +55,13 @@
                 Updated API.
             </action>
         </release>
+        <release version="0.4.0" date="2016-07-12" description="Added MVP flag">
+            <action dev="bmg" type="update">
+                Added the MVP flag to the units.
+            </action>
+            <action dev="bmg" type="update">
+                Removed the MVP availability class.
+            </action>
+        </release>
 	</body>
 </document>

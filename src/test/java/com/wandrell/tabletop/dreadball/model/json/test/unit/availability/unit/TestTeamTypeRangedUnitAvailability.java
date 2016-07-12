@@ -120,7 +120,8 @@ public final class TestTeamTypeRangedUnitAvailability {
         Mockito.when(unit.getCost()).thenReturn(10);
         Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
-        Mockito.when(unit.isGiant()).thenReturn(true);
+        Mockito.when(unit.getMvp()).thenReturn(true);
+        Mockito.when(unit.getGiant()).thenReturn(true);
 
         // Mocks availabilities
         ava = Mockito.mock(TeamTypeRangedUnitAvailability.class);
@@ -132,7 +133,7 @@ public final class TestTeamTypeRangedUnitAvailability {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"initial_number\":1,\"max_number\":2,\"team\":{\"team_rules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"unit\":{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"team_position\":\"STRIKER\",\"template_name\":\"unit_template\",\"giant\":true}}");
+                "{\"initial_number\":1,\"max_number\":2,\"team\":{\"team_rules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"unit\":{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"team_position\":\"STRIKER\",\"template_name\":\"unit_template\",\"mvp\":true,\"giant\":true}}");
     }
 
 }

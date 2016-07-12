@@ -117,7 +117,8 @@ public final class TestAdvancementUnitMixIn {
         Mockito.when(unit.getCost()).thenReturn(10);
         Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
         Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
-        Mockito.when(unit.isGiant()).thenReturn(true);
+        Mockito.when(unit.getMvp()).thenReturn(true);
+        Mockito.when(unit.getGiant()).thenReturn(true);
         Mockito.when(unit.getRank()).thenReturn(20);
         Mockito.when(unit.getUnspentExperience()).thenReturn(30);
         Mockito.when(unit.getValoration()).thenReturn(40);
@@ -125,7 +126,7 @@ public final class TestAdvancementUnitMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(unit),
-                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"team_position\":\"STRIKER\",\"template_name\":\"unit_template\",\"giant\":true,\"implant\":null,\"rank\":20,\"unspent_experience\":30,\"valoration\":40}");
+                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"team_position\":\"STRIKER\",\"template_name\":\"unit_template\",\"mvp\":true,\"giant\":true,\"implant\":null,\"rank\":20,\"unspent_experience\":30,\"valoration\":40}");
     }
 
 }
