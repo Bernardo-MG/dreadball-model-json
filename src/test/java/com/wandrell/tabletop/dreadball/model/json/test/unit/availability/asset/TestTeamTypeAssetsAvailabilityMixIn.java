@@ -97,12 +97,18 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
         Mockito.when(ava.getDreadballCardCost()).thenReturn(8);
         Mockito.when(ava.getDreadballCardInitial()).thenReturn(9);
         Mockito.when(ava.getDreadballCardMax()).thenReturn(10);
+        Mockito.when(ava.getStartingWithDefensiveCoachingStaff())
+                .thenReturn(true);
+        Mockito.when(ava.getStartingWithOffensiveCoachingStaff())
+                .thenReturn(false);
+        Mockito.when(ava.getStartingWithSupportCoachingStaff())
+                .thenReturn(true);
         Mockito.when(ava.getTeamType()).thenReturn(team);
 
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"cheerleader_cost\":1,\"cheerleader_initial\":2,\"cheerleader_max\":3,\"coaching_die_cost\":4,\"coaching_die_initial\":5,\"coaching_die_max\":6,\"coaching_staff_cost\":7,\"dreadball_card_cost\":8,\"dreadball_card_initial\":9,\"dreadball_card_max\":10,\"team\":{\"team_rules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"initial_defensive_coach\":false,\"initial_offensive_coach\":false,\"initial_support_coach\":false}");
+                "{\"cheerleader_cost\":1,\"cheerleader_initial\":2,\"cheerleader_max\":3,\"coaching_die_cost\":4,\"coaching_die_initial\":5,\"coaching_die_max\":6,\"coaching_staff_cost\":7,\"dreadball_card_cost\":8,\"dreadball_card_initial\":9,\"dreadball_card_max\":10,\"team\":{\"team_rules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"initial_defensive_coach\":true,\"initial_offensive_coach\":false,\"initial_support_coach\":true}");
     }
 
 }
