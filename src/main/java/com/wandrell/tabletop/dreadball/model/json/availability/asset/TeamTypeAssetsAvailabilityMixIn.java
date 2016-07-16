@@ -79,19 +79,19 @@ public interface TeamTypeAssetsAvailabilityMixIn
     public Integer getDreadballCardMax();
 
     @Override
-    @JsonProperty("team")
-    public TeamType getTeamType();
-
-    @Override
     @JsonProperty("initial_defensive_coach")
-    public Boolean isStartingWithDefensiveCoachingStaff();
+    public Boolean getStartingWithDefensiveCoachingStaff();
 
     @Override
     @JsonProperty("initial_offensive_coach")
-    public Boolean isStartingWithOffensiveCoachingStaff();
+    public Boolean getStartingWithOffensiveCoachingStaff();
 
     @Override
     @JsonProperty("initial_support_coach")
-    public Boolean isStartingWithSupportCoachingStaff();
+    public Boolean getStartingWithSupportCoachingStaff();
+
+    @Override
+    @JsonProperty("team")
+    public TeamType getTeamType();
 
 }
