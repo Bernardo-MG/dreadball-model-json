@@ -67,5 +67,10 @@
             Updated API.
          </action>
       </release>
+      <release version="0.5.1" date="2016-07-23" description="Added rank cost">
+         <action dev="bmg" type="update">
+            Added rank cost field for the sponsor team.
+         </action>
+      </release>
    </body>
 </document>
