@@ -31,8 +31,8 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "cheerleaders", "dice", "players", "valoration",
-        "medibots", "sabotage_cards", "special_move_cards", "rank_cost", "sponsor",
-        "wagers" })
+        "rank_cost", "medibots", "sabotage_cards", "special_move_cards",
+        "sponsor", "wagers" })
 public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<Unit> {
 
     @Override
