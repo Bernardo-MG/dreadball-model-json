@@ -72,5 +72,10 @@
             Added rank cost field for the sponsor team.
          </action>
       </release>
+      <release version="0.5.2" date="2016-08-02" description="Corrected rank field">
+         <action dev="bmg" type="update">
+            The rank field is now using the correct name.
+         </action>
+      </release>
    </body>
 </document>
