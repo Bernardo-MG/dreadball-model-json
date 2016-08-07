@@ -83,7 +83,7 @@ public final class RoleCollectionSerializer
 
         str = new StringBuilder();
         for (final Object role : value) {
-            str.append(role.toString().toLowerCase()).append(";");
+            str.append(role.toString().toLowerCase()).append(';');
             gen.writeString(role.toString().toLowerCase());
         }
 
