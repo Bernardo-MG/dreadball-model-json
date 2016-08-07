@@ -183,7 +183,6 @@
       <!-- Manifest data -->
       <manifest.name>com/wandrell/tabletop/dreadball/model/json</manifest.name>
       <!-- Dependencies versions -->
-      <guava.version>19.0</guava.version>
       <jackson.version>2.8.1</jackson.version>
       <log4j.version>2.6</log4j.version>
       <mockito.version>1.10.19</mockito.version>
@@ -208,12 +207,6 @@
          <groupId>com.wandrell.tabletop.dreadball</groupId>
          <artifactId>dreadball-model-api</artifactId>
          <version>${tabletop.dreadball.api.version}</version>
-      </dependency>
-      <dependency>
-         <!-- Guava -->
-         <groupId>com.google.guava</groupId>
-         <artifactId>guava</artifactId>
-         <version>${guava.version}</version>
       </dependency>
       <dependency>
          <!-- Jackson Annotations -->
