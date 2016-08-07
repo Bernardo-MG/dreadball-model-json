@@ -77,5 +77,10 @@
             The rank field is now using the correct name.
          </action>
       </release>
+      <release version="0.5.3" date="2016-08-07" description="Role enum serialization">
+         <action dev="bmg" type="update">
+            The role enum is now serialized to lower case.
+         </action>
+      </release>
    </body>
 </document>

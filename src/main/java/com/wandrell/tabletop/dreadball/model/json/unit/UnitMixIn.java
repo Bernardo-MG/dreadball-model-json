@@ -21,6 +21,8 @@ import java.util.Collection;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.wandrell.tabletop.dreadball.model.json.databind.RoleSerializer;
 import com.wandrell.tabletop.dreadball.model.unit.Role;
 import com.wandrell.tabletop.dreadball.model.unit.Unit;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Ability;
@@ -59,6 +61,7 @@ public interface UnitMixIn extends Unit {
 
     @Override
     @JsonProperty("role")
+    @JsonSerialize(using = RoleSerializer.class)
     public Role getRole();
 
     @Override

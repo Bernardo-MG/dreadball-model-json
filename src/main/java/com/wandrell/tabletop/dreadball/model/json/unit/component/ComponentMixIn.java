@@ -21,6 +21,8 @@ import java.util.Collection;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.wandrell.tabletop.dreadball.model.json.databind.RoleCollectionSerializer;
 import com.wandrell.tabletop.dreadball.model.unit.Role;
 import com.wandrell.tabletop.dreadball.model.unit.component.Component;
 import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
@@ -60,6 +62,7 @@ public interface ComponentMixIn extends Component {
 
     @Override
     @JsonProperty("roles")
+    @JsonSerialize(using = RoleCollectionSerializer.class)
     public Collection<Role> getRoles();
 
 }
