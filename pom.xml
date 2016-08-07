@@ -221,23 +221,21 @@
          <artifactId>jackson-annotations</artifactId>
          <version>${jackson.version}</version>
       </dependency>
-      <!-- ============================================== -->
-      <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- Jackson Core -->
-         <groupId>com.fasterxml.jackson.core</groupId>
-         <artifactId>jackson-core</artifactId>
-         <version>${jackson.version}</version>
-         <scope>test</scope>
-      </dependency>
       <dependency>
          <!-- Jackson Databind -->
          <groupId>com.fasterxml.jackson.core</groupId>
          <artifactId>jackson-databind</artifactId>
          <version>${jackson.version}</version>
-         <scope>test</scope>
       </dependency>
+      <dependency>
+         <!-- Jackson Core -->
+         <groupId>com.fasterxml.jackson.core</groupId>
+         <artifactId>jackson-core</artifactId>
+         <version>${jackson.version}</version>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
+      <!-- ============================================== -->
       <dependency>
          <!-- Mockito -->
          <groupId>org.mockito</groupId>

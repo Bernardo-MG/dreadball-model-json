@@ -100,6 +100,7 @@ public final class TestComponentMixIn {
         // Sets roles
         roles = new LinkedList<>();
         roles.add(Role.STRIKER);
+        roles.add(Role.JACK);
 
         // Mocks component
         component = Mockito.mock(Component.class);
@@ -113,7 +114,7 @@ public final class TestComponentMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(component),
-                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"name\":\"component_name\",\"cost\":11,\"location\":{\"name\":\"component_location\"},\"roles\":[\"STRIKER\"]}");
+                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"name\":\"component_name\",\"cost\":11,\"location\":{\"name\":\"component_location\"},\"roles\":[\"striker\",\"jack\"]}");
     }
 
 }

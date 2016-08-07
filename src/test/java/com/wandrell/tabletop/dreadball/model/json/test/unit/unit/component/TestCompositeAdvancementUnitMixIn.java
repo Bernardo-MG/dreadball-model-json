@@ -106,6 +106,7 @@ public final class TestCompositeAdvancementUnitMixIn {
         // Sets roles
         roles = new LinkedList<>();
         roles.add(Role.STRIKER);
+        roles.add(Role.JACK);
 
         // Mocks components
         components = new LinkedList<>();
@@ -135,7 +136,7 @@ public final class TestCompositeAdvancementUnitMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(unit),
-                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"STRIKER\",\"template_name\":\"unit_template\",\"mvp\":true,\"giant\":true,\"implant\":null,\"rank\":20,\"unspent_experience\":30,\"valoration\":40,\"components\":[{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"name\":\"component_name\",\"cost\":11,\"location\":{\"name\":\"component_location\"},\"roles\":[\"STRIKER\"]}]}");
+                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"template_name\":\"unit_template\",\"mvp\":true,\"giant\":true,\"implant\":null,\"rank\":20,\"unspent_experience\":30,\"valoration\":40,\"components\":[{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"name\":\"component_name\",\"cost\":11,\"location\":{\"name\":\"component_location\"},\"roles\":[\"striker\",\"jack\"]}]}");
     }
 
 }
