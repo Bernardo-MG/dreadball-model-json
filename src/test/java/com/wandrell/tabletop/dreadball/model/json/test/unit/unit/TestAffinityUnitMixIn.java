@@ -109,6 +109,7 @@ public final class TestAffinityUnitMixIn {
 
         // Mocks unit
         unit = Mockito.mock(AffinityUnit.class);
+        Mockito.when(unit.getName()).thenReturn("name");
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
         Mockito.when(unit.getCost()).thenReturn(10);
@@ -125,7 +126,7 @@ public final class TestAffinityUnitMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(unit),
-                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"template_name\":\"unit_template\",\"mvp\":true,\"giant\":true,\"affinity_groups\":[{\"name\":\"affinity_group\"}],\"hated_affinity_groups\":[{\"name\":\"affinity_group_2\"}],\"ally_cost\":5,\"friend_cost\":6,\"stranger_cost\":7}");
+                "{\"name\":\"name\",\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"template_name\":\"unit_template\",\"mvp\":true,\"giant\":true,\"affinity_groups\":[{\"name\":\"affinity_group\"}],\"hated_affinity_groups\":[{\"name\":\"affinity_group_2\"}],\"ally_cost\":5,\"friend_cost\":6,\"stranger_cost\":7}");
     }
 
 }
