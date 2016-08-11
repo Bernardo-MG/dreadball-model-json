@@ -32,9 +32,10 @@ import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAffinityUni
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "abilities", "attributes", "cost", "role", "template_name",
-        "mvp", "giant", "affinity_groups", "hated_affinity_groups", "ally_cost",
-        "friend_cost", "stranger_cost", "components" })
+@JsonPropertyOrder({ "name", "abilities", "attributes", "cost", "role",
+        "template_name", "mvp", "giant", "affinity_groups",
+        "hated_affinity_groups", "ally_cost", "friend_cost", "stranger_cost",
+        "components" })
 public interface CompositeAffinityUnitMixIn
         extends CompositeAffinityUnit, AffinityUnitMixIn {
 
