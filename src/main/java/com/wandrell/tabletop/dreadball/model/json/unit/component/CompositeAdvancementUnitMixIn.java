@@ -32,9 +32,9 @@ import com.wandrell.tabletop.dreadball.model.unit.component.CompositeAdvancement
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "abilities", "attributes", "cost", "role", "template_name",
-        "mvp", "giant", "implant", "rank", "unspent_experience", "valoration",
-        "components" })
+@JsonPropertyOrder({ "name", "abilities", "attributes", "cost", "role",
+        "template_name", "mvp", "giant", "implant", "rank",
+        "unspent_experience", "valoration", "components" })
 public interface CompositeAdvancementUnitMixIn
         extends CompositeAdvancementUnit, AdvancementUnitMixIn {
 
