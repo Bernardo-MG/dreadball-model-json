@@ -41,6 +41,10 @@ public interface AdvancementTeamMixIn
     public Integer getCash();
 
     @Override
+    @JsonProperty("defensive_coach")
+    public Boolean getDefensiveCoachingStaff();
+
+    @Override
     @JsonProperty("cards")
     public Integer getDreadballCards();
 
@@ -49,19 +53,15 @@ public interface AdvancementTeamMixIn
     public String getName();
 
     @Override
-    @JsonProperty("type")
-    public TeamType getTeamType();
-
-    @Override
-    @JsonProperty("defensive_coach")
-    public Boolean hasDefensiveCoachingStaff();
-
-    @Override
     @JsonProperty("offensive_coach")
-    public Boolean hasOffensiveCoachingStaff();
+    public Boolean getOffensiveCoachingStaff();
 
     @Override
     @JsonProperty("support_coach")
-    public Boolean hasSupportCoachingStaff();
+    public Boolean getSupportCoachingStaff();
+
+    @Override
+    @JsonProperty("type")
+    public TeamType getTeamType();
 
 }
