@@ -87,5 +87,10 @@
             The unit name is now serialized.
          </action>
       </release>
+      <release version="0.5.5" date="2016-08-16" description="API update">
+         <action dev="bmg" type="update">
+            Updated API.
+         </action>
+      </release>
    </body>
 </document>
