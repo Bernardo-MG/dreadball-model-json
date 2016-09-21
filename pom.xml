@@ -183,7 +183,7 @@
       <!-- Manifest data -->
       <manifest.name>com/wandrell/tabletop/dreadball/model/json</manifest.name>
       <!-- Dependencies versions -->
-      <jackson.version>2.8.1</jackson.version>
+      <jackson.version>2.8.3</jackson.version>
       <log4j.version>2.6</log4j.version>
       <mockito.version>1.10.19</mockito.version>
       <tabletop.dreadball.api.version>0.7.1</tabletop.dreadball.api.version>
