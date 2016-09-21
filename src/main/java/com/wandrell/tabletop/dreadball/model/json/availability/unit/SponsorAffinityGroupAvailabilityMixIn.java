@@ -31,12 +31,12 @@ import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "affinity_groups", "name", "rank_increase" })
+@JsonPropertyOrder({ "affinityGroups", "name", "includingRankIncrease" })
 public interface SponsorAffinityGroupAvailabilityMixIn
         extends SponsorAffinityGroupAvailability {
 
     @Override
-    @JsonProperty("affinity_groups")
+    @JsonProperty
     public Collection<AffinityGroup> getAffinityGroups();
 
     @Override
@@ -44,7 +44,7 @@ public interface SponsorAffinityGroupAvailabilityMixIn
     public String getName();
 
     @Override
-    @JsonProperty("rank_increase")
+    @JsonProperty
     public Boolean isIncludingRankIncrease();
 
 }

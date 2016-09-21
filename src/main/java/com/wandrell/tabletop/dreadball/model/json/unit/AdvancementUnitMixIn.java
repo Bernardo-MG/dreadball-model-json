@@ -30,12 +30,12 @@ import com.wandrell.tabletop.dreadball.model.unit.component.Component;
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "name", "abilities", "attributes", "cost", "role",
-        "template_name", "mvp", "giant", "implant", "rank",
-        "unspent_experience", "valoration" })
+        "templateName", "mvp", "giant", "graftedImplant", "rank",
+        "unspentExperience", "valoration" })
 public interface AdvancementUnitMixIn extends AdvancementUnit, UnitMixIn {
 
     @Override
-    @JsonProperty("implant")
+    @JsonProperty
     public Component getGraftedImplant();
 
     @Override
@@ -43,7 +43,7 @@ public interface AdvancementUnitMixIn extends AdvancementUnit, UnitMixIn {
     public Integer getRank();
 
     @Override
-    @JsonProperty("unspent_experience")
+    @JsonProperty
     public Integer getUnspentExperience();
 
     @Override

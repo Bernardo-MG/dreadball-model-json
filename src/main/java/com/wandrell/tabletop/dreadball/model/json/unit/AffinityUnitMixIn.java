@@ -32,28 +32,28 @@ import com.wandrell.tabletop.dreadball.model.unit.AffinityUnit;
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "name", "abilities", "attributes", "cost", "role",
-        "template_name", "mvp", "giant", "affinity_groups",
-        "hated_affinity_groups", "ally_cost", "friend_cost", "stranger_cost" })
+        "templateName", "mvp", "giant", "affinityGroups", "hatedAffinityGroups",
+        "allyCost", "friendCost", "strangerCost" })
 public interface AffinityUnitMixIn extends AffinityUnit, UnitMixIn {
 
     @Override
-    @JsonProperty("affinity_groups")
+    @JsonProperty
     public Collection<AffinityGroup> getAffinityGroups();
 
     @Override
-    @JsonProperty("ally_cost")
+    @JsonProperty
     public Integer getAllyCost();
 
     @Override
-    @JsonProperty("friend_cost")
+    @JsonProperty
     public Integer getFriendCost();
 
     @Override
-    @JsonProperty("hated_affinity_groups")
+    @JsonProperty
     public Collection<AffinityGroup> getHatedAffinityGroups();
 
     @Override
-    @JsonProperty("stranger_cost")
+    @JsonProperty
     public Integer getStrangerCost();
 
 }

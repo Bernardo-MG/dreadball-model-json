@@ -36,7 +36,7 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "name", "abilities", "attributes", "cost", "role",
-        "template_name", "mvp", "giant" })
+        "templateName", "mvp", "giant" })
 public interface UnitMixIn extends Unit {
 
     @Override
@@ -52,24 +52,24 @@ public interface UnitMixIn extends Unit {
     public Integer getCost();
 
     @Override
-    @JsonProperty("giant")
+    @JsonProperty
     public Boolean getGiant();
 
     @Override
-    @JsonProperty("mvp")
+    @JsonProperty
     public Boolean getMvp();
 
     @Override
-    @JsonProperty("name")
+    @JsonProperty
     public String getName();
 
     @Override
-    @JsonProperty("role")
+    @JsonProperty
     @JsonSerialize(using = RoleSerializer.class)
     public Role getRole();
 
     @Override
-    @JsonProperty("template_name")
+    @JsonProperty
     public String getTemplateName();
 
 }

@@ -83,7 +83,7 @@ public final class TestTeamTypeMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(team),
-                "{\"team_rules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"}");
+                "{\"teamRules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"}");
     }
 
 }

@@ -57,11 +57,11 @@ public interface ComponentMixIn extends Component {
     public ComponentLocation getLocation();
 
     @Override
-    @JsonProperty("name")
+    @JsonProperty
     public String getName();
 
     @Override
-    @JsonProperty("roles")
+    @JsonProperty
     @JsonSerialize(using = RoleCollectionSerializer.class)
     public Collection<Role> getRoles();
 

@@ -31,11 +31,11 @@ import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "affinity_groups", "cash", "rank", "name" })
+@JsonPropertyOrder({ "affinityGroups", "cash", "rank", "name" })
 public interface SponsorMixIn extends Sponsor {
 
     @Override
-    @JsonProperty("affinity_groups")
+    @JsonProperty
     public Collection<AffinityGroup> getAffinityGroups();
 
     @Override
@@ -43,7 +43,7 @@ public interface SponsorMixIn extends Sponsor {
     public Integer getCash();
 
     @Override
-    @JsonProperty("name")
+    @JsonProperty
     public String getName();
 
     @Override

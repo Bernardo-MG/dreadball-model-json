@@ -84,7 +84,7 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"affinity_groups\":[{\"name\":\"affinity_group\"}],\"name\":\"group_name\",\"rank_increase\":false}");
+                "{\"affinityGroups\":[{\"name\":\"affinity_group\"}],\"name\":\"group_name\",\"includingRankIncrease\":false}");
     }
 
 }

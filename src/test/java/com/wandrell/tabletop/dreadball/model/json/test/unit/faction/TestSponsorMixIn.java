@@ -85,7 +85,7 @@ public final class TestSponsorMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(sponsor),
-                "{\"affinity_groups\":[{\"name\":\"affinity_group\"}],\"cash\":10,\"rank\":20,\"name\":\"sponsor_name\"}");
+                "{\"affinityGroups\":[{\"name\":\"affinity_group\"}],\"cash\":10,\"rank\":20,\"name\":\"sponsor_name\"}");
     }
 
 }

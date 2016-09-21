@@ -30,12 +30,12 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "team", "unit" })
+@JsonPropertyOrder({ "teamType", "unit" })
 public interface TeamTypeUnitAvailabilityMixIn
         extends TeamTypeUnitAvailability {
 
     @Override
-    @JsonProperty("team")
+    @JsonProperty
     public TeamType getTeamType();
 
     @Override
