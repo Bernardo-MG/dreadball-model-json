@@ -78,7 +78,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"affinity_cost\":1,\"cheerleader_cost\":2,\"cheerleader_unlock_cost\":3,\"coaching_die_cost\":4,\"medibot_cost\":5,\"sabotage_card_cost\":6,\"special_movement_card_cost\":7,\"team_cost_min\":8,\"wager_cost\":9,\"wager_max_count\":10}");
+                "{\"affinityGroupCost\":1,\"cheerleaderCost\":2,\"cheerleaderUnlockCost\":3,\"coachingDieCost\":4,\"mediBotCost\":5,\"sabotageCardCost\":6,\"specialMovementCardCost\":7,\"teamCostMin\":8,\"wagerCost\":9,\"wagerMaxCount\":10}");
     }
 
 }

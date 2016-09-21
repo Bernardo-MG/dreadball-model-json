@@ -29,69 +29,69 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamType;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "cheerleader_cost", "cheerleader_initial",
-        "cheerleader_max", "coaching_die_cost", "coaching_die_initial",
-        "coaching_die_max", "coaching_staff_cost", "dreadball_card_cost",
-        "dreadball_card_initial", "dreadball_card_max", "team",
-        "initial_defensive_coach", "initial_offensive_coach",
-        "initial_support_coach" })
+@JsonPropertyOrder({ "cheerleaderCost", "cheerleaderInitial", "cheerleaderMax",
+        "coachingDieCost", "coachingDieInitial", "coachingDieMax",
+        "coachingStaffCost", "dreadballCardCost", "dreadballCardInitial",
+        "dreadballCardMax", "teamType", "startingWithDefensiveCoachingStaff",
+        "startingWithOffensiveCoachingStaff",
+        "startingWithSupportCoachingStaff" })
 public interface TeamTypeAssetsAvailabilityMixIn
         extends TeamTypeAssetsAvailability {
 
     @Override
-    @JsonProperty("cheerleader_cost")
+    @JsonProperty
     public Integer getCheerleaderCost();
 
     @Override
-    @JsonProperty("cheerleader_initial")
+    @JsonProperty
     public Integer getCheerleaderInitial();
 
     @Override
-    @JsonProperty("cheerleader_max")
+    @JsonProperty
     public Integer getCheerleaderMax();
 
     @Override
-    @JsonProperty("coaching_die_cost")
+    @JsonProperty
     public Integer getCoachingDieCost();
 
     @Override
-    @JsonProperty("coaching_die_initial")
+    @JsonProperty
     public Integer getCoachingDieInitial();
 
     @Override
-    @JsonProperty("coaching_die_max")
+    @JsonProperty
     public Integer getCoachingDieMax();
 
     @Override
-    @JsonProperty("coaching_staff_cost")
+    @JsonProperty
     public Integer getCoachingStaffCost();
 
     @Override
-    @JsonProperty("dreadball_card_cost")
+    @JsonProperty
     public Integer getDreadballCardCost();
 
     @Override
-    @JsonProperty("dreadball_card_initial")
+    @JsonProperty
     public Integer getDreadballCardInitial();
 
     @Override
-    @JsonProperty("dreadball_card_max")
+    @JsonProperty
     public Integer getDreadballCardMax();
 
     @Override
-    @JsonProperty("initial_defensive_coach")
+    @JsonProperty
     public Boolean getStartingWithDefensiveCoachingStaff();
 
     @Override
-    @JsonProperty("initial_offensive_coach")
+    @JsonProperty
     public Boolean getStartingWithOffensiveCoachingStaff();
 
     @Override
-    @JsonProperty("initial_support_coach")
+    @JsonProperty
     public Boolean getStartingWithSupportCoachingStaff();
 
     @Override
-    @JsonProperty("team")
+    @JsonProperty
     public TeamType getTeamType();
 
 }

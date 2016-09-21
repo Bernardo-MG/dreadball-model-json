@@ -108,7 +108,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"cheerleader_cost\":1,\"cheerleader_initial\":2,\"cheerleader_max\":3,\"coaching_die_cost\":4,\"coaching_die_initial\":5,\"coaching_die_max\":6,\"coaching_staff_cost\":7,\"dreadball_card_cost\":8,\"dreadball_card_initial\":9,\"dreadball_card_max\":10,\"team\":{\"team_rules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"initial_defensive_coach\":true,\"initial_offensive_coach\":false,\"initial_support_coach\":true}");
+                "{\"cheerleaderCost\":1,\"cheerleaderInitial\":2,\"cheerleaderMax\":3,\"coachingDieCost\":4,\"coachingDieInitial\":5,\"coachingDieMax\":6,\"coachingStaffCost\":7,\"dreadballCardCost\":8,\"dreadballCardInitial\":9,\"dreadballCardMax\":10,\"teamType\":{\"teamRules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"startingWithDefensiveCoachingStaff\":true,\"startingWithOffensiveCoachingStaff\":false,\"startingWithSupportCoachingStaff\":true}");
     }
 
 }

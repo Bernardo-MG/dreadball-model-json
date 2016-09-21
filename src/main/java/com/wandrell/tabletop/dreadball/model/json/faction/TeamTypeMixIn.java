@@ -31,15 +31,15 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamType;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "team_rules", "name" })
+@JsonPropertyOrder({ "teamRules", "name" })
 public interface TeamTypeMixIn extends TeamType {
 
     @Override
-    @JsonProperty("name")
+    @JsonProperty
     public String getName();
 
     @Override
-    @JsonProperty("team_rules")
+    @JsonProperty
     public Collection<TeamRule> getTeamRules();
 
 }

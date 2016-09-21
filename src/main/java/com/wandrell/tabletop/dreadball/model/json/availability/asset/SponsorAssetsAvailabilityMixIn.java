@@ -28,51 +28,51 @@ import com.wandrell.tabletop.dreadball.model.availability.asset.SponsorAssetsAva
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "affinity_cost", "cheerleader_cost",
-        "cheerleader_unlock_cost", "coaching_die_cost", "medibot_cost",
-        "sabotage_card_cost", "special_movement_card_cost", "team_cost_min",
-        "wager_cost", "wager_max_count" })
+@JsonPropertyOrder({ "affinityGroupCost", "cheerleaderCost",
+        "cheerleaderUnlockCost", "coachingDieCost", "mediBotCost",
+        "sabotageCardCost", "specialMovementCardCost", "teamCostMin",
+        "wagerCost", "wagerMaxCount" })
 public interface SponsorAssetsAvailabilityMixIn
         extends SponsorAssetsAvailability {
 
     @Override
-    @JsonProperty("affinity_cost")
+    @JsonProperty
     public Integer getAffinityGroupCost();
 
     @Override
-    @JsonProperty("cheerleader_cost")
+    @JsonProperty
     public Integer getCheerleaderCost();
 
     @Override
-    @JsonProperty("cheerleader_unlock_cost")
+    @JsonProperty
     public Integer getCheerleaderUnlockCost();
 
     @Override
-    @JsonProperty("coaching_die_cost")
+    @JsonProperty
     public Integer getCoachingDieCost();
 
     @Override
-    @JsonProperty("medibot_cost")
+    @JsonProperty
     public Integer getMediBotCost();
 
     @Override
-    @JsonProperty("sabotage_card_cost")
+    @JsonProperty
     public Integer getSabotageCardCost();
 
     @Override
-    @JsonProperty("special_movement_card_cost")
+    @JsonProperty
     public Integer getSpecialMovementCardCost();
 
     @Override
-    @JsonProperty("team_cost_min")
+    @JsonProperty
     public Integer getTeamCostMin();
 
     @Override
-    @JsonProperty("wager_cost")
+    @JsonProperty
     public Integer getWagerCost();
 
     @Override
-    @JsonProperty("wager_max_count")
+    @JsonProperty
     public Integer getWagerMaxCount();
 
 }

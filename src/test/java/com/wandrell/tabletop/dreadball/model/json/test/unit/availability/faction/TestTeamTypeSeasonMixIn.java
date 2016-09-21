@@ -92,7 +92,7 @@ public final class TestTeamTypeSeasonMixIn {
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"team\":{\"team_rules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"season\":1}");
+                "{\"team\":{\"teamRules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"seasonNumber\":1}");
     }
 
 }

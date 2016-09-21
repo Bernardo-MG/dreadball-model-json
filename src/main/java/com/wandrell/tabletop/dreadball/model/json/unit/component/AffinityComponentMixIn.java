@@ -29,20 +29,20 @@ import com.wandrell.tabletop.dreadball.model.unit.component.AffinityComponent;
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "abilities", "attributes", "name", "cost", "location",
-        "roles", "ally_cost", "friend_cost", "stranger_cost" })
+        "roles", "allyCost", "friendCost", "strangerCost" })
 public interface AffinityComponentMixIn
         extends AffinityComponent, ComponentMixIn {
 
     @Override
-    @JsonProperty("ally_cost")
+    @JsonProperty
     public Integer getAllyCost();
 
     @Override
-    @JsonProperty("friend_cost")
+    @JsonProperty
     public Integer getFriendCost();
 
     @Override
-    @JsonProperty("stranger_cost")
+    @JsonProperty
     public Integer getStrangerCost();
 
 }

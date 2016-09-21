@@ -30,7 +30,7 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 public interface TeamRuleMixIn extends TeamRule {
 
     @Override
-    @JsonProperty("name")
+    @JsonProperty
     public String getName();
 
 }

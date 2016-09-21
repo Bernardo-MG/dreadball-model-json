@@ -30,7 +30,7 @@ import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
 public interface ComponentLocationMixIn extends ComponentLocation {
 
     @Override
-    @JsonProperty("name")
+    @JsonProperty
     public String getName();
 
 }

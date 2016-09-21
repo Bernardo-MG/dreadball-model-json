@@ -30,9 +30,9 @@ import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "cheerleaders", "dice", "players", "valoration", "cash",
-        "cards", "name", "type", "defensive_coach", "offensive_coach",
-        "support_coach" })
+@JsonPropertyOrder({ "cheerleaders", "coachingDice", "players", "valoration",
+        "cash", "dreadballCards", "name", "teamType", "defensiveCoachingStaff",
+        "offensiveCoachingStaff", "supportCoachingStaff" })
 public interface AdvancementTeamMixIn
         extends AdvancementTeam, TeamMixIn<AdvancementUnit> {
 
@@ -41,27 +41,27 @@ public interface AdvancementTeamMixIn
     public Integer getCash();
 
     @Override
-    @JsonProperty("defensive_coach")
+    @JsonProperty
     public Boolean getDefensiveCoachingStaff();
 
     @Override
-    @JsonProperty("cards")
+    @JsonProperty
     public Integer getDreadballCards();
 
     @Override
-    @JsonProperty("name")
+    @JsonProperty
     public String getName();
 
     @Override
-    @JsonProperty("offensive_coach")
+    @JsonProperty
     public Boolean getOffensiveCoachingStaff();
 
     @Override
-    @JsonProperty("support_coach")
+    @JsonProperty
     public Boolean getSupportCoachingStaff();
 
     @Override
-    @JsonProperty("type")
+    @JsonProperty
     public TeamType getTeamType();
 
 }
