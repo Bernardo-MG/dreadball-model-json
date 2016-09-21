@@ -92,5 +92,10 @@
             Updated API.
          </action>
       </release>
+      <release version="0.6.0" date="2016-09-21" description="Using camel-case">
+         <action dev="bmg" type="update">
+            Field names now use camel-case.
+         </action>
+      </release>
    </body>
 </document>
