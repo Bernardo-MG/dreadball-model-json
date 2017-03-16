@@ -16,8 +16,8 @@
 
 package com.wandrell.tabletop.dreadball.model.json.test.unit.unit;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 
 import org.mockito.Mockito;
 import org.testng.Assert;
@@ -82,19 +82,19 @@ public final class TestAffinityUnitMixIn {
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
 
         // Mocks abilities
-        abilities = new LinkedList<>();
+        abilities = new ArrayList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
         // Mocks affinities
-        affinities = new LinkedList<>();
+        affinities = new ArrayList<>();
         affinity1 = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity1.getName()).thenReturn("affinity_group");
         affinities.add(affinity1);
 
         // Mocks hated affinities
-        hated = new LinkedList<>();
+        hated = new ArrayList<>();
         affinity2 = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity2.getName()).thenReturn("affinity_group_2");
         hated.add(affinity2);

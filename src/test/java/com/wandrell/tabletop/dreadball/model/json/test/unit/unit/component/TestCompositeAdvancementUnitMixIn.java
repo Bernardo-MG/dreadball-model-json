@@ -16,8 +16,8 @@
 
 package com.wandrell.tabletop.dreadball.model.json.test.unit.unit.component;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 
 import org.mockito.Mockito;
 import org.testng.Assert;
@@ -86,7 +86,7 @@ public final class TestCompositeAdvancementUnitMixIn {
         mapper.addMixIn(ComponentLocation.class, ComponentLocationMixIn.class);
 
         // Mocks abilities
-        abilities = new LinkedList<>();
+        abilities = new ArrayList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
@@ -104,12 +104,12 @@ public final class TestCompositeAdvancementUnitMixIn {
         Mockito.when(location.getName()).thenReturn("component_location");
 
         // Sets roles
-        roles = new LinkedList<>();
+        roles = new ArrayList<>();
         roles.add(Role.STRIKER);
         roles.add(Role.JACK);
 
         // Mocks components
-        components = new LinkedList<>();
+        components = new ArrayList<>();
         component = Mockito.mock(Component.class);
         Mockito.when(component.getAbilities()).thenReturn(abilities);
         Mockito.when(component.getAttributes()).thenReturn(attributes);

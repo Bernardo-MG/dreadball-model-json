@@ -16,8 +16,8 @@
 
 package com.wandrell.tabletop.dreadball.model.json.test.unit.availability.asset;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 
 import org.mockito.Mockito;
 import org.testng.Assert;
@@ -75,7 +75,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
                 TeamTypeAssetsAvailabilityMixIn.class);
 
         // Mocks rules
-        rules = new LinkedList<>();
+        rules = new ArrayList<>();
         rule = Mockito.mock(TeamRule.class);
         Mockito.when(rule.getName()).thenReturn("team_rule");
         rules.add(rule);

@@ -16,8 +16,8 @@
 
 package com.wandrell.tabletop.dreadball.model.json.test.unit.availability.unit;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 
 import org.mockito.Mockito;
 import org.testng.Assert;
@@ -71,7 +71,7 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
 
         // Mocks affinities
-        affinities = new LinkedList<>();
+        affinities = new ArrayList<>();
         affinity = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);

@@ -19,7 +19,6 @@ package com.wandrell.tabletop.dreadball.model.json.test.unit.team;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.Map;
 
 import org.mockito.Mockito;
@@ -93,7 +92,7 @@ public final class TestSponsorTeamMixIn {
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
         // Mocks affinities
-        affinities = new LinkedList<>();
+        affinities = new ArrayList<>();
         affinity = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
@@ -110,7 +109,7 @@ public final class TestSponsorTeamMixIn {
         Mockito.when(sponsor.getAffinityGroups()).thenReturn(affinities);
 
         // Mocks abilities
-        abilities = new LinkedList<>();
+        abilities = new ArrayList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
