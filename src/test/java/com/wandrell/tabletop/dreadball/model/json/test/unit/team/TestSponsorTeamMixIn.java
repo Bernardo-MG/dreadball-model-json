@@ -16,6 +16,7 @@
 
 package com.wandrell.tabletop.dreadball.model.json.test.unit.team;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -72,6 +73,7 @@ public final class TestSponsorTeamMixIn {
         final ObjectMapper mapper;                  // Mapper for the JSON
         final ObjectWriter writer;                  // Writer for the JSON
         final Collection<AffinityGroup> affinities; // Sponsor affinities
+        final Collection<AffinityGroup> addAffs;    // Additional affinities
         final Collection<Ability> abilities;        // Unit abilities
         final Map<Integer, Unit> units;             // Team units
         final Sponsor sponsor;                      // Team sponsor
@@ -95,6 +97,10 @@ public final class TestSponsorTeamMixIn {
         affinity = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
+
+        // Mocks additional affinities
+        addAffs = new ArrayList<>();
+        addAffs.add(affinity);
 
         // Mocks sponsor
         sponsor = Mockito.mock(Sponsor.class);
@@ -145,10 +151,12 @@ public final class TestSponsorTeamMixIn {
 
         Mockito.when(team.getPlayers()).thenReturn(units);
 
+        Mockito.when(team.getAdditionalAffinityGroups()).thenReturn(addAffs);
+
         writer = mapper.writer();
 
         Assert.assertEquals(writer.writeValueAsString(team),
-                "{\"cheerleaders\":1,\"coachingDice\":2,\"players\":{\"1\":{\"name\":\"name\",\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"templateName\":\"unit_template\",\"mvp\":true,\"giant\":true}},\"valoration\":6,\"rankCost\":8,\"mediBots\":3,\"sabotageCards\":4,\"specialMoveCards\":5,\"sponsor\":{\"affinityGroups\":[{\"name\":\"affinity_group\"}],\"cash\":10,\"rank\":20,\"name\":\"sponsor_name\"},\"wagers\":7}");
+                "{\"cheerleaders\":1,\"coachingDice\":2,\"players\":{\"1\":{\"name\":\"name\",\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"templateName\":\"unit_template\",\"mvp\":true,\"giant\":true}},\"valoration\":6,\"rankCost\":8,\"mediBots\":3,\"sabotageCards\":4,\"specialMoveCards\":5,\"sponsor\":{\"affinityGroups\":[{\"name\":\"affinity_group\"}],\"cash\":10,\"rank\":20,\"name\":\"sponsor_name\"},\"wagers\":7,\"additionalAffinityGroups\":[{\"name\":\"affinity_group\"}]}");
     }
 
 }
