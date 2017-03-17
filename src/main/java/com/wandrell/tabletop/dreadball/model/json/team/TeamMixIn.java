@@ -37,11 +37,11 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
 public interface TeamMixIn<U extends Unit> extends Team<U> {
 
     @Override
-    @JsonProperty("cheerleaders")
+    @JsonProperty
     public Integer getCheerleaders();
 
     @Override
-    @JsonProperty("coachingDice")
+    @JsonProperty
     public Integer getCoachingDice();
 
     @Override
@@ -49,7 +49,7 @@ public interface TeamMixIn<U extends Unit> extends Team<U> {
     public Map<Integer, U> getPlayers();
 
     @Override
-    @JsonProperty("valoration")
+    @JsonProperty
     public Integer getValoration();
 
 }

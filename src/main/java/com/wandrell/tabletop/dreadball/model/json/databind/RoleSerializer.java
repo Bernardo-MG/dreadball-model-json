@@ -57,7 +57,7 @@ public final class RoleSerializer extends StdSerializer<Role> {
     @Override
     public final void serialize(final Role value, final JsonGenerator gen,
             final SerializerProvider provider) throws IOException {
-        gen.writeString(value.toString().toLowerCase());
+        gen.writeString(String.valueOf(value).toLowerCase());
     }
 
 }

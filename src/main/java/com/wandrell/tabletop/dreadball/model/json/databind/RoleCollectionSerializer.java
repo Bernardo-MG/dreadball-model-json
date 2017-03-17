@@ -77,14 +77,11 @@ public final class RoleCollectionSerializer
     public final void serialize(final Collection<Role> value,
             final JsonGenerator gen, final SerializerProvider provider)
             throws IOException {
-        final StringBuilder str;
 
         gen.writeStartArray(value.size());
 
-        str = new StringBuilder();
         for (final Object role : value) {
-            str.append(role.toString().toLowerCase()).append(';');
-            gen.writeString(role.toString().toLowerCase());
+            gen.writeString(String.valueOf(role).toLowerCase());
         }
 
         gen.writeEndArray();

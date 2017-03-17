@@ -101,6 +101,14 @@
          <action dev="bmg" type="update">
             Maven site is now deployed through SSH.
          </action>
+         <action dev="bmg" type="fix">
+            Role serialization does not break with null values.
+         </action>
+      </release>
+      <release version="0.6.2" date="2017-03-17" description="Updated API">
+         <action dev="bmg" type="update">
+            Updated API.
+         </action>
       </release>
    </body>
 </document>

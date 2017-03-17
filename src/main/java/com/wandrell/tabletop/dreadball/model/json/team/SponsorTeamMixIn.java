@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.team.SponsorTeam;
+import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
 /**
@@ -32,8 +33,12 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @JsonPropertyOrder({ "cheerleaders", "coachingDice", "players", "valoration",
         "rankCost", "mediBots", "sabotageCards", "specialMoveCards", "sponsor",
-        "wagers" })
+        "wagers", "additionalAffinityGroups" })
 public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<Unit> {
+
+    @Override
+    @JsonProperty
+    public Iterable<AffinityGroup> getAdditionalAffinityGroups();
 
     @Override
     @JsonProperty

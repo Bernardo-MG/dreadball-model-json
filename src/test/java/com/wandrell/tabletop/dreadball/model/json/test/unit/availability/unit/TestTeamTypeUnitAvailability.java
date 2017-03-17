@@ -16,8 +16,8 @@
 
 package com.wandrell.tabletop.dreadball.model.json.test.unit.availability.unit;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 
 import org.mockito.Mockito;
 import org.testng.Assert;
@@ -89,7 +89,7 @@ public final class TestTeamTypeUnitAvailability {
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
         // Mocks rules
-        rules = new LinkedList<>();
+        rules = new ArrayList<>();
         rule = Mockito.mock(TeamRule.class);
         Mockito.when(rule.getName()).thenReturn("team_rule");
         rules.add(rule);
@@ -108,7 +108,7 @@ public final class TestTeamTypeUnitAvailability {
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
         // Mocks abilities
-        abilities = new LinkedList<>();
+        abilities = new ArrayList<>();
         ability = Mockito.mock(Ability.class);
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
