@@ -317,6 +317,7 @@
             <artifactId>maven-javadoc-plugin</artifactId>
             <configuration>
                <links>
+                  <link>http://www.atetric.com/atetric/javadoc/com.fasterxml.jackson.core/jackson-databind/2.8.6/</link>
                   <link>http://docs.wandrell.com/maven/dreadball-model-api/apidocs/</link>
                </links>
             </configuration>
