@@ -300,12 +300,6 @@
    <reporting>
       <plugins>
          <plugin>
-            <!-- FindBugs -->
-            <!-- Checks for patterns which are prone to errors -->
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>findbugs-maven-plugin</artifactId>
-         </plugin>
-         <plugin>
             <!-- Checkstyle -->
             <!-- Checks that the source files comply with style standards -->
             <!-- It is using a customized rules file -->
@@ -314,6 +308,17 @@
             <configuration>
                <!-- The customized rules file -->
                <configLocation>${project.basedir}/src/config/checkstyle/checkstyle-rules.xml</configLocation>
+            </configuration>
+         </plugin>
+         <plugin>
+            <!-- Javadoc -->
+            <!-- Generates the javadocs -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+               <links>
+                  <link>http://docs.wandrell.com/maven/dreadball-model-api/apidocs/</link>
+               </links>
             </configuration>
          </plugin>
          <plugin>
