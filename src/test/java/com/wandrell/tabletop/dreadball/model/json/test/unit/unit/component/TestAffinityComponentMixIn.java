@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.json.unit.component.AffinityComponentMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.component.ComponentLocationMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
@@ -56,15 +56,176 @@ public final class TestAffinityComponentMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct abilities.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_Abilities() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.abilities[0].name");
+
+        Assert.assertEquals(value, "ability_name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct ally cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_AllyCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.allyCost");
+
+        Assert.assertEquals(value, 5);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct attributes.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Attributes() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.armor");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Cost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cost");
+
+        Assert.assertEquals(value, 11);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct ally cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_FriendCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.friendCost");
+
+        Assert.assertEquals(value, 6);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct location.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Location() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.location.name");
+
+        Assert.assertEquals(value, "component_location");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Name() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.name");
+
+        Assert.assertEquals(value, "component_name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct roles.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Roles() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.roles[0]");
+
+        Assert.assertEquals(value, "striker");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct ally cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_StrangerCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.strangerCost");
+
+        Assert.assertEquals(value, 7);
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;           // Mapper for the JSON
-        final ObjectWriter writer;           // Writer for the JSON
         final Collection<Ability> abilities; // Component abilities
         final Collection<Role> roles;        // Component roles
         final AffinityComponent component;   // Mocked component
@@ -114,10 +275,7 @@ public final class TestAffinityComponentMixIn {
         Mockito.when(component.getFriendCost()).thenReturn(6);
         Mockito.when(component.getStrangerCost()).thenReturn(7);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(component),
-                "{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"name\":\"component_name\",\"cost\":11,\"location\":{\"name\":\"component_location\"},\"roles\":[\"striker\",\"jack\"],\"allyCost\":5,\"friendCost\":6,\"strangerCost\":7}");
+        return mapper.writer().writeValueAsString(component);
     }
 
 }

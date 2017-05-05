@@ -110,5 +110,10 @@
             Updated API.
          </action>
       </release>
+      <release version="0.7.0" date="2017-06-05" description="Attributes are now unwrapped">
+         <action dev="bmg" type="update">
+            Attributes are now unwrapped into the root JSON.
+         </action>
+      </release>
    </body>
 </document>

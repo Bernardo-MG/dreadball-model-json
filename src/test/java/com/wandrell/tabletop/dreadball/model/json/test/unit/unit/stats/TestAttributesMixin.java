@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
@@ -46,15 +46,104 @@ public final class TestAttributesMixin {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct armor value.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_Armor() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.armor");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct movement value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Movement() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.movement");
+
+        Assert.assertEquals(value, 2);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct skill value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Skill() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.skill");
+
+        Assert.assertEquals(value, 3);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct speed value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Speed() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.speed");
+
+        Assert.assertEquals(value, 4);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct strength value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Strength() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.strength");
+
+        Assert.assertEquals(value, 5);
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;   // Mapper for the JSON
-        final ObjectWriter writer;   // Writer for the JSON
         final Attributes attributes; // Mocked attributes
 
         // Creates mapper
@@ -69,10 +158,7 @@ public final class TestAttributesMixin {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(attributes),
-                "{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5}");
+        return mapper.writer().writeValueAsString(attributes);
     }
 
 }

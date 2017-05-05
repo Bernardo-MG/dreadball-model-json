@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.availability.unit.TeamTypeRangedUnitAvailability;
 import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
@@ -60,15 +60,86 @@ public final class TestTeamTypeRangedUnitAvailability {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct initial number.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_InitialNumber() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.initialNumber");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct maximum number.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_MaxNumber() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.maxNumber");
+
+        Assert.assertEquals(value, 2);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct team type.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_TeamType() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.teamType.name");
+
+        Assert.assertEquals(value, "team_name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct team type.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_TemplateName() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.unit.templateName");
+
+        Assert.assertEquals(value, "unit_template");
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;           // Mapper for the JSON
-        final ObjectWriter writer;           // Writer for the JSON
         final Collection<TeamRule> rules;    // Team rules
         final Collection<Ability> abilities; // Unit abilities
         final TeamRule rule;                 // Mocked rule
@@ -131,10 +202,7 @@ public final class TestTeamTypeRangedUnitAvailability {
         Mockito.when(ava.getTeamType()).thenReturn(team);
         Mockito.when(ava.getUnit()).thenReturn(unit);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"initialNumber\":1,\"maxNumber\":2,\"teamType\":{\"teamRules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"unit\":{\"name\":\"name\",\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"templateName\":\"unit_template\",\"mvp\":true,\"giant\":true}}");
+        return mapper.writer().writeValueAsString(ava);
     }
 
 }
