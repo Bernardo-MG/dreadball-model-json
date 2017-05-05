@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityUnitMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
@@ -56,15 +56,250 @@ public final class TestAffinityUnitMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct abilities.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_Abilities() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.abilities[0].name");
+
+        Assert.assertEquals(value, "ability_name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct affinity groups.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_AffinityGroups() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.affinityGroups[0].name");
+
+        Assert.assertEquals(value, "affinity_group");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct ally cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_AllyCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.allyCost");
+
+        Assert.assertEquals(value, 5);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct attributes.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Attributes() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.attributes.armor");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Cost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cost");
+
+        Assert.assertEquals(value, 10);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct friend cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_FriendCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.friendCost");
+
+        Assert.assertEquals(value, 6);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct giant value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Giant() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.giant");
+
+        Assert.assertTrue((boolean) value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct hated affinity
+     * groups.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_HatedAffinityGroups()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.hatedAffinityGroups[0].name");
+
+        Assert.assertEquals(value, "affinity_group_2");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct mvp value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Mvp() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.mvp");
+
+        Assert.assertTrue((boolean) value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Name() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.name");
+
+        Assert.assertEquals(value, "name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct role.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Role() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.role");
+
+        Assert.assertEquals(value, "striker");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct stranger cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_StrangerCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.strangerCost");
+
+        Assert.assertEquals(value, 7);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct template name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_TemplateName() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.templateName");
+
+        Assert.assertEquals(value, "unit_template");
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;                  // Mapper for the JSON
-        final ObjectWriter writer;                  // Writer for the JSON
         final Collection<Ability> abilities;        // Unit abilities
         final Collection<AffinityGroup> affinities; // Unit affinities
         final Collection<AffinityGroup> hated;      // Unit hated affinities
@@ -123,10 +358,7 @@ public final class TestAffinityUnitMixIn {
         Mockito.when(unit.getFriendCost()).thenReturn(6);
         Mockito.when(unit.getStrangerCost()).thenReturn(7);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(unit),
-                "{\"name\":\"name\",\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"templateName\":\"unit_template\",\"mvp\":true,\"giant\":true,\"affinityGroups\":[{\"name\":\"affinity_group\"}],\"hatedAffinityGroups\":[{\"name\":\"affinity_group_2\"}],\"allyCost\":5,\"friendCost\":6,\"strangerCost\":7}");
+        return mapper.writer().writeValueAsString(unit);
     }
 
 }

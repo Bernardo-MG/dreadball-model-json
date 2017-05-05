@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.json.unit.component.ComponentLocationMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.component.ComponentMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.component.CompositeAdvancementUnitMixIn;
@@ -58,15 +58,232 @@ public final class TestCompositeAdvancementUnitMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct abilities.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_Abilities() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.abilities[0].name");
+
+        Assert.assertEquals(value, "ability_name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct attributes.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Attributes() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.attributes.armor");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct components.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Components() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.components[0].name");
+
+        Assert.assertEquals(value, "component_name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Cost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cost");
+
+        Assert.assertEquals(value, 10);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct giant value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Giant() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.giant");
+
+        Assert.assertTrue((boolean) value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct mvp value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Mvp() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.mvp");
+
+        Assert.assertTrue((boolean) value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Name() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.name");
+
+        Assert.assertEquals(value, "name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct rank.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Rank() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.rank");
+
+        Assert.assertEquals(value, 20);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct role.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Role() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.role");
+
+        Assert.assertEquals(value, "striker");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct template name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_TemplateName() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.templateName");
+
+        Assert.assertEquals(value, "unit_template");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct unspent
+     * experience.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_UnspentExperience() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.unspentExperience");
+
+        Assert.assertEquals(value, 30);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct unspent
+     * experience.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Valoration() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.valoration");
+
+        Assert.assertEquals(value, 40);
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;              // Mapper for the JSON
-        final ObjectWriter writer;              // Writer for the JSON
         final Collection<Ability> abilities;    // Unit abilities
         final Collection<Component> components; // Unit components
         final Collection<Role> roles;           // Unit positions
@@ -134,10 +351,7 @@ public final class TestCompositeAdvancementUnitMixIn {
         Mockito.when(unit.getValoration()).thenReturn(40);
         Mockito.when(unit.getComponents()).thenReturn(components);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(unit),
-                "{\"name\":\"name\",\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"templateName\":\"unit_template\",\"mvp\":true,\"giant\":true,\"graftedImplant\":null,\"rank\":20,\"unspentExperience\":30,\"valoration\":40,\"components\":[{\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"name\":\"component_name\",\"cost\":11,\"location\":{\"name\":\"component_location\"},\"roles\":[\"striker\",\"jack\"]}]}");
+        return mapper.writer().writeValueAsString(unit);
     }
 
 }

@@ -27,7 +27,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.json.faction.SponsorMixIn;
 import com.wandrell.tabletop.dreadball.model.json.team.SponsorTeamMixIn;
@@ -62,15 +62,219 @@ public final class TestSponsorTeamMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct additional
+     * affinity groups.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_AdditionalAffinityGroups()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.additionalAffinityGroups[0].name");
+
+        Assert.assertEquals(value, "affinity_group");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct number of
+     * cheerleaders.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Cheerleaders() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cheerleaders");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct number of
+     * coaching dice.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CoachingDice() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.coachingDice");
+
+        Assert.assertEquals(value, 2);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct number of medi
+     * bots.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_MediBots() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.mediBots");
+
+        Assert.assertEquals(value, 3);
+    }
+
+    /**
+     * Tests that the JSON message is created with the players.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Players() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.players.1.name");
+
+        Assert.assertEquals(value, "name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct rank cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_RankCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.rankCost");
+
+        Assert.assertEquals(value, 8);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct number of
+     * sabotage cards.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_SabotageCards() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.sabotageCards");
+
+        Assert.assertEquals(value, 4);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct number of special
+     * move cards.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_SpecialMoveCards() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.specialMoveCards");
+
+        Assert.assertEquals(value, 5);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct sponsor.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Sponsor() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.sponsor.name");
+
+        Assert.assertEquals(value, "sponsor_name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct valoration.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Valoration() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.valoration");
+
+        Assert.assertEquals(value, 6);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct number of wagers.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Wagers() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.wagers");
+
+        Assert.assertEquals(value, 7);
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;                  // Mapper for the JSON
-        final ObjectWriter writer;                  // Writer for the JSON
         final Collection<AffinityGroup> affinities; // Sponsor affinities
         final Collection<AffinityGroup> addAffs;    // Additional affinities
         final Collection<Ability> abilities;        // Unit abilities
@@ -152,10 +356,7 @@ public final class TestSponsorTeamMixIn {
 
         Mockito.when(team.getAdditionalAffinityGroups()).thenReturn(addAffs);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(team),
-                "{\"cheerleaders\":1,\"coachingDice\":2,\"players\":{\"1\":{\"name\":\"name\",\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"templateName\":\"unit_template\",\"mvp\":true,\"giant\":true}},\"valoration\":6,\"rankCost\":8,\"mediBots\":3,\"sabotageCards\":4,\"specialMoveCards\":5,\"sponsor\":{\"affinityGroups\":[{\"name\":\"affinity_group\"}],\"cash\":10,\"rank\":20,\"name\":\"sponsor_name\"},\"wagers\":7,\"additionalAffinityGroups\":[{\"name\":\"affinity_group\"}]}");
+        return mapper.writer().writeValueAsString(team);
     }
 
 }

@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.availability.faction.TeamTypeSeason;
 import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
@@ -53,15 +53,50 @@ public final class TestTeamTypeSeasonMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct season number.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_SeasonNumber() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.seasonNumber");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct team name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_TeamName() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.team.name");
+
+        Assert.assertEquals(value, "team_name");
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;        // Mapper for the JSON
-        final ObjectWriter writer;        // Writer for the JSON
         final TeamTypeSeason ava;         // Mocked ava
         final Collection<TeamRule> rules; // Team rules
         final TeamRule rule;              // Mocked rule
@@ -89,10 +124,7 @@ public final class TestTeamTypeSeasonMixIn {
         Mockito.when(ava.getSeasonNumber()).thenReturn(1);
         Mockito.when(ava.getTeam()).thenReturn(team);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"team\":{\"teamRules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"seasonNumber\":1}");
+        return mapper.writer().writeValueAsString(ava);
     }
 
 }

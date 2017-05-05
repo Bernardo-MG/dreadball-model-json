@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.availability.unit.SponsorAffinityGroupAvailability;
 import com.wandrell.tabletop.dreadball.model.json.availability.unit.SponsorAffinityGroupAvailabilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
@@ -51,15 +51,70 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct affinity group.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_AffinityGroup() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.affinityGroups[0].name");
+
+        Assert.assertEquals(value, "affinity_group");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct rank increase
+     * value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_IncludingRankIncrease()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.includingRankIncrease");
+
+        Assert.assertFalse((boolean) value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Name() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.name");
+
+        Assert.assertEquals(value, "group_name");
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper; // Mapper for the JSON
-        final ObjectWriter writer; // Writer for the JSON
         final Collection<AffinityGroup> affinities; // Ava affinities
         final AffinityGroup affinity;   // Mocked affinity
         final SponsorAffinityGroupAvailability ava; // Mocked ava
@@ -81,10 +136,7 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
         Mockito.when(ava.getName()).thenReturn("group_name");
         Mockito.when(ava.getAffinityGroups()).thenReturn(affinities);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"affinityGroups\":[{\"name\":\"affinity_group\"}],\"name\":\"group_name\",\"includingRankIncrease\":false}");
+        return mapper.writer().writeValueAsString(ava);
     }
 
 }

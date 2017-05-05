@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
 import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
@@ -53,15 +53,300 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct cheerleader cost.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_CheerleaderCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cheerleaderCost");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct initial
+     * cheerleader count.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CheerleaderInitial() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cheerleaderInitial");
+
+        Assert.assertEquals(value, 2);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct cheerleader
+     * maximum.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CheerleaderMax() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cheerleaderMax");
+
+        Assert.assertEquals(value, 3);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct coaching die
+     * cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CoachingDieCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.coachingDieCost");
+
+        Assert.assertEquals(value, 4);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct initial coaching
+     * die count.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CoachingDieInitial() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.coachingDieInitial");
+
+        Assert.assertEquals(value, 5);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct coaching die
+     * maximum.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CoachingDieMax() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.coachingDieMax");
+
+        Assert.assertEquals(value, 6);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct coaching staff
+     * cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CoachingStaffCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.coachingStaffCost");
+
+        Assert.assertEquals(value, 7);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct Dreadball card
+     * cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_DreadballCardCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.dreadballCardCost");
+
+        Assert.assertEquals(value, 8);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct initial Dreadball
+     * card count.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_DreadballCardInitial()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.dreadballCardInitial");
+
+        Assert.assertEquals(value, 9);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct Dreadball card
+     * maximum.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_DreadballCardMax() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.dreadballCardMax");
+
+        Assert.assertEquals(value, 10);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct initial defensive
+     * coach value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_StartingWithDefensiveCoachingStaff()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.startingWithDefensiveCoachingStaff");
+
+        Assert.assertTrue((boolean) value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct initial offensive
+     * coach value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_StartingWithOffensiveCoachingStaff()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.startingWithOffensiveCoachingStaff");
+
+        Assert.assertFalse((boolean) value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct initial support
+     * coach value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_StartingWithSupportCoachingStaff()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.startingWithSupportCoachingStaff");
+
+        Assert.assertTrue((boolean) value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct team rules.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_TeamRules() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.teamType.teamRules[0].name");
+
+        Assert.assertEquals("team_rule", value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct team type name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_TeamType() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.teamType.name");
+
+        Assert.assertEquals("team_name", value);
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;        // Mapper for the JSON
-        final ObjectWriter writer;        // Writer for the JSON
         final Collection<TeamRule> rules; // Team rules
         final TeamRule rule;              // Mocked rule
         final TeamType team;              // Mocked team type
@@ -105,10 +390,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
                 .thenReturn(true);
         Mockito.when(ava.getTeamType()).thenReturn(team);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"cheerleaderCost\":1,\"cheerleaderInitial\":2,\"cheerleaderMax\":3,\"coachingDieCost\":4,\"coachingDieInitial\":5,\"coachingDieMax\":6,\"coachingStaffCost\":7,\"dreadballCardCost\":8,\"dreadballCardInitial\":9,\"dreadballCardMax\":10,\"teamType\":{\"teamRules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"startingWithDefensiveCoachingStaff\":true,\"startingWithOffensiveCoachingStaff\":false,\"startingWithSupportCoachingStaff\":true}");
+        return mapper.writer().writeValueAsString(ava);
     }
 
 }

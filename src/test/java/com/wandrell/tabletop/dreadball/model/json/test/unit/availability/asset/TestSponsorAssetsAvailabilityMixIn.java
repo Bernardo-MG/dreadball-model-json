@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
 import com.wandrell.tabletop.dreadball.model.json.availability.asset.SponsorAssetsAvailabilityMixIn;
 
@@ -46,15 +46,202 @@ public final class TestSponsorAssetsAvailabilityMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct affinity group
+     * cost.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_AffinityGroupCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.affinityGroupCost");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct cheerleader cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CheerleaderCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cheerleaderCost");
+
+        Assert.assertEquals(value, 2);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct cheerleader
+     * unlock cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CheerleaderUnlockCost()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cheerleaderUnlockCost");
+
+        Assert.assertEquals(value, 3);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct coaching die
+     * cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CoachingDieCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.coachingDieCost");
+
+        Assert.assertEquals(value, 4);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct medibot cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_MedibotCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.mediBotCost");
+
+        Assert.assertEquals(value, 5);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct sabotage card
+     * cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_SabotageCardCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.sabotageCardCost");
+
+        Assert.assertEquals(value, 6);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct special movement
+     * card cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_SpecialMovementCardCost()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.specialMovementCardCost");
+
+        Assert.assertEquals(value, 7);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct team cost minimum
+     * value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_TeamCostMin() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.teamCostMin");
+
+        Assert.assertEquals(value, 8);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct wager cost.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_WagerCost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.wagerCost");
+
+        Assert.assertEquals(value, 9);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct wager max count.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_WagerMaxCount() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.wagerMaxCount");
+
+        Assert.assertEquals(value, 10);
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;           // Mapper for the JSON
-        final ObjectWriter writer;           // Writer for the JSON
         final SponsorAssetsAvailability ava; // Mocked ava
 
         // Creates mapper
@@ -75,10 +262,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
         Mockito.when(ava.getWagerCost()).thenReturn(9);
         Mockito.when(ava.getWagerMaxCount()).thenReturn(10);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(ava),
-                "{\"affinityGroupCost\":1,\"cheerleaderCost\":2,\"cheerleaderUnlockCost\":3,\"coachingDieCost\":4,\"mediBotCost\":5,\"sabotageCardCost\":6,\"specialMovementCardCost\":7,\"teamCostMin\":8,\"wagerCost\":9,\"wagerMaxCount\":10}");
+        return mapper.writer().writeValueAsString(ava);
     }
 
 }

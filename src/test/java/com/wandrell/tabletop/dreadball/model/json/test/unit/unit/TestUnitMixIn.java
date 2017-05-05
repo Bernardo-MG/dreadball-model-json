@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.json.unit.UnitMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.wandrell.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
@@ -54,15 +54,158 @@ public final class TestUnitMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct abilities.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_Abilities() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.abilities[0].name");
+
+        Assert.assertEquals(value, "ability_name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct attributes.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Attributes() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.attributes.armor");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Cost() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cost");
+
+        Assert.assertEquals(value, 10);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct giant value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Giant() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.giant");
+
+        Assert.assertTrue((boolean) value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct mvp value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Mvp() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.mvp");
+
+        Assert.assertTrue((boolean) value);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Name() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.name");
+
+        Assert.assertEquals(value, "name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct role.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Role() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.role");
+
+        Assert.assertEquals(value, "striker");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct template name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_TemplateName() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.templateName");
+
+        Assert.assertEquals(value, "unit_template");
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;           // Mapper for the JSON
-        final ObjectWriter writer;           // Writer for the JSON
         final Collection<Ability> abilities; // Unit abilities
         final Unit unit;                     // Mocked unit
         final Ability ability;               // Mocked ability
@@ -99,10 +242,7 @@ public final class TestUnitMixIn {
         Mockito.when(unit.getMvp()).thenReturn(true);
         Mockito.when(unit.getGiant()).thenReturn(true);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(unit),
-                "{\"name\":\"name\",\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"templateName\":\"unit_template\",\"mvp\":true,\"giant\":true}");
+        return mapper.writer().writeValueAsString(unit);
     }
 
 }

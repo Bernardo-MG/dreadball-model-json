@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.json.unit.component.ComponentLocationMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.component.ComponentLocation;
 
@@ -46,15 +46,32 @@ public final class TestComponentLocationMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct name.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_Name() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.name");
+
+        Assert.assertEquals(value, "component_location");
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;        // Mapper for the JSON
-        final ObjectWriter writer;        // Writer for the JSON
         final ComponentLocation location; // Mocked location
 
         // Creates mapper
@@ -65,10 +82,7 @@ public final class TestComponentLocationMixIn {
         location = Mockito.mock(ComponentLocation.class);
         Mockito.when(location.getName()).thenReturn("component_location");
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(location),
-                "{\"name\":\"component_location\"}");
+        return mapper.writer().writeValueAsString(location);
     }
 
 }

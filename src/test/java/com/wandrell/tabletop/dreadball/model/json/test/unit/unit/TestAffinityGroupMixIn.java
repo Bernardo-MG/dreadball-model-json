@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
@@ -46,15 +46,32 @@ public final class TestAffinityGroupMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct name.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_Name() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.name");
+
+        Assert.assertEquals(value, "affinity_group");
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;    // Mapper for the JSON
-        final ObjectWriter writer;    // Writer for the JSON
         final AffinityGroup affinity; // Mocked affinity group
 
         // Creates mapper
@@ -65,10 +82,7 @@ public final class TestAffinityGroupMixIn {
         affinity = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity.getName()).thenReturn("affinity_group");
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(affinity),
-                "{\"name\":\"affinity_group\"}");
+        return mapper.writer().writeValueAsString(affinity);
     }
 
 }

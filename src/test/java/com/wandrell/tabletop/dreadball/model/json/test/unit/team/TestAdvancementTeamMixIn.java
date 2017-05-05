@@ -27,8 +27,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
+import com.jayway.jsonpath.JsonPath;
 import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 import com.wandrell.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
@@ -64,20 +63,225 @@ public final class TestAdvancementTeamMixIn {
     }
 
     /**
-     * Tests that the JSON message is created correctly.
+     * Tests that the JSON message is created with the correct cash.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void testJSON() throws JsonProcessingException {
+    public final void test_Cash() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cash");
+
+        Assert.assertEquals(value, 3);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct number of
+     * cheerleaders.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Cheerleaders() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.cheerleaders");
+
+        Assert.assertEquals(value, 1);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct number of
+     * coaching dice.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_CoachingDice() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.coachingDice");
+
+        Assert.assertEquals(value, 2);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct defensive
+     * coaching staff value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_DefensiveCoachingStaff()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.defensiveCoachingStaff");
+
+        Assert.assertEquals(value, false);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct number of
+     * dreadball cards.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_DreadballCards() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.dreadballCards");
+
+        Assert.assertEquals(value, 4);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Name() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.name");
+
+        Assert.assertEquals(value, "team_name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct offensive
+     * coaching staff value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_OffensiveCoachingStaff()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.offensiveCoachingStaff");
+
+        Assert.assertEquals(value, false);
+    }
+
+    /**
+     * Tests that the JSON message is created with the players.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Players() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.players.1.name");
+
+        Assert.assertEquals(value, "name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct support coaching
+     * staff value.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_SupportCoachingStaff()
+            throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.supportCoachingStaff");
+
+        Assert.assertEquals(value, false);
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct team type.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_TeamType() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.teamType.name");
+
+        Assert.assertEquals(value, "team_name");
+    }
+
+    /**
+     * Tests that the JSON message is created with the correct valoration.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Valoration() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.valoration");
+
+        Assert.assertEquals(value, 5);
+    }
+
+    /**
+     * Returns the generated JSON to be tested.
+     * 
+     * @return the tested JSON
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;                  // Mapper for the JSON
-        final ObjectWriter writer;                  // Writer for the JSON
         final Collection<AffinityGroup> affinities; // Sponsor affinities
         final Collection<Ability> abilities;        // Unit abilities
         final Collection<TeamRule> rules;           // Team rules
         final Map<Integer, AdvancementUnit> units;  // Team units
-        final Sponsor sponsor;                      // Mocked sponsor
         final AffinityGroup affinity;               // Mocked affinity
         final AdvancementTeam team;                 // Mocked team
         final AdvancementUnit unit;                 // Mocked unit
@@ -100,13 +304,6 @@ public final class TestAdvancementTeamMixIn {
         affinity = Mockito.mock(AffinityGroup.class);
         Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
-
-        // Mocks sponsor
-        sponsor = Mockito.mock(Sponsor.class);
-        Mockito.when(sponsor.getName()).thenReturn("sponsor_name");
-        Mockito.when(sponsor.getCash()).thenReturn(10);
-        Mockito.when(sponsor.getRank()).thenReturn(20);
-        Mockito.when(sponsor.getAffinityGroups()).thenReturn(affinities);
 
         // Mocks abilities
         abilities = new ArrayList<>();
@@ -162,10 +359,7 @@ public final class TestAdvancementTeamMixIn {
 
         Mockito.when(team.getPlayers()).thenReturn(units);
 
-        writer = mapper.writer();
-
-        Assert.assertEquals(writer.writeValueAsString(team),
-                "{\"cheerleaders\":1,\"coachingDice\":2,\"players\":{\"1\":{\"name\":\"name\",\"abilities\":[{\"name\":\"ability_name\"}],\"attributes\":{\"armor\":1,\"movement\":2,\"skill\":3,\"speed\":4,\"strength\":5},\"cost\":10,\"role\":\"striker\",\"templateName\":\"unit_template\",\"mvp\":true,\"giant\":true,\"graftedImplant\":null,\"rank\":20,\"unspentExperience\":30,\"valoration\":40}},\"valoration\":5,\"cash\":3,\"dreadballCards\":4,\"name\":\"team_name\",\"teamType\":{\"teamRules\":[{\"name\":\"team_rule\"}],\"name\":\"team_name\"},\"defensiveCoachingStaff\":false,\"offensiveCoachingStaff\":false,\"supportCoachingStaff\":false}");
+        return mapper.writer().writeValueAsString(team);
     }
 
 }

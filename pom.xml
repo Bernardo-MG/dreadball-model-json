@@ -80,10 +80,10 @@
    <profiles>
       <profile>
          <!-- Profile for the Eclipse Maven plugin -->
-         <!-- Sets the POM so this plugin does not give the usual unregistered goals 
-            errors -->
-         <!-- It will be activated automatically on Eclipse if this has the m2e plugin, 
-            by detecting the version property -->
+         <!-- Sets the POM so this plugin does not give the usual unregistered 
+            goals errors -->
+         <!-- It will be activated automatically on Eclipse if this has the 
+            m2e plugin, by detecting the version property -->
          <id>eclipse-maven</id>
          <activation>
             <property>
@@ -95,9 +95,10 @@
                <plugins>
                   <plugin>
                      <!-- m2e lifecycle mapping -->
-                     <!-- This is used to configure the Maven plugin for Eclipse. -->
-                     <!-- Among other things, it allows registering goals, which 
-                        Eclipse would otherwise reject. -->
+                     <!-- This is used to configure the Maven plugin for 
+                        Eclipse. -->
+                     <!-- Among other things, it allows registering goals, 
+                        which Eclipse would otherwise reject. -->
                      <!-- It has no real effect on Maven. -->
                      <groupId>org.eclipse.m2e</groupId>
                      <artifactId>lifecycle-mapping</artifactId>
@@ -184,6 +185,7 @@
       <manifest.name>com/wandrell/tabletop/dreadball/model/json</manifest.name>
       <!-- Dependencies versions -->
       <jackson.version>2.8.6</jackson.version>
+      <jsonPath.version>2.2.0</jsonPath.version>
       <log4j.version>2.6</log4j.version>
       <mockito.version>1.10.19</mockito.version>
       <tabletop.dreadball.api.version>0.7.3</tabletop.dreadball.api.version>
@@ -226,6 +228,11 @@
       <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
       <!-- ============================================== -->
+      <dependency>
+         <groupId>com.jayway.jsonpath</groupId>
+         <artifactId>json-path</artifactId>
+         <version>${jsonPath.version}</version>
+      </dependency>
       <dependency>
          <!-- Mockito -->
          <groupId>org.mockito</groupId>
@@ -324,7 +331,8 @@
          </plugin>
          <plugin>
             <!-- PMD -->
-            <!-- Checks that the code complies with a series of code quality rules -->
+            <!-- Checks that the code complies with a series of code quality 
+               rules -->
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-pmd-plugin</artifactId>
             <configuration>
