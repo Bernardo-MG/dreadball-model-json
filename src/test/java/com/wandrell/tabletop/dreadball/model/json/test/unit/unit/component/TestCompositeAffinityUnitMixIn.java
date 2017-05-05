@@ -126,7 +126,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         json = getJson();
 
-        value = JsonPath.read(json, "$.attributes.armor");
+        value = JsonPath.read(json, "$.armor");
 
         Assert.assertEquals(value, 1);
     }
