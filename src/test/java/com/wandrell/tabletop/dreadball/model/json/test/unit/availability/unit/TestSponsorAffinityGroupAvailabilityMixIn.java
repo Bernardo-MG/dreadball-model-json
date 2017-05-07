@@ -76,14 +76,13 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
      *             never, this is a required declaration
      */
     @Test
-    public final void test_IncludingRankIncrease()
-            throws JsonProcessingException {
+    public final void test_RankIncrease() throws JsonProcessingException {
         final String json;  // Tested JSON
         final Object value; // Read value
 
         json = getJson();
 
-        value = JsonPath.read(json, "$.includingRankIncrease");
+        value = JsonPath.read(json, "$.rankIncrease");
 
         Assert.assertFalse((boolean) value);
     }

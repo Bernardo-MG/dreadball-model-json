@@ -44,7 +44,7 @@ public interface SponsorAffinityGroupAvailabilityMixIn
     public String getName();
 
     @Override
-    @JsonProperty
+    @JsonProperty("rankIncrease")
     public Boolean isIncludingRankIncrease();
 
 }
