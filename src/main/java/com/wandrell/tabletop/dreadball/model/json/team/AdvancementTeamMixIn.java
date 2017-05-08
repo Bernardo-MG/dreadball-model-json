@@ -18,7 +18,6 @@ package com.wandrell.tabletop.dreadball.model.json.team;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 import com.wandrell.tabletop.dreadball.model.team.AdvancementTeam;
 import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
@@ -30,9 +29,6 @@ import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "cheerleaders", "coachingDice", "players", "valoration",
-        "cash", "dreadballCards", "name", "teamType", "defensiveCoachingStaff",
-        "offensiveCoachingStaff", "supportCoachingStaff" })
 public interface AdvancementTeamMixIn
         extends AdvancementTeam, TeamMixIn<AdvancementUnit> {
 

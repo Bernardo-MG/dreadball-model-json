@@ -18,7 +18,6 @@ package com.wandrell.tabletop.dreadball.model.json.unit;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.unit.AdvancementUnit;
 import com.wandrell.tabletop.dreadball.model.unit.component.Component;
 
@@ -29,9 +28,6 @@ import com.wandrell.tabletop.dreadball.model.unit.component.Component;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "name", "abilities", "attributes", "cost", "role",
-        "templateName", "mvp", "giant", "graftedImplant", "rank",
-        "unspentExperience", "valoration" })
 public interface AdvancementUnitMixIn extends AdvancementUnit, UnitMixIn {
 
     @Override

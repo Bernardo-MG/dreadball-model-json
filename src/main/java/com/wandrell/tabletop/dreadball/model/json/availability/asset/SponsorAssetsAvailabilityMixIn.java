@@ -18,7 +18,6 @@ package com.wandrell.tabletop.dreadball.model.json.availability.asset;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
 
 /**
@@ -28,10 +27,6 @@ import com.wandrell.tabletop.dreadball.model.availability.asset.SponsorAssetsAva
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "affinityGroupCost", "cheerleaderCost",
-        "cheerleaderUnlockCost", "coachingDieCost", "mediBotCost",
-        "sabotageCardCost", "specialMovementCardCost", "teamCostMin",
-        "wagerCost", "wagerMaxCount" })
 public interface SponsorAssetsAvailabilityMixIn
         extends SponsorAssetsAvailability {
 

@@ -20,7 +20,6 @@ import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.wandrell.tabletop.dreadball.model.json.databind.RoleCollectionSerializer;
@@ -37,8 +36,6 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "abilities", "attributes", "name", "cost", "location",
-        "roles" })
 public interface ComponentMixIn extends Component {
 
     @Override

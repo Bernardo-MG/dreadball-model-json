@@ -20,7 +20,6 @@ import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.wandrell.tabletop.dreadball.model.json.databind.RoleSerializer;
@@ -36,8 +35,6 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "name", "abilities", "attributes", "cost", "role",
-        "templateName", "mvp", "giant" })
 public interface UnitMixIn extends Unit {
 
     @Override

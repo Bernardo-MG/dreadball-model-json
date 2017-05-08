@@ -20,7 +20,6 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.team.Team;
 import com.wandrell.tabletop.dreadball.model.unit.Unit;
 
@@ -33,7 +32,6 @@ import com.wandrell.tabletop.dreadball.model.unit.Unit;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "cheerleaders", "coachingDice", "players", "valoration" })
 public interface TeamMixIn<U extends Unit> extends Team<U> {
 
     @Override

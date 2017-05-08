@@ -20,7 +20,6 @@ import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityUnit;
 
@@ -31,9 +30,6 @@ import com.wandrell.tabletop.dreadball.model.unit.AffinityUnit;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "name", "abilities", "attributes", "cost", "role",
-        "templateName", "mvp", "giant", "affinityGroups", "hatedAffinityGroups",
-        "allyCost", "friendCost", "strangerCost" })
 public interface AffinityUnitMixIn extends AffinityUnit, UnitMixIn {
 
     @Override

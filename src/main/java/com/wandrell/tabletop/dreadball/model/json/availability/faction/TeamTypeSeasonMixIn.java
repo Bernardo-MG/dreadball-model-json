@@ -18,7 +18,6 @@ package com.wandrell.tabletop.dreadball.model.json.availability.faction;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.availability.faction.TeamTypeSeason;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 
@@ -29,7 +28,6 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamType;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "team", "seasonNumber" })
 public interface TeamTypeSeasonMixIn extends TeamTypeSeason {
 
     @Override

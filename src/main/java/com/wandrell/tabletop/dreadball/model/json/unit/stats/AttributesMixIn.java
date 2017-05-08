@@ -18,7 +18,6 @@ package com.wandrell.tabletop.dreadball.model.json.unit.stats;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
@@ -28,7 +27,6 @@ import com.wandrell.tabletop.dreadball.model.unit.stats.Attributes;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "armor", "movement", "skill", "speed", "strength" })
 public interface AttributesMixIn extends Attributes {
 
     @Override
