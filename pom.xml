@@ -20,7 +20,7 @@
 
    <groupId>com.wandrell.tabletop.dreadball</groupId>
    <artifactId>dreadball-model-json</artifactId>
-   <version>0.7.0-SNAPSHOT</version>
+   <version>0.7.1-SNAPSHOT</version>
    <packaging>jar</packaging>
 
    <name>Dreadball JSON Model Implementation</name>
@@ -59,6 +59,9 @@
    </ciManagement>
 
    <distributionManagement>
+      <relocation>
+         <groupId>com.bernardomg.tabletop.dreadball</groupId>
+      </relocation>
       <repository>
          <uniqueVersion>false</uniqueVersion>
          <id>releases</id>
