@@ -18,7 +18,6 @@ package com.wandrell.tabletop.dreadball.model.json.availability.asset;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 
@@ -29,12 +28,6 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamType;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "cheerleaderCost", "cheerleaderInitial", "cheerleaderMax",
-        "coachingDieCost", "coachingDieInitial", "coachingDieMax",
-        "coachingStaffCost", "dreadballCardCost", "dreadballCardInitial",
-        "dreadballCardMax", "teamType", "startingWithDefensiveCoachingStaff",
-        "startingWithOffensiveCoachingStaff",
-        "startingWithSupportCoachingStaff" })
 public interface TeamTypeAssetsAvailabilityMixIn
         extends TeamTypeAssetsAvailability {
 

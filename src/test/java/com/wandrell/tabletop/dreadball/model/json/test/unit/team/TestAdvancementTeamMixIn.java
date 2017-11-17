@@ -18,7 +18,7 @@ package com.wandrell.tabletop.dreadball.model.json.test.unit.team;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.mockito.Mockito;
@@ -320,7 +320,7 @@ public final class TestAdvancementTeamMixIn {
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
         // Mocks units
-        units = new LinkedHashMap<>();
+        units = new HashMap<>();
         unit = Mockito.mock(AdvancementUnit.class);
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);

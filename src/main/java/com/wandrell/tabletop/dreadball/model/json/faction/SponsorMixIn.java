@@ -20,7 +20,6 @@ import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.faction.Sponsor;
 import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
 
@@ -31,7 +30,6 @@ import com.wandrell.tabletop.dreadball.model.unit.AffinityGroup;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "affinityGroups", "cash", "rank", "name" })
 public interface SponsorMixIn extends Sponsor {
 
     @Override

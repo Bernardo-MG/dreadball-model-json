@@ -20,7 +20,6 @@ import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.wandrell.tabletop.dreadball.model.faction.TeamRule;
 import com.wandrell.tabletop.dreadball.model.faction.TeamType;
 
@@ -31,7 +30,6 @@ import com.wandrell.tabletop.dreadball.model.faction.TeamType;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-@JsonPropertyOrder({ "teamRules", "name" })
 public interface TeamTypeMixIn extends TeamType {
 
     @Override
