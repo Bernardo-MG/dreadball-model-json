@@ -4,7 +4,7 @@ Implementation of the [Dreadball Model API][dreadball-model-api] for JSON messag
 
 This covers both the original Dreadball and Dreadball Xtreme, and includes teams, units and the availabilities during team creation.
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.wandrell.tabletop.dreadball/dreadball-model-json.svg)][maven-repo]
+[![Maven Central](https://img.shields.io/maven-central/v/com.bernardomg.tabletop.dreadball/dreadball-model-json.svg)][maven-repo]
 [![Bintray](https://api.bintray.com/packages/bernardo-mg/tabletop-toolkits/dreadball-model-json/images/download.svg)][bintray-repo]
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
@@ -77,11 +77,11 @@ The project has been released under version 2.0 of the [Apache License][license]
 
 [dreadball-model-api]: https://github.com/Bernardo-MG/dreadball-model-api
 [bintray-repo]: https://bintray.com/bernardo-mg/tabletop-toolkits/dreadball-model-json/view
-[maven-repo]: http://mvnrepository.com/artifact/com.wandrell.tabletop.dreadball/dreadball-model-json
+[maven-repo]: http://mvnrepository.com/artifact/com.bernardomg.tabletop.dreadball/dreadball-model-json
 [issues]: https://github.com/bernardo-mg/dreadball-model-json/issues
-[javadoc-develop]: http://docs.wandrell.com/development/maven/dreadball-model-json/apidocs
-[javadoc-release]: http://docs.wandrell.com/maven/dreadball-model-json/apidocs
+[javadoc-develop]: http://docs.bernardomg.com/development/maven/dreadball-model-json/apidocs
+[javadoc-release]: http://docs.bernardomg.com/maven/dreadball-model-json/apidocs
 [license]: http://www.apache.org/licenses/LICENSE-2.0
 [scm]: https://github.com/bernardo-mg/dreadball-model-json
-[site-develop]: http://docs.wandrell.com/development/maven/dreadball-model-json
-[site-release]: http://docs.wandrell.com/maven/dreadball-model-json
+[site-develop]: http://docs.bernardomg.com/development/maven/dreadball-model-json
+[site-release]: http://docs.bernardomg.com/maven/dreadball-model-json
