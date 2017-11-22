@@ -115,7 +115,7 @@
             Attributes are now unwrapped into the root JSON.
          </action>
       </release>
-      <release version="0.7.1" date="2017-11-13" description="Relocation">
+      <release version="0.7.1" date="2017-11-17" description="Relocation">
          <action dev="bmg" type="add">
             Prepared for relocation.
          </action>
