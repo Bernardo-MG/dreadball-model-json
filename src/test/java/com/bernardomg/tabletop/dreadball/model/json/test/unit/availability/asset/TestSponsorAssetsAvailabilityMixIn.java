@@ -17,8 +17,8 @@
 package com.bernardomg.tabletop.dreadball.model.json.test.unit.availability.asset;
 
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
