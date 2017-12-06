@@ -16,15 +16,15 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.test.unit.unit.component;
 
-import org.mockito.Mockito;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
+import com.bernardomg.tabletop.dreadball.model.json.unit.component.ComponentLocationMixIn;
+import com.bernardomg.tabletop.dreadball.model.unit.component.ComponentLocation;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
-import com.bernardomg.tabletop.dreadball.model.json.unit.component.ComponentLocationMixIn;
-import com.bernardomg.tabletop.dreadball.model.unit.component.ComponentLocation;
 
 /**
  * Unit tests for {@link ComponentLocationMixIn}.

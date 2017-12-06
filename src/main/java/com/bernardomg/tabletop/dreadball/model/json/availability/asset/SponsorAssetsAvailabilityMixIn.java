@@ -16,9 +16,9 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.availability.asset;
 
+import com.bernardomg.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.bernardomg.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
 
 /**
  * Jackson mix-in interface for {@link SponsorAssetsAvailability}.

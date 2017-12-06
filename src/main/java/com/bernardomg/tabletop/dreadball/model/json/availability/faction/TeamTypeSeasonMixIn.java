@@ -16,10 +16,10 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.availability.faction;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.bernardomg.tabletop.dreadball.model.availability.faction.TeamTypeSeason;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Season in which a team appeared.

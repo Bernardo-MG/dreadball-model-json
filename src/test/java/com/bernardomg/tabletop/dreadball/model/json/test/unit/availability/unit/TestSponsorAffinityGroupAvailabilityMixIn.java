@@ -19,17 +19,17 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.availability.unit
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.mockito.Mockito;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.availability.unit.SponsorAffinityGroupAvailability;
 import com.bernardomg.tabletop.dreadball.model.json.availability.unit.SponsorAffinityGroupAvailabilityMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
 import com.bernardomg.tabletop.dreadball.model.unit.AffinityGroup;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link SponsorAffinityGroupAvailabilityMixIn}.
@@ -69,6 +69,24 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
     }
 
     /**
+     * Tests that the JSON message is created with the correct name.
+     * 
+     * @throws JsonProcessingException
+     *             never, this is a required declaration
+     */
+    @Test
+    public final void test_Name() throws JsonProcessingException {
+        final String json;  // Tested JSON
+        final Object value; // Read value
+
+        json = getJson();
+
+        value = JsonPath.read(json, "$.name");
+
+        Assert.assertEquals(value, "group_name");
+    }
+
+    /**
      * Tests that the JSON message is created with the correct rank increase
      * value.
      * 
@@ -85,24 +103,6 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
         value = JsonPath.read(json, "$.rankIncrease");
 
         Assert.assertFalse((boolean) value);
-    }
-
-    /**
-     * Tests that the JSON message is created with the correct name.
-     * 
-     * @throws JsonProcessingException
-     *             never, this is a required declaration
-     */
-    @Test
-    public final void test_Name() throws JsonProcessingException {
-        final String json;  // Tested JSON
-        final Object value; // Read value
-
-        json = getJson();
-
-        value = JsonPath.read(json, "$.name");
-
-        Assert.assertEquals(value, "group_name");
     }
 
     /**

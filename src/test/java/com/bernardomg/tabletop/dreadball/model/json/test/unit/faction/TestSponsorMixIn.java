@@ -19,17 +19,17 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.faction;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.mockito.Mockito;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.faction.Sponsor;
 import com.bernardomg.tabletop.dreadball.model.json.faction.SponsorMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
 import com.bernardomg.tabletop.dreadball.model.unit.AffinityGroup;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link UnitTemplateMixIn}.

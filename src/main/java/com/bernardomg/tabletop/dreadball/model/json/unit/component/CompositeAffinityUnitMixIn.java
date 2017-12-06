@@ -18,11 +18,11 @@ package com.bernardomg.tabletop.dreadball.model.json.unit.component;
 
 import java.util.Collection;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.bernardomg.tabletop.dreadball.model.json.unit.AffinityUnitMixIn;
 import com.bernardomg.tabletop.dreadball.model.unit.component.Component;
 import com.bernardomg.tabletop.dreadball.model.unit.component.CompositeAffinityUnit;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Jackson mix-in interface for {@link CompositeAffinityUnit}.

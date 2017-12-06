@@ -16,15 +16,15 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.test.unit.availability.asset;
 
-import org.mockito.Mockito;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
+import com.bernardomg.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
+import com.bernardomg.tabletop.dreadball.model.json.availability.asset.SponsorAssetsAvailabilityMixIn;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
-import com.bernardomg.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
-import com.bernardomg.tabletop.dreadball.model.json.availability.asset.SponsorAssetsAvailabilityMixIn;
 
 /**
  * Unit tests for {@link SponsorAssetsAvailabilityMixIn}.

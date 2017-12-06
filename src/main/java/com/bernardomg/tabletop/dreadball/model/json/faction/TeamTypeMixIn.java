@@ -18,10 +18,10 @@ package com.bernardomg.tabletop.dreadball.model.json.faction;
 
 import java.util.Collection;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Jackson mix-in interface for {@link TeamType}.

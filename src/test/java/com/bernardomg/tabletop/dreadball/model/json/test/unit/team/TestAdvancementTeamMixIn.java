@@ -21,13 +21,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.mockito.Mockito;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
@@ -42,6 +39,9 @@ import com.bernardomg.tabletop.dreadball.model.unit.AffinityGroup;
 import com.bernardomg.tabletop.dreadball.model.unit.Role;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link UnitTemplateMixIn}.

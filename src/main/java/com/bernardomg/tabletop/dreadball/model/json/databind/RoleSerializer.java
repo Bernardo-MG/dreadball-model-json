@@ -18,10 +18,10 @@ package com.bernardomg.tabletop.dreadball.model.json.databind;
 
 import java.io.IOException;
 
+import com.bernardomg.tabletop.dreadball.model.unit.Role;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import com.bernardomg.tabletop.dreadball.model.unit.Role;
 
 /**
  * Serializer for the {@link Role} enum. It will print the {@code Role} as a

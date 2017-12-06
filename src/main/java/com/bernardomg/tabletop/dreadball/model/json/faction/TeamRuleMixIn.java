@@ -16,9 +16,9 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.faction;
 
+import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
 
 /**
  * Jackson mix-in interface for {@link TeamRule}.

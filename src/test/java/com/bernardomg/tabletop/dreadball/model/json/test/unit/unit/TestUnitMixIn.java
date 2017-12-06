@@ -19,13 +19,10 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.unit;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.mockito.Mockito;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.json.unit.UnitMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
@@ -33,6 +30,9 @@ import com.bernardomg.tabletop.dreadball.model.unit.Role;
 import com.bernardomg.tabletop.dreadball.model.unit.Unit;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link UnitMixIn}.

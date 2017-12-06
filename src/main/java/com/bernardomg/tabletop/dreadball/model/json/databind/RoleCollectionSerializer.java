@@ -19,6 +19,7 @@ package com.bernardomg.tabletop.dreadball.model.json.databind;
 import java.io.IOException;
 import java.util.Collection;
 
+import com.bernardomg.tabletop.dreadball.model.unit.Role;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanProperty;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -28,7 +29,6 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 import com.fasterxml.jackson.databind.ser.std.StaticListSerializerBase;
-import com.bernardomg.tabletop.dreadball.model.unit.Role;
 
 /**
  * Serializer for the {@link Role} enum. It will print the {@code Role} as a

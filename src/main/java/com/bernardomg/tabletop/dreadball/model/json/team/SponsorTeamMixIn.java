@@ -16,12 +16,12 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.team;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.bernardomg.tabletop.dreadball.model.faction.Sponsor;
 import com.bernardomg.tabletop.dreadball.model.team.SponsorTeam;
 import com.bernardomg.tabletop.dreadball.model.unit.AffinityGroup;
 import com.bernardomg.tabletop.dreadball.model.unit.Unit;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Jackson mix-in interface for {@link SponsorTeam}.

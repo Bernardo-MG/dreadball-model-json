@@ -19,19 +19,19 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.availability.asse
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.mockito.Mockito;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
 import com.bernardomg.tabletop.dreadball.model.json.availability.asset.TeamTypeAssetsAvailabilityMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link TeamTypeAssetsAvailabilityMixIn}.

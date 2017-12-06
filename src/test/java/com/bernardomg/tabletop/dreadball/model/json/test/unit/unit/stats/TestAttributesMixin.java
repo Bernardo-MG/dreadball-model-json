@@ -16,15 +16,15 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.test.unit.unit.stats;
 
-import org.mockito.Mockito;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
+import com.bernardomg.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
+import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
-import com.bernardomg.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
-import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
 
 /**
  * Unit tests for {@link AttributesMixIn}.
