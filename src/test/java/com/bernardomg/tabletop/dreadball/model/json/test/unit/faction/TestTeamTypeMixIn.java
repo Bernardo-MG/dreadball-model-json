@@ -65,7 +65,7 @@ public final class TestTeamTypeMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "team_name");
+        Assert.assertEquals("team_name", value);
     }
 
     /**
@@ -83,7 +83,7 @@ public final class TestTeamTypeMixIn {
 
         value = JsonPath.read(json, "$.teamRules[0].name");
 
-        Assert.assertEquals(value, "team_rule");
+        Assert.assertEquals("team_rule", value);
     }
 
     /**

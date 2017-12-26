@@ -74,7 +74,7 @@ public final class TestTeamTypeRangedUnitAvailability {
 
         value = JsonPath.read(json, "$.initialNumber");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -92,7 +92,7 @@ public final class TestTeamTypeRangedUnitAvailability {
 
         value = JsonPath.read(json, "$.maxNumber");
 
-        Assert.assertEquals(value, 2);
+        Assert.assertEquals(2, value);
     }
 
     /**
@@ -110,7 +110,7 @@ public final class TestTeamTypeRangedUnitAvailability {
 
         value = JsonPath.read(json, "$.teamType.name");
 
-        Assert.assertEquals(value, "team_name");
+        Assert.assertEquals("team_name", value);
     }
 
     /**
@@ -128,7 +128,7 @@ public final class TestTeamTypeRangedUnitAvailability {
 
         value = JsonPath.read(json, "$.unit.templateName");
 
-        Assert.assertEquals(value, "unit_template");
+        Assert.assertEquals("unit_template", value);
     }
 
     /**

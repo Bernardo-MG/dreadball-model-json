@@ -77,7 +77,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.cash");
 
-        Assert.assertEquals(value, 3);
+        Assert.assertEquals(3, value);
     }
 
     /**
@@ -96,7 +96,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.cheerleaders");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -115,7 +115,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.coachingDice");
 
-        Assert.assertEquals(value, 2);
+        Assert.assertEquals(2, value);
     }
 
     /**
@@ -135,7 +135,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.defensiveCoachingStaff");
 
-        Assert.assertEquals(value, false);
+        Assert.assertEquals(false, value);
     }
 
     /**
@@ -154,7 +154,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.dreadballCards");
 
-        Assert.assertEquals(value, 4);
+        Assert.assertEquals(4, value);
     }
 
     /**
@@ -172,7 +172,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "team_name");
+        Assert.assertEquals("team_name", value);
     }
 
     /**
@@ -192,7 +192,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.offensiveCoachingStaff");
 
-        Assert.assertEquals(value, false);
+        Assert.assertEquals(false, value);
     }
 
     /**
@@ -210,7 +210,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.players.1.name");
 
-        Assert.assertEquals(value, "name");
+        Assert.assertEquals("name", value);
     }
 
     /**
@@ -230,7 +230,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.supportCoachingStaff");
 
-        Assert.assertEquals(value, false);
+        Assert.assertEquals(false, value);
     }
 
     /**
@@ -248,7 +248,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.teamType.name");
 
-        Assert.assertEquals(value, "team_name");
+        Assert.assertEquals("team_name", value);
     }
 
     /**
@@ -266,7 +266,7 @@ public final class TestAdvancementTeamMixIn {
 
         value = JsonPath.read(json, "$.valoration");
 
-        Assert.assertEquals(value, 5);
+        Assert.assertEquals(5, value);
     }
 
     /**

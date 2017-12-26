@@ -60,7 +60,7 @@ public final class TestComponentLocationMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "component_location");
+        Assert.assertEquals("component_location", value);
     }
 
     /**

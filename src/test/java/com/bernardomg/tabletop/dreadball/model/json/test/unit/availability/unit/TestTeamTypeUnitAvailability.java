@@ -74,7 +74,7 @@ public final class TestTeamTypeUnitAvailability {
 
         value = JsonPath.read(json, "$.teamType.name");
 
-        Assert.assertEquals(value, "team_name");
+        Assert.assertEquals("team_name", value);
     }
 
     /**
@@ -92,7 +92,7 @@ public final class TestTeamTypeUnitAvailability {
 
         value = JsonPath.read(json, "$.unit.templateName");
 
-        Assert.assertEquals(value, "unit_template");
+        Assert.assertEquals("unit_template", value);
     }
 
     /**

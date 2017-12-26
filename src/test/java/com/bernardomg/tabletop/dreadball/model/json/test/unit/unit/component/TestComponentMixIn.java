@@ -70,7 +70,7 @@ public final class TestComponentMixIn {
 
         value = JsonPath.read(json, "$.abilities[0].name");
 
-        Assert.assertEquals(value, "ability_name");
+        Assert.assertEquals("ability_name", value);
     }
 
     /**
@@ -88,7 +88,7 @@ public final class TestComponentMixIn {
 
         value = JsonPath.read(json, "$.armor");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -106,7 +106,7 @@ public final class TestComponentMixIn {
 
         value = JsonPath.read(json, "$.cost");
 
-        Assert.assertEquals(value, 11);
+        Assert.assertEquals(11, value);
     }
 
     /**
@@ -124,7 +124,7 @@ public final class TestComponentMixIn {
 
         value = JsonPath.read(json, "$.location.name");
 
-        Assert.assertEquals(value, "component_location");
+        Assert.assertEquals("component_location", value);
     }
 
     /**
@@ -142,7 +142,7 @@ public final class TestComponentMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "component_name");
+        Assert.assertEquals("component_name", value);
     }
 
     /**
@@ -160,7 +160,7 @@ public final class TestComponentMixIn {
 
         value = JsonPath.read(json, "$.roles[0]");
 
-        Assert.assertEquals(value, "striker");
+        Assert.assertEquals("striker", value);
     }
 
     /**

@@ -60,7 +60,7 @@ public final class TestAffinityGroupMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "affinity_group");
+        Assert.assertEquals("affinity_group", value);
     }
 
     /**

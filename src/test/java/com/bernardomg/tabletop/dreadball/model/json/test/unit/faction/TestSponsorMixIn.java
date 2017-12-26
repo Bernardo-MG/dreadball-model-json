@@ -65,7 +65,7 @@ public final class TestSponsorMixIn {
 
         value = JsonPath.read(json, "$.affinityGroups[0].name");
 
-        Assert.assertEquals(value, "affinity_group");
+        Assert.assertEquals("affinity_group", value);
     }
 
     /**
@@ -83,7 +83,7 @@ public final class TestSponsorMixIn {
 
         value = JsonPath.read(json, "$.cash");
 
-        Assert.assertEquals(value, 10);
+        Assert.assertEquals(10, value);
     }
 
     /**
@@ -101,7 +101,7 @@ public final class TestSponsorMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "sponsor_name");
+        Assert.assertEquals("sponsor_name", value);
     }
 
     /**
@@ -119,7 +119,7 @@ public final class TestSponsorMixIn {
 
         value = JsonPath.read(json, "$.rank");
 
-        Assert.assertEquals(value, 20);
+        Assert.assertEquals(20, value);
     }
 
     /**

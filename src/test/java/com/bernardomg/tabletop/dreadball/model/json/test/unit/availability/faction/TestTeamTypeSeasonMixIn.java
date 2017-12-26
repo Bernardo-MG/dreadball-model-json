@@ -67,7 +67,7 @@ public final class TestTeamTypeSeasonMixIn {
 
         value = JsonPath.read(json, "$.seasonNumber");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -85,7 +85,7 @@ public final class TestTeamTypeSeasonMixIn {
 
         value = JsonPath.read(json, "$.team.name");
 
-        Assert.assertEquals(value, "team_name");
+        Assert.assertEquals("team_name", value);
     }
 
     /**

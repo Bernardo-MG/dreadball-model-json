@@ -60,7 +60,7 @@ public final class TestAbilityMixin {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "ability_name");
+        Assert.assertEquals("ability_name", value);
     }
 
     /**

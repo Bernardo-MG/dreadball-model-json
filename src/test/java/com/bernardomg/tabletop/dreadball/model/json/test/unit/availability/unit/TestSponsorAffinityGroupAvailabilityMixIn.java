@@ -65,7 +65,7 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.affinityGroups[0].name");
 
-        Assert.assertEquals(value, "affinity_group");
+        Assert.assertEquals("affinity_group", value);
     }
 
     /**
@@ -83,7 +83,7 @@ public final class TestSponsorAffinityGroupAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "group_name");
+        Assert.assertEquals("group_name", value);
     }
 
     /**

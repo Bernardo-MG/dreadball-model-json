@@ -60,7 +60,7 @@ public final class TestAttributesMixin {
 
         value = JsonPath.read(json, "$.armor");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -78,7 +78,7 @@ public final class TestAttributesMixin {
 
         value = JsonPath.read(json, "$.movement");
 
-        Assert.assertEquals(value, 2);
+        Assert.assertEquals(2, value);
     }
 
     /**
@@ -96,7 +96,7 @@ public final class TestAttributesMixin {
 
         value = JsonPath.read(json, "$.skill");
 
-        Assert.assertEquals(value, 3);
+        Assert.assertEquals(3, value);
     }
 
     /**
@@ -114,7 +114,7 @@ public final class TestAttributesMixin {
 
         value = JsonPath.read(json, "$.speed");
 
-        Assert.assertEquals(value, 4);
+        Assert.assertEquals(4, value);
     }
 
     /**
@@ -132,7 +132,7 @@ public final class TestAttributesMixin {
 
         value = JsonPath.read(json, "$.strength");
 
-        Assert.assertEquals(value, 5);
+        Assert.assertEquals(5, value);
     }
 
     /**
