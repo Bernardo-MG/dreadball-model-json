@@ -20,7 +20,7 @@
 
    <groupId>com.bernardomg.tabletop.dreadball</groupId>
    <artifactId>dreadball-model-json</artifactId>
-   <version>0.8.0-SNAPSHOT</version>
+   <version>0.8.1-SNAPSHOT</version>
    <packaging>jar</packaging>
 
    <name>Dreadball JSON Model Implementation</name>
@@ -191,7 +191,7 @@
       <junit.version>4.12</junit.version>
       <log4j.version>2.6</log4j.version>
       <mockito.version>1.10.19</mockito.version>
-      <tabletop.dreadball.api.version>0.8.1</tabletop.dreadball.api.version>
+      <tabletop.dreadball.api.version>0.8.2</tabletop.dreadball.api.version>
       <!-- Maven Site -->
       <site.skin.version>1.2.0</site.skin.version>
       <bintrayURL>https://bintray.com/bernardo-mg/tabletop-toolkits/dreadball-model-json/view</bintrayURL>

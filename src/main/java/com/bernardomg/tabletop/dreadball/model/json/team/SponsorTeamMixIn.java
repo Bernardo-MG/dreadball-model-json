@@ -38,6 +38,14 @@ public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<Unit> {
 
     @Override
     @JsonProperty
+    public Integer getBaseRank();
+
+    @Override
+    @JsonProperty
+    public Integer getCurrentRank();
+
+    @Override
+    @JsonProperty
     public Integer getMediBots();
 
     @Override
