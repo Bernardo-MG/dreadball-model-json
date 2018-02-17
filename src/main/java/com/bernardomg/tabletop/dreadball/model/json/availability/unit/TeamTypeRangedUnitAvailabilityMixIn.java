@@ -16,11 +16,11 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.availability.unit;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.bernardomg.tabletop.dreadball.model.availability.unit.TeamTypeRangedUnitAvailability;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
 import com.bernardomg.tabletop.dreadball.model.unit.Unit;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Jackson mix-in interface for {@link TeamTypeRangedUnitAvailability}.

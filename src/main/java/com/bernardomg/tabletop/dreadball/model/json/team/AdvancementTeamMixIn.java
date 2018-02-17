@@ -16,11 +16,11 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.team;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
 import com.bernardomg.tabletop.dreadball.model.team.AdvancementTeam;
 import com.bernardomg.tabletop.dreadball.model.unit.AdvancementUnit;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Jackson mix-in interface for {@link AdvancementTeam}.

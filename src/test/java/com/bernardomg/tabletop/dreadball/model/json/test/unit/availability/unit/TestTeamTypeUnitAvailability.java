@@ -19,13 +19,10 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.availability.unit
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.availability.unit.TeamTypeUnitAvailability;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
@@ -39,6 +36,9 @@ import com.bernardomg.tabletop.dreadball.model.unit.Role;
 import com.bernardomg.tabletop.dreadball.model.unit.Unit;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link TeamTypeUnitAvailability}.
@@ -74,7 +74,7 @@ public final class TestTeamTypeUnitAvailability {
 
         value = JsonPath.read(json, "$.teamType.name");
 
-        Assert.assertEquals(value, "team_name");
+        Assert.assertEquals("team_name", value);
     }
 
     /**
@@ -92,7 +92,7 @@ public final class TestTeamTypeUnitAvailability {
 
         value = JsonPath.read(json, "$.unit.templateName");
 
-        Assert.assertEquals(value, "unit_template");
+        Assert.assertEquals("unit_template", value);
     }
 
     /**

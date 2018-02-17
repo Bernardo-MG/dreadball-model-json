@@ -18,15 +18,15 @@ package com.bernardomg.tabletop.dreadball.model.json.unit;
 
 import java.util.Collection;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.bernardomg.tabletop.dreadball.model.json.databind.RoleSerializer;
 import com.bernardomg.tabletop.dreadball.model.unit.Role;
 import com.bernardomg.tabletop.dreadball.model.unit.Unit;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * Jackson mix-in interface for {@link Unit}.

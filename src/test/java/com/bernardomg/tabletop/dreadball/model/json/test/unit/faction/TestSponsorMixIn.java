@@ -19,17 +19,17 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.faction;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.faction.Sponsor;
 import com.bernardomg.tabletop.dreadball.model.json.faction.SponsorMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
 import com.bernardomg.tabletop.dreadball.model.unit.AffinityGroup;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link UnitTemplateMixIn}.
@@ -65,7 +65,7 @@ public final class TestSponsorMixIn {
 
         value = JsonPath.read(json, "$.affinityGroups[0].name");
 
-        Assert.assertEquals(value, "affinity_group");
+        Assert.assertEquals("affinity_group", value);
     }
 
     /**
@@ -83,7 +83,7 @@ public final class TestSponsorMixIn {
 
         value = JsonPath.read(json, "$.cash");
 
-        Assert.assertEquals(value, 10);
+        Assert.assertEquals(10, value);
     }
 
     /**
@@ -101,7 +101,7 @@ public final class TestSponsorMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "sponsor_name");
+        Assert.assertEquals("sponsor_name", value);
     }
 
     /**
@@ -119,7 +119,7 @@ public final class TestSponsorMixIn {
 
         value = JsonPath.read(json, "$.rank");
 
-        Assert.assertEquals(value, 20);
+        Assert.assertEquals(20, value);
     }
 
     /**

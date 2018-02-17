@@ -19,13 +19,10 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.unit.component;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.component.ComponentLocationMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.component.ComponentMixIn;
@@ -39,6 +36,9 @@ import com.bernardomg.tabletop.dreadball.model.unit.component.ComponentLocation;
 import com.bernardomg.tabletop.dreadball.model.unit.component.CompositeAffinityUnit;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link CompositeAffinityUnitMixIn}.
@@ -74,7 +74,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.abilities[0].name");
 
-        Assert.assertEquals(value, "ability_name");
+        Assert.assertEquals("ability_name", value);
     }
 
     /**
@@ -92,7 +92,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.affinityGroups[0].name");
 
-        Assert.assertEquals(value, "affinity_group");
+        Assert.assertEquals("affinity_group", value);
     }
 
     /**
@@ -110,7 +110,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.allyCost");
 
-        Assert.assertEquals(value, 5);
+        Assert.assertEquals(5, value);
     }
 
     /**
@@ -128,7 +128,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.armor");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -146,7 +146,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.components[0].name");
 
-        Assert.assertEquals(value, "component_name");
+        Assert.assertEquals("component_name", value);
     }
 
     /**
@@ -164,7 +164,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.cost");
 
-        Assert.assertEquals(value, 10);
+        Assert.assertEquals(10, value);
     }
 
     /**
@@ -182,7 +182,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.friendCost");
 
-        Assert.assertEquals(value, 6);
+        Assert.assertEquals(6, value);
     }
 
     /**
@@ -220,7 +220,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.hatedAffinityGroups[0].name");
 
-        Assert.assertEquals(value, "affinity_group_2");
+        Assert.assertEquals("affinity_group_2", value);
     }
 
     /**
@@ -256,7 +256,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "name");
+        Assert.assertEquals("name", value);
     }
 
     /**
@@ -274,7 +274,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.role");
 
-        Assert.assertEquals(value, "striker");
+        Assert.assertEquals("striker", value);
     }
 
     /**
@@ -292,7 +292,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.strangerCost");
 
-        Assert.assertEquals(value, 7);
+        Assert.assertEquals(7, value);
     }
 
     /**
@@ -310,7 +310,7 @@ public final class TestCompositeAffinityUnitMixIn {
 
         value = JsonPath.read(json, "$.templateName");
 
-        Assert.assertEquals(value, "unit_template");
+        Assert.assertEquals("unit_template", value);
     }
 
     /**

@@ -19,13 +19,10 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.unit.component;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.json.unit.component.AffinityComponentMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.component.ComponentLocationMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
@@ -35,6 +32,9 @@ import com.bernardomg.tabletop.dreadball.model.unit.component.AffinityComponent;
 import com.bernardomg.tabletop.dreadball.model.unit.component.ComponentLocation;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link AffinityComponentMixIn}.
@@ -70,7 +70,7 @@ public final class TestAffinityComponentMixIn {
 
         value = JsonPath.read(json, "$.abilities[0].name");
 
-        Assert.assertEquals(value, "ability_name");
+        Assert.assertEquals("ability_name", value);
     }
 
     /**
@@ -88,7 +88,7 @@ public final class TestAffinityComponentMixIn {
 
         value = JsonPath.read(json, "$.allyCost");
 
-        Assert.assertEquals(value, 5);
+        Assert.assertEquals(5, value);
     }
 
     /**
@@ -106,7 +106,7 @@ public final class TestAffinityComponentMixIn {
 
         value = JsonPath.read(json, "$.armor");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -124,7 +124,7 @@ public final class TestAffinityComponentMixIn {
 
         value = JsonPath.read(json, "$.cost");
 
-        Assert.assertEquals(value, 11);
+        Assert.assertEquals(11, value);
     }
 
     /**
@@ -142,7 +142,7 @@ public final class TestAffinityComponentMixIn {
 
         value = JsonPath.read(json, "$.friendCost");
 
-        Assert.assertEquals(value, 6);
+        Assert.assertEquals(6, value);
     }
 
     /**
@@ -160,7 +160,7 @@ public final class TestAffinityComponentMixIn {
 
         value = JsonPath.read(json, "$.location.name");
 
-        Assert.assertEquals(value, "component_location");
+        Assert.assertEquals("component_location", value);
     }
 
     /**
@@ -178,7 +178,7 @@ public final class TestAffinityComponentMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "component_name");
+        Assert.assertEquals("component_name", value);
     }
 
     /**
@@ -196,7 +196,7 @@ public final class TestAffinityComponentMixIn {
 
         value = JsonPath.read(json, "$.roles[0]");
 
-        Assert.assertEquals(value, "striker");
+        Assert.assertEquals("striker", value);
     }
 
     /**
@@ -214,7 +214,7 @@ public final class TestAffinityComponentMixIn {
 
         value = JsonPath.read(json, "$.strangerCost");
 
-        Assert.assertEquals(value, 7);
+        Assert.assertEquals(7, value);
     }
 
     /**

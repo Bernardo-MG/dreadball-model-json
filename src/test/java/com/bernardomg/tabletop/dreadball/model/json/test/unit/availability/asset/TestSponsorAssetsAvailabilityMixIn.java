@@ -16,15 +16,15 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.test.unit.availability.asset;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
+import com.bernardomg.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
+import com.bernardomg.tabletop.dreadball.model.json.availability.asset.SponsorAssetsAvailabilityMixIn;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
-import com.bernardomg.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
-import com.bernardomg.tabletop.dreadball.model.json.availability.asset.SponsorAssetsAvailabilityMixIn;
 
 /**
  * Unit tests for {@link SponsorAssetsAvailabilityMixIn}.
@@ -61,7 +61,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.affinityGroupCost");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -79,7 +79,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.cheerleaderCost");
 
-        Assert.assertEquals(value, 2);
+        Assert.assertEquals(2, value);
     }
 
     /**
@@ -99,7 +99,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.cheerleaderUnlockCost");
 
-        Assert.assertEquals(value, 3);
+        Assert.assertEquals(3, value);
     }
 
     /**
@@ -118,7 +118,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.coachingDieCost");
 
-        Assert.assertEquals(value, 4);
+        Assert.assertEquals(4, value);
     }
 
     /**
@@ -136,7 +136,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.mediBotCost");
 
-        Assert.assertEquals(value, 5);
+        Assert.assertEquals(5, value);
     }
 
     /**
@@ -155,7 +155,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.sabotageCardCost");
 
-        Assert.assertEquals(value, 6);
+        Assert.assertEquals(6, value);
     }
 
     /**
@@ -175,7 +175,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.specialMovementCardCost");
 
-        Assert.assertEquals(value, 7);
+        Assert.assertEquals(7, value);
     }
 
     /**
@@ -194,7 +194,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.teamCostMin");
 
-        Assert.assertEquals(value, 8);
+        Assert.assertEquals(8, value);
     }
 
     /**
@@ -212,7 +212,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.wagerCost");
 
-        Assert.assertEquals(value, 9);
+        Assert.assertEquals(9, value);
     }
 
     /**
@@ -230,7 +230,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.wagerMaxCount");
 
-        Assert.assertEquals(value, 10);
+        Assert.assertEquals(10, value);
     }
 
     /**

@@ -16,15 +16,15 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.test.unit.unit;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
+import com.bernardomg.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
+import com.bernardomg.tabletop.dreadball.model.unit.AffinityGroup;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
-import com.bernardomg.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
-import com.bernardomg.tabletop.dreadball.model.unit.AffinityGroup;
 
 /**
  * Unit tests for {@link AffinityGroupMixIn}.
@@ -60,7 +60,7 @@ public final class TestAffinityGroupMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "affinity_group");
+        Assert.assertEquals("affinity_group", value);
     }
 
     /**

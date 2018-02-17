@@ -16,15 +16,15 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.test.unit.faction;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
+import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
+import com.bernardomg.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
-import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
-import com.bernardomg.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 
 /**
  * Unit tests for {@link TeamRuleMixIn}.
@@ -60,7 +60,7 @@ public final class TestTeamRuleMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "team_rule");
+        Assert.assertEquals("team_rule", value);
     }
 
     /**

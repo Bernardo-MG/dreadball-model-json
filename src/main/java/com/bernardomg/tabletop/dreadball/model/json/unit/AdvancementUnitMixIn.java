@@ -16,10 +16,10 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.unit;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.bernardomg.tabletop.dreadball.model.unit.AdvancementUnit;
 import com.bernardomg.tabletop.dreadball.model.unit.component.Component;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Jackson mix-in interface for {@link AdvancementUnit}.

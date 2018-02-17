@@ -16,9 +16,9 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.unit.stats;
 
+import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
 
 /**
  * Jackson mix-in interface for {@link Ability}.

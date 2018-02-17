@@ -19,17 +19,17 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.faction;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link TeamRuleMixIn}.
@@ -65,7 +65,7 @@ public final class TestTeamTypeMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "team_name");
+        Assert.assertEquals("team_name", value);
     }
 
     /**
@@ -83,7 +83,7 @@ public final class TestTeamTypeMixIn {
 
         value = JsonPath.read(json, "$.teamRules[0].name");
 
-        Assert.assertEquals(value, "team_rule");
+        Assert.assertEquals("team_rule", value);
     }
 
     /**

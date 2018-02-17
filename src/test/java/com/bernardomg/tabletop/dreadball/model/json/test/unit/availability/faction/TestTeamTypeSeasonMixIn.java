@@ -19,19 +19,19 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.availability.fact
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.availability.faction.TeamTypeSeason;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
 import com.bernardomg.tabletop.dreadball.model.json.availability.faction.TeamTypeSeasonMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link TeamTypeSeasonMixIn}.
@@ -67,7 +67,7 @@ public final class TestTeamTypeSeasonMixIn {
 
         value = JsonPath.read(json, "$.seasonNumber");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -85,7 +85,7 @@ public final class TestTeamTypeSeasonMixIn {
 
         value = JsonPath.read(json, "$.team.name");
 
-        Assert.assertEquals(value, "team_name");
+        Assert.assertEquals("team_name", value);
     }
 
     /**

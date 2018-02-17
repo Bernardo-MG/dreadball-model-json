@@ -21,13 +21,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.faction.Sponsor;
 import com.bernardomg.tabletop.dreadball.model.json.faction.SponsorMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.team.SponsorTeamMixIn;
@@ -41,6 +38,9 @@ import com.bernardomg.tabletop.dreadball.model.unit.Role;
 import com.bernardomg.tabletop.dreadball.model.unit.Unit;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link SponsorMixIn}.
@@ -78,7 +78,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.additionalAffinityGroups[0].name");
 
-        Assert.assertEquals(value, "affinity_group");
+        Assert.assertEquals("affinity_group", value);
     }
 
     /**
@@ -97,7 +97,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.cheerleaders");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -116,7 +116,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.coachingDice");
 
-        Assert.assertEquals(value, 2);
+        Assert.assertEquals(2, value);
     }
 
     /**
@@ -135,7 +135,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.mediBots");
 
-        Assert.assertEquals(value, 3);
+        Assert.assertEquals(3, value);
     }
 
     /**
@@ -153,7 +153,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.players.1.name");
 
-        Assert.assertEquals(value, "name");
+        Assert.assertEquals("name", value);
     }
 
     /**
@@ -171,7 +171,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.rankCost");
 
-        Assert.assertEquals(value, 8);
+        Assert.assertEquals(8, value);
     }
 
     /**
@@ -190,7 +190,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.sabotageCards");
 
-        Assert.assertEquals(value, 4);
+        Assert.assertEquals(4, value);
     }
 
     /**
@@ -209,7 +209,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.specialMoveCards");
 
-        Assert.assertEquals(value, 5);
+        Assert.assertEquals(5, value);
     }
 
     /**
@@ -227,7 +227,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.sponsor.name");
 
-        Assert.assertEquals(value, "sponsor_name");
+        Assert.assertEquals("sponsor_name", value);
     }
 
     /**
@@ -245,7 +245,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.valoration");
 
-        Assert.assertEquals(value, 6);
+        Assert.assertEquals(6, value);
     }
 
     /**
@@ -263,7 +263,7 @@ public final class TestSponsorTeamMixIn {
 
         value = JsonPath.read(json, "$.wagers");
 
-        Assert.assertEquals(value, 7);
+        Assert.assertEquals(7, value);
     }
 
     /**

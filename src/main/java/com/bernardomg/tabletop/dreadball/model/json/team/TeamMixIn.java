@@ -18,10 +18,10 @@ package com.bernardomg.tabletop.dreadball.model.json.team;
 
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.bernardomg.tabletop.dreadball.model.team.Team;
 import com.bernardomg.tabletop.dreadball.model.unit.Unit;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Jackson mix-in interface for {@link Team}.

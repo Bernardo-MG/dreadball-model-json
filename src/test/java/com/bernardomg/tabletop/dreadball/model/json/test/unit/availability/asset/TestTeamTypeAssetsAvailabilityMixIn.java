@@ -19,19 +19,19 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.availability.asse
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.availability.asset.TeamTypeAssetsAvailability;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
 import com.bernardomg.tabletop.dreadball.model.json.availability.asset.TeamTypeAssetsAvailabilityMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link TeamTypeAssetsAvailabilityMixIn}.
@@ -67,7 +67,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.cheerleaderCost");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -86,7 +86,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.cheerleaderInitial");
 
-        Assert.assertEquals(value, 2);
+        Assert.assertEquals(2, value);
     }
 
     /**
@@ -105,7 +105,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.cheerleaderMax");
 
-        Assert.assertEquals(value, 3);
+        Assert.assertEquals(3, value);
     }
 
     /**
@@ -124,7 +124,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.coachingDieCost");
 
-        Assert.assertEquals(value, 4);
+        Assert.assertEquals(4, value);
     }
 
     /**
@@ -143,7 +143,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.coachingDieInitial");
 
-        Assert.assertEquals(value, 5);
+        Assert.assertEquals(5, value);
     }
 
     /**
@@ -162,7 +162,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.coachingDieMax");
 
-        Assert.assertEquals(value, 6);
+        Assert.assertEquals(6, value);
     }
 
     /**
@@ -181,7 +181,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.coachingStaffCost");
 
-        Assert.assertEquals(value, 7);
+        Assert.assertEquals(7, value);
     }
 
     /**
@@ -200,7 +200,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.dreadballCardCost");
 
-        Assert.assertEquals(value, 8);
+        Assert.assertEquals(8, value);
     }
 
     /**
@@ -220,7 +220,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.dreadballCardInitial");
 
-        Assert.assertEquals(value, 9);
+        Assert.assertEquals(9, value);
     }
 
     /**
@@ -239,7 +239,7 @@ public final class TestTeamTypeAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.dreadballCardMax");
 
-        Assert.assertEquals(value, 10);
+        Assert.assertEquals(10, value);
     }
 
     /**

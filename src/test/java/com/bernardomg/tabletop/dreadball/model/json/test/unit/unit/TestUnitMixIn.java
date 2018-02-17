@@ -19,13 +19,10 @@ package com.bernardomg.tabletop.dreadball.model.json.test.unit.unit;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.junit.Assert;
+import org.junit.Test;
 import org.mockito.Mockito;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import com.bernardomg.tabletop.dreadball.model.json.unit.UnitMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
@@ -33,6 +30,9 @@ import com.bernardomg.tabletop.dreadball.model.unit.Role;
 import com.bernardomg.tabletop.dreadball.model.unit.Unit;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
 import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * Unit tests for {@link UnitMixIn}.
@@ -68,7 +68,7 @@ public final class TestUnitMixIn {
 
         value = JsonPath.read(json, "$.abilities[0].name");
 
-        Assert.assertEquals(value, "ability_name");
+        Assert.assertEquals("ability_name", value);
     }
 
     /**
@@ -86,7 +86,7 @@ public final class TestUnitMixIn {
 
         value = JsonPath.read(json, "$.armor");
 
-        Assert.assertEquals(value, 1);
+        Assert.assertEquals(1, value);
     }
 
     /**
@@ -104,7 +104,7 @@ public final class TestUnitMixIn {
 
         value = JsonPath.read(json, "$.cost");
 
-        Assert.assertEquals(value, 10);
+        Assert.assertEquals(10, value);
     }
 
     /**
@@ -158,7 +158,7 @@ public final class TestUnitMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals(value, "name");
+        Assert.assertEquals("name", value);
     }
 
     /**
@@ -176,7 +176,7 @@ public final class TestUnitMixIn {
 
         value = JsonPath.read(json, "$.role");
 
-        Assert.assertEquals(value, "striker");
+        Assert.assertEquals("striker", value);
     }
 
     /**
@@ -194,7 +194,7 @@ public final class TestUnitMixIn {
 
         value = JsonPath.read(json, "$.templateName");
 
-        Assert.assertEquals(value, "unit_template");
+        Assert.assertEquals("unit_template", value);
     }
 
     /**
