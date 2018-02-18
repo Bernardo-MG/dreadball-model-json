@@ -188,7 +188,7 @@ public final class TestSponsorTeamMixIn {
 
         json = getJson();
 
-        value = JsonPath.read(json, "$.sabotageCards");
+        value = JsonPath.read(json, "$.nastySurpriseCards");
 
         Assert.assertEquals(4, value);
     }
@@ -344,7 +344,7 @@ public final class TestSponsorTeamMixIn {
         Mockito.when(team.getCheerleaders()).thenReturn(1);
         Mockito.when(team.getCoachingDice()).thenReturn(2);
         Mockito.when(team.getMediBots()).thenReturn(3);
-        Mockito.when(team.getSabotageCards()).thenReturn(4);
+        Mockito.when(team.getNastySurpriseCards()).thenReturn(4);
         Mockito.when(team.getSpecialMoveCards()).thenReturn(5);
         Mockito.when(team.getValoration()).thenReturn(6);
         Mockito.when(team.getWagers()).thenReturn(7);
