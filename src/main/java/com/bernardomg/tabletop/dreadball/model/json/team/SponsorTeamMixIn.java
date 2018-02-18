@@ -54,7 +54,7 @@ public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<Unit> {
 
     @Override
     @JsonProperty
-    public Integer getSabotageCards();
+    public Integer getNastySurpriseCards();
 
     @Override
     @JsonProperty
