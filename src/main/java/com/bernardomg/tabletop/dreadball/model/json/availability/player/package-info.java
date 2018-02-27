@@ -14,7 +14,7 @@
  * the License.
  */
 /**
- * Jackson mix-ins for unit availabilities.
+ * Jackson mix-ins for player availabilities.
  */
 
-package com.bernardomg.tabletop.dreadball.model.json.availability.unit;
+package com.bernardomg.tabletop.dreadball.model.json.availability.player;

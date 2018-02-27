@@ -14,7 +14,7 @@
  * the License.
  */
 /**
- * Jackson mix-ins for units.
+ * Jackson mix-ins for playerss.
  */
 
 package com.bernardomg.tabletop.dreadball.model.json.player;

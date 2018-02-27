@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  * @param <P>
- *            the type of unit the {@code Team} contains
+ *            the type of player the {@code Team} contains
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)

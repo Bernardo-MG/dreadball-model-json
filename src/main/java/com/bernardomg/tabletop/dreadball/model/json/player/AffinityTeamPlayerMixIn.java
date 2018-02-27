@@ -24,13 +24,14 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Jackson mix-in interface for {@link AffinityUnit}.
+ * Jackson mix-in interface for {@link AffinityTeamPlayer}.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface AffinityTeamPlayerMixIn extends AffinityTeamPlayer, TeamPlayerMixIn {
+public interface AffinityTeamPlayerMixIn
+        extends AffinityTeamPlayer, TeamPlayerMixIn {
 
     @Override
     @JsonProperty

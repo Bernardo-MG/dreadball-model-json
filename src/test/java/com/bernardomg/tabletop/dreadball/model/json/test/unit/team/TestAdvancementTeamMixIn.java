@@ -44,7 +44,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 
 /**
- * Unit tests for {@link UnitTemplateMixIn}.
+ * Unit tests for {@link AdvancementTeamMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -279,12 +279,12 @@ public final class TestAdvancementTeamMixIn {
     private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;                  // Mapper for the JSON
         final Collection<AffinityGroup> affinities; // Sponsor affinities
-        final Collection<Ability> abilities;        // Unit abilities
+        final Collection<Ability> abilities;        // Player abilities
         final Collection<TeamRule> rules;           // Team rules
-        final Map<Integer, AdvancementTeamPlayer> units;  // Team units
+        final Map<Integer, AdvancementTeamPlayer> players;  // Team player
         final AffinityGroup affinity;               // Mocked affinity
         final AdvancementTeam team;                 // Mocked team
-        final AdvancementTeamPlayer unit;           // Mocked unit
+        final AdvancementTeamPlayer player;         // Mocked player
         final Ability ability;                      // Mocked ability
         final Attributes attributes;                // Mocked attributes
         final TeamRule rule;                        // Mocked rule
@@ -320,20 +320,20 @@ public final class TestAdvancementTeamMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
-        // Mocks units
-        units = new HashMap<>();
-        unit = Mockito.mock(AdvancementTeamPlayer.class);
-        Mockito.when(unit.getAbilities()).thenReturn(abilities);
-        Mockito.when(unit.getAttributes()).thenReturn(attributes);
-        Mockito.when(unit.getCost()).thenReturn(10);
-        Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
-        Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
-        Mockito.when(unit.getMvp()).thenReturn(true);
-        Mockito.when(unit.getGiant()).thenReturn(true);
-        Mockito.when(unit.getRank()).thenReturn(20);
-        Mockito.when(unit.getUnspentExperience()).thenReturn(30);
-        Mockito.when(unit.getValoration()).thenReturn(40);
-        units.put(1, unit);
+        // Mocks players
+        players = new HashMap<>();
+        player = Mockito.mock(AdvancementTeamPlayer.class);
+        Mockito.when(player.getAbilities()).thenReturn(abilities);
+        Mockito.when(player.getAttributes()).thenReturn(attributes);
+        Mockito.when(player.getCost()).thenReturn(10);
+        Mockito.when(player.getRole()).thenReturn(Role.STRIKER);
+        Mockito.when(player.getTemplateName()).thenReturn("player_template");
+        Mockito.when(player.getMvp()).thenReturn(true);
+        Mockito.when(player.getGiant()).thenReturn(true);
+        Mockito.when(player.getRank()).thenReturn(20);
+        Mockito.when(player.getUnspentExperience()).thenReturn(30);
+        Mockito.when(player.getValoration()).thenReturn(40);
+        players.put(1, player);
 
         // Mocks rules
         rules = new ArrayList<>();
@@ -348,7 +348,7 @@ public final class TestAdvancementTeamMixIn {
 
         // Mocks team
         team = Mockito.mock(AdvancementTeam.class);
-        Mockito.when(unit.getName()).thenReturn("name");
+        Mockito.when(player.getName()).thenReturn("name");
         Mockito.when(team.getCheerleaders()).thenReturn(1);
         Mockito.when(team.getCoachingDice()).thenReturn(2);
         Mockito.when(team.getCash()).thenReturn(3);
@@ -358,7 +358,7 @@ public final class TestAdvancementTeamMixIn {
         Mockito.when(team.getName()).thenReturn("team_name");
         Mockito.when(team.getTeamType()).thenReturn(teamType);
 
-        Mockito.when(team.getPlayers()).thenReturn(units);
+        Mockito.when(team.getPlayers()).thenReturn(players);
 
         return mapper.writer().writeValueAsString(team);
     }

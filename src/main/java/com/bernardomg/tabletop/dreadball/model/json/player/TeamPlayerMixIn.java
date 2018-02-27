@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
- * Jackson mix-in interface for {@link Unit}.
+ * Jackson mix-in interface for {@link TeamPlayer}.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */

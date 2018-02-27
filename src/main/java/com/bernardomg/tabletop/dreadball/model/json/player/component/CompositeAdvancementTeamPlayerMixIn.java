@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Jackson mix-in interface for {@link CompositeAdvancementUnit}.
+ * Jackson mix-in interface for {@link CompositeAdvancementTeamPlayer}.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */

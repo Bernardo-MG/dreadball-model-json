@@ -277,12 +277,12 @@ public final class TestSponsorTeamMixIn {
         final ObjectMapper mapper;                  // Mapper for the JSON
         final Collection<AffinityGroup> affinities; // Sponsor affinities
         final Collection<AffinityGroup> addAffs;    // Additional affinities
-        final Collection<Ability> abilities;        // Unit abilities
-        final Map<Integer, TeamPlayer> units;       // Team units
+        final Collection<Ability> abilities;        // Player abilities
+        final Map<Integer, TeamPlayer> players;     // Team players
         final Sponsor sponsor;                      // Team sponsor
         final AffinityGroup affinity;               // Mocked affinity group
         final SponsorTeam team;                     // Mocked team
-        final TeamPlayer unit;                      // Mocked unit
+        final TeamPlayer player;                    // Mocked player
         final Ability ability;                      // Mocked ability
         final Attributes attributes;                // Mocked attributes
 
@@ -326,18 +326,18 @@ public final class TestSponsorTeamMixIn {
         Mockito.when(attributes.getSpeed()).thenReturn(4);
         Mockito.when(attributes.getStrength()).thenReturn(5);
 
-        // Mocks units
-        units = new HashMap<>();
-        unit = Mockito.mock(TeamPlayer.class);
-        Mockito.when(unit.getName()).thenReturn("name");
-        Mockito.when(unit.getAbilities()).thenReturn(abilities);
-        Mockito.when(unit.getAttributes()).thenReturn(attributes);
-        Mockito.when(unit.getCost()).thenReturn(10);
-        Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
-        Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
-        Mockito.when(unit.getMvp()).thenReturn(true);
-        Mockito.when(unit.getGiant()).thenReturn(true);
-        units.put(1, unit);
+        // Mocks players
+        players = new HashMap<>();
+        player = Mockito.mock(TeamPlayer.class);
+        Mockito.when(player.getName()).thenReturn("name");
+        Mockito.when(player.getAbilities()).thenReturn(abilities);
+        Mockito.when(player.getAttributes()).thenReturn(attributes);
+        Mockito.when(player.getCost()).thenReturn(10);
+        Mockito.when(player.getRole()).thenReturn(Role.STRIKER);
+        Mockito.when(player.getTemplateName()).thenReturn("player_template");
+        Mockito.when(player.getMvp()).thenReturn(true);
+        Mockito.when(player.getGiant()).thenReturn(true);
+        players.put(1, player);
 
         // Mocks team
         team = Mockito.mock(SponsorTeam.class);
@@ -352,7 +352,7 @@ public final class TestSponsorTeamMixIn {
 
         Mockito.when(team.getSponsor()).thenReturn(sponsor);
 
-        Mockito.when(team.getPlayers()).thenReturn(units);
+        Mockito.when(team.getPlayers()).thenReturn(players);
 
         Mockito.when(team.getAdditionalAffinityGroups()).thenReturn(addAffs);
 

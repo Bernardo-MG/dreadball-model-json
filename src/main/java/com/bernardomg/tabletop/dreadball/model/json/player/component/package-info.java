@@ -14,7 +14,7 @@
  * the License.
  */
 /**
- * Jackson mix-ins for components and composite units.
+ * Jackson mix-ins for components and composite players.
  */
 
 package com.bernardomg.tabletop.dreadball.model.json.player.component;

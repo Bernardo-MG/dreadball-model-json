@@ -37,7 +37,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 
 /**
- * Unit tests for {@link UnitTemplateMixIn}.
+ * Unit tests for {@link AdvancementTeamPlayer}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -232,7 +232,7 @@ public final class TestAdvancementTeamPlayerMixIn {
 
         value = JsonPath.read(json, "$.templateName");
 
-        Assert.assertEquals("unit_template", value);
+        Assert.assertEquals("player_template", value);
     }
 
     /**
@@ -282,13 +282,13 @@ public final class TestAdvancementTeamPlayerMixIn {
      */
     private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;           // Mapper for the JSON
-        final Collection<Ability> abilities; // Unit abilities
-        final AdvancementTeamPlayer unit;    // Mocked unit
+        final Collection<Ability> abilities; // Player abilities
+        final AdvancementTeamPlayer player;  // Mocked player
         final Ability ability;               // Mocked ability
         final Attributes attributes;         // Mocked attributes
         final Component implant;             // Mocked component
         final ComponentLocation location;    // Mocked location
-        final Collection<Role> roles;        // Unit positions
+        final Collection<Role> roles;        // Player positions
 
         // Creates mapper
         mapper = new ObjectMapper();
@@ -328,21 +328,21 @@ public final class TestAdvancementTeamPlayerMixIn {
         Mockito.when(implant.getLocation()).thenReturn(location);
         Mockito.when(implant.getRoles()).thenReturn(roles);
 
-        // Mocks unit
-        unit = Mockito.mock(AdvancementTeamPlayer.class);
-        Mockito.when(unit.getName()).thenReturn("name");
-        Mockito.when(unit.getAbilities()).thenReturn(abilities);
-        Mockito.when(unit.getAttributes()).thenReturn(attributes);
-        Mockito.when(unit.getCost()).thenReturn(10);
-        Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
-        Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
-        Mockito.when(unit.getMvp()).thenReturn(true);
-        Mockito.when(unit.getGiant()).thenReturn(true);
-        Mockito.when(unit.getRank()).thenReturn(20);
-        Mockito.when(unit.getUnspentExperience()).thenReturn(30);
-        Mockito.when(unit.getValoration()).thenReturn(40);
+        // Mocks player
+        player = Mockito.mock(AdvancementTeamPlayer.class);
+        Mockito.when(player.getName()).thenReturn("name");
+        Mockito.when(player.getAbilities()).thenReturn(abilities);
+        Mockito.when(player.getAttributes()).thenReturn(attributes);
+        Mockito.when(player.getCost()).thenReturn(10);
+        Mockito.when(player.getRole()).thenReturn(Role.STRIKER);
+        Mockito.when(player.getTemplateName()).thenReturn("player_template");
+        Mockito.when(player.getMvp()).thenReturn(true);
+        Mockito.when(player.getGiant()).thenReturn(true);
+        Mockito.when(player.getRank()).thenReturn(20);
+        Mockito.when(player.getUnspentExperience()).thenReturn(30);
+        Mockito.when(player.getValoration()).thenReturn(40);
 
-        return mapper.writer().writeValueAsString(unit);
+        return mapper.writer().writeValueAsString(player);
     }
 
 }

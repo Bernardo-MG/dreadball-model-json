@@ -310,7 +310,7 @@ public final class TestCompositeAffinityTeamPlayerMixIn {
 
         value = JsonPath.read(json, "$.templateName");
 
-        Assert.assertEquals("unit_template", value);
+        Assert.assertEquals("player_template", value);
     }
 
     /**
@@ -322,12 +322,12 @@ public final class TestCompositeAffinityTeamPlayerMixIn {
      */
     private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;                  // Mapper for the JSON
-        final Collection<Ability> abilities;        // Unit abilities
-        final Collection<AffinityGroup> affinities; // Unit affinities
-        final Collection<AffinityGroup> hated;      // Unit hated affinities
-        final Collection<Component> components;     // Unit components
-        final Collection<Role> roles;               // Unit roles
-        final CompositeAffinityTeamPlayer unit;     // Mocked unit
+        final Collection<Ability> abilities;        // Player abilities
+        final Collection<AffinityGroup> affinities; // Player affinities
+        final Collection<AffinityGroup> hated;      // Player hated affinities
+        final Collection<Component> components;     // Player components
+        final Collection<Role> roles;               // Player roles
+        final CompositeAffinityTeamPlayer player;   // Mocked player
         final Ability ability;                      // Mocked ability
         final AffinityGroup affinity1;              // Mocked affinity
         final AffinityGroup affinity2;              // Mocked affinity
@@ -391,24 +391,24 @@ public final class TestCompositeAffinityTeamPlayerMixIn {
         Mockito.when(component.getRoles()).thenReturn(roles);
         components.add(component);
 
-        // Mocks unit
-        unit = Mockito.mock(CompositeAffinityTeamPlayer.class);
-        Mockito.when(unit.getName()).thenReturn("name");
-        Mockito.when(unit.getAbilities()).thenReturn(abilities);
-        Mockito.when(unit.getAttributes()).thenReturn(attributes);
-        Mockito.when(unit.getCost()).thenReturn(10);
-        Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
-        Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
-        Mockito.when(unit.getMvp()).thenReturn(true);
-        Mockito.when(unit.getGiant()).thenReturn(true);
-        Mockito.when(unit.getAffinityGroups()).thenReturn(affinities);
-        Mockito.when(unit.getHatedAffinityGroups()).thenReturn(hated);
-        Mockito.when(unit.getAllyCost()).thenReturn(5);
-        Mockito.when(unit.getFriendCost()).thenReturn(6);
-        Mockito.when(unit.getStrangerCost()).thenReturn(7);
-        Mockito.when(unit.getComponents()).thenReturn(components);
+        // Mocks player
+        player = Mockito.mock(CompositeAffinityTeamPlayer.class);
+        Mockito.when(player.getName()).thenReturn("name");
+        Mockito.when(player.getAbilities()).thenReturn(abilities);
+        Mockito.when(player.getAttributes()).thenReturn(attributes);
+        Mockito.when(player.getCost()).thenReturn(10);
+        Mockito.when(player.getRole()).thenReturn(Role.STRIKER);
+        Mockito.when(player.getTemplateName()).thenReturn("player_template");
+        Mockito.when(player.getMvp()).thenReturn(true);
+        Mockito.when(player.getGiant()).thenReturn(true);
+        Mockito.when(player.getAffinityGroups()).thenReturn(affinities);
+        Mockito.when(player.getHatedAffinityGroups()).thenReturn(hated);
+        Mockito.when(player.getAllyCost()).thenReturn(5);
+        Mockito.when(player.getFriendCost()).thenReturn(6);
+        Mockito.when(player.getStrangerCost()).thenReturn(7);
+        Mockito.when(player.getComponents()).thenReturn(components);
 
-        return mapper.writer().writeValueAsString(unit);
+        return mapper.writer().writeValueAsString(player);
     }
 
 }

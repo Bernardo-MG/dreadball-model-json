@@ -23,10 +23,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import com.bernardomg.tabletop.dreadball.model.availability.player.TeamPlayerRangedAvailability;
+import com.bernardomg.tabletop.dreadball.model.availability.player.TeamPlayerAvailability;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamRule;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
-import com.bernardomg.tabletop.dreadball.model.json.availability.unit.TeamPlayerRangedAvailabilityMixIn;
+import com.bernardomg.tabletop.dreadball.model.json.availability.player.TeamPlayerAvailabilityMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamRuleMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.faction.TeamTypeMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.player.TeamPlayerMixIn;
@@ -41,7 +41,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 
 /**
- * Unit tests for {@link TeamTypeRangedUnitAvailability}.
+ * Unit tests for {@link TeamPlayerAvailabilityMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -50,49 +50,13 @@ import com.jayway.jsonpath.JsonPath;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestTeamTypeRangedUnitAvailability {
+public final class TestTeamPlayerAvailabilityMixIn {
 
     /**
      * Default constructor.
      */
-    public TestTeamTypeRangedUnitAvailability() {
+    public TestTeamPlayerAvailabilityMixIn() {
         super();
-    }
-
-    /**
-     * Tests that the JSON message is created with the correct initial number.
-     * 
-     * @throws JsonProcessingException
-     *             never, this is a required declaration
-     */
-    @Test
-    public final void test_InitialNumber() throws JsonProcessingException {
-        final String json;  // Tested JSON
-        final Object value; // Read value
-
-        json = getJson();
-
-        value = JsonPath.read(json, "$.initialNumber");
-
-        Assert.assertEquals(1, value);
-    }
-
-    /**
-     * Tests that the JSON message is created with the correct maximum number.
-     * 
-     * @throws JsonProcessingException
-     *             never, this is a required declaration
-     */
-    @Test
-    public final void test_MaxNumber() throws JsonProcessingException {
-        final String json;  // Tested JSON
-        final Object value; // Read value
-
-        json = getJson();
-
-        value = JsonPath.read(json, "$.maxNumber");
-
-        Assert.assertEquals(2, value);
     }
 
     /**
@@ -128,7 +92,7 @@ public final class TestTeamTypeRangedUnitAvailability {
 
         value = JsonPath.read(json, "$.teamPlayer.templateName");
 
-        Assert.assertEquals("unit_template", value);
+        Assert.assertEquals("player_template", value);
     }
 
     /**
@@ -141,11 +105,11 @@ public final class TestTeamTypeRangedUnitAvailability {
     private final String getJson() throws JsonProcessingException {
         final ObjectMapper mapper;           // Mapper for the JSON
         final Collection<TeamRule> rules;    // Team rules
-        final Collection<Ability> abilities; // Unit abilities
+        final Collection<Ability> abilities; // Player abilities
         final TeamRule rule;                 // Mocked rule
         final TeamType team;                 // Mocked team
-        final TeamPlayerRangedAvailability ava; // Mocked ava
-        final TeamPlayer unit;               // Mocked player
+        final TeamPlayerAvailability ava;    // Mocked ava
+        final TeamPlayer player;             // Mocked player
         final Ability ability;               // Mocked ability
         final Attributes attributes;         // Mocked attributes
 
@@ -153,8 +117,8 @@ public final class TestTeamTypeRangedUnitAvailability {
         mapper = new ObjectMapper();
         mapper.addMixIn(TeamRule.class, TeamRuleMixIn.class);
         mapper.addMixIn(TeamType.class, TeamTypeMixIn.class);
-        mapper.addMixIn(TeamPlayerRangedAvailability.class,
-                TeamPlayerRangedAvailabilityMixIn.class);
+        mapper.addMixIn(TeamPlayerAvailability.class,
+                TeamPlayerAvailabilityMixIn.class);
         mapper.addMixIn(TeamPlayer.class, TeamPlayerMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
@@ -184,23 +148,21 @@ public final class TestTeamTypeRangedUnitAvailability {
         Mockito.when(ability.getName()).thenReturn("ability_name");
         abilities.add(ability);
 
-        // Mocks unit
-        unit = Mockito.mock(TeamPlayer.class);
-        Mockito.when(unit.getName()).thenReturn("name");
-        Mockito.when(unit.getAbilities()).thenReturn(abilities);
-        Mockito.when(unit.getAttributes()).thenReturn(attributes);
-        Mockito.when(unit.getCost()).thenReturn(10);
-        Mockito.when(unit.getRole()).thenReturn(Role.STRIKER);
-        Mockito.when(unit.getTemplateName()).thenReturn("unit_template");
-        Mockito.when(unit.getMvp()).thenReturn(true);
-        Mockito.when(unit.getGiant()).thenReturn(true);
+        // Mocks player
+        player = Mockito.mock(TeamPlayer.class);
+        Mockito.when(player.getName()).thenReturn("name");
+        Mockito.when(player.getAbilities()).thenReturn(abilities);
+        Mockito.when(player.getAttributes()).thenReturn(attributes);
+        Mockito.when(player.getCost()).thenReturn(10);
+        Mockito.when(player.getRole()).thenReturn(Role.STRIKER);
+        Mockito.when(player.getTemplateName()).thenReturn("player_template");
+        Mockito.when(player.getMvp()).thenReturn(true);
+        Mockito.when(player.getGiant()).thenReturn(true);
 
         // Mocks availabilities
-        ava = Mockito.mock(TeamPlayerRangedAvailability.class);
-        Mockito.when(ava.getInitialNumber()).thenReturn(1);
-        Mockito.when(ava.getMaxNumber()).thenReturn(2);
+        ava = Mockito.mock(TeamPlayerAvailability.class);
         Mockito.when(ava.getTeamType()).thenReturn(team);
-        Mockito.when(ava.getTeamPlayer()).thenReturn(unit);
+        Mockito.when(ava.getTeamPlayer()).thenReturn(player);
 
         return mapper.writer().writeValueAsString(ava);
     }

@@ -14,22 +14,31 @@
  * the License.
  */
 
-package com.bernardomg.tabletop.dreadball.model.json.availability.unit;
+package com.bernardomg.tabletop.dreadball.model.json.availability.player;
 
-import com.bernardomg.tabletop.dreadball.model.availability.player.TeamPlayerAvailability;
+import com.bernardomg.tabletop.dreadball.model.availability.player.TeamPlayerRangedAvailability;
 import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
 import com.bernardomg.tabletop.dreadball.model.player.TeamPlayer;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Jackson mix-in interface for {@link TeamTypeUnitAvailability}.
+ * Jackson mix-in interface for {@link TeamPlayerRangedAvailability}.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface TeamPlayerAvailabilityMixIn extends TeamPlayerAvailability {
+public interface TeamPlayerRangedAvailabilityMixIn
+        extends TeamPlayerRangedAvailability {
+
+    @Override
+    @JsonProperty
+    public Integer getInitialNumber();
+
+    @Override
+    @JsonProperty
+    public Integer getMaxNumber();
 
     @Override
     @JsonProperty
