@@ -17,9 +17,9 @@
 package com.bernardomg.tabletop.dreadball.model.json.team;
 
 import com.bernardomg.tabletop.dreadball.model.faction.Sponsor;
+import com.bernardomg.tabletop.dreadball.model.player.TeamPlayer;
+import com.bernardomg.tabletop.dreadball.model.player.stats.AffinityGroup;
 import com.bernardomg.tabletop.dreadball.model.team.SponsorTeam;
-import com.bernardomg.tabletop.dreadball.model.unit.AffinityGroup;
-import com.bernardomg.tabletop.dreadball.model.unit.Unit;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<Unit> {
+public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<TeamPlayer> {
 
     @Override
     @JsonProperty
@@ -50,11 +50,11 @@ public interface SponsorTeamMixIn extends SponsorTeam, TeamMixIn<Unit> {
 
     @Override
     @JsonProperty
-    public Integer getRankCost();
+    public Integer getNastySurpriseCards();
 
     @Override
     @JsonProperty
-    public Integer getNastySurpriseCards();
+    public Integer getRankCost();
 
     @Override
     @JsonProperty

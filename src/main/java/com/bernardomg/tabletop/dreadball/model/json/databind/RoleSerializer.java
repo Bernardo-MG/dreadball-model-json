@@ -18,7 +18,7 @@ package com.bernardomg.tabletop.dreadball.model.json.databind;
 
 import java.io.IOException;
 
-import com.bernardomg.tabletop.dreadball.model.unit.Role;
+import com.bernardomg.tabletop.dreadball.model.player.Role;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;

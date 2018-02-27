@@ -40,10 +40,6 @@ public interface SponsorAssetsAvailabilityMixIn
 
     @Override
     @JsonProperty
-    public Integer getCheerleaderUnlockCost();
-
-    @Override
-    @JsonProperty
     public Integer getCoachingDieCost();
 
     @Override
@@ -52,22 +48,14 @@ public interface SponsorAssetsAvailabilityMixIn
 
     @Override
     @JsonProperty
-    public Integer getSabotageCardCost();
+    public Integer getNastySurpriseCardCost();
 
     @Override
     @JsonProperty
-    public Integer getSpecialMovementCardCost();
-
-    @Override
-    @JsonProperty
-    public Integer getTeamCostMin();
+    public Integer getSpecialMoveCardCost();
 
     @Override
     @JsonProperty
     public Integer getWagerCost();
-
-    @Override
-    @JsonProperty
-    public Integer getWagerMaxCount();
 
 }

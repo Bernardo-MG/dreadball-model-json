@@ -27,17 +27,17 @@ import org.mockito.Mockito;
 
 import com.bernardomg.tabletop.dreadball.model.faction.Sponsor;
 import com.bernardomg.tabletop.dreadball.model.json.faction.SponsorMixIn;
+import com.bernardomg.tabletop.dreadball.model.json.player.AffinityGroupMixIn;
+import com.bernardomg.tabletop.dreadball.model.json.player.TeamPlayerMixIn;
+import com.bernardomg.tabletop.dreadball.model.json.player.stats.AbilityMixIn;
+import com.bernardomg.tabletop.dreadball.model.json.player.stats.AttributesMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.team.SponsorTeamMixIn;
-import com.bernardomg.tabletop.dreadball.model.json.unit.AffinityGroupMixIn;
-import com.bernardomg.tabletop.dreadball.model.json.unit.UnitMixIn;
-import com.bernardomg.tabletop.dreadball.model.json.unit.stats.AbilityMixIn;
-import com.bernardomg.tabletop.dreadball.model.json.unit.stats.AttributesMixIn;
+import com.bernardomg.tabletop.dreadball.model.player.Role;
+import com.bernardomg.tabletop.dreadball.model.player.TeamPlayer;
+import com.bernardomg.tabletop.dreadball.model.player.stats.Ability;
+import com.bernardomg.tabletop.dreadball.model.player.stats.AffinityGroup;
+import com.bernardomg.tabletop.dreadball.model.player.stats.Attributes;
 import com.bernardomg.tabletop.dreadball.model.team.SponsorTeam;
-import com.bernardomg.tabletop.dreadball.model.unit.AffinityGroup;
-import com.bernardomg.tabletop.dreadball.model.unit.Role;
-import com.bernardomg.tabletop.dreadball.model.unit.Unit;
-import com.bernardomg.tabletop.dreadball.model.unit.stats.Ability;
-import com.bernardomg.tabletop.dreadball.model.unit.stats.Attributes;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
@@ -231,19 +231,19 @@ public final class TestSponsorTeamMixIn {
     }
 
     /**
-     * Tests that the JSON message is created with the correct valoration.
+     * Tests that the JSON message is created with the correct total cost.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void test_Valoration() throws JsonProcessingException {
+    public final void test_TotalCost() throws JsonProcessingException {
         final String json;  // Tested JSON
         final Object value; // Read value
 
         json = getJson();
 
-        value = JsonPath.read(json, "$.valoration");
+        value = JsonPath.read(json, "$.totalCost");
 
         Assert.assertEquals(6, value);
     }
@@ -278,11 +278,11 @@ public final class TestSponsorTeamMixIn {
         final Collection<AffinityGroup> affinities; // Sponsor affinities
         final Collection<AffinityGroup> addAffs;    // Additional affinities
         final Collection<Ability> abilities;        // Unit abilities
-        final Map<Integer, Unit> units;             // Team units
+        final Map<Integer, TeamPlayer> units;       // Team units
         final Sponsor sponsor;                      // Team sponsor
         final AffinityGroup affinity;               // Mocked affinity group
         final SponsorTeam team;                     // Mocked team
-        final Unit unit;                            // Mocked unit
+        final TeamPlayer unit;                      // Mocked unit
         final Ability ability;                      // Mocked ability
         final Attributes attributes;                // Mocked attributes
 
@@ -291,7 +291,7 @@ public final class TestSponsorTeamMixIn {
         mapper.addMixIn(Sponsor.class, SponsorMixIn.class);
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
         mapper.addMixIn(SponsorTeam.class, SponsorTeamMixIn.class);
-        mapper.addMixIn(Unit.class, UnitMixIn.class);
+        mapper.addMixIn(TeamPlayer.class, TeamPlayerMixIn.class);
         mapper.addMixIn(Ability.class, AbilityMixIn.class);
         mapper.addMixIn(Attributes.class, AttributesMixIn.class);
 
@@ -328,7 +328,7 @@ public final class TestSponsorTeamMixIn {
 
         // Mocks units
         units = new HashMap<>();
-        unit = Mockito.mock(Unit.class);
+        unit = Mockito.mock(TeamPlayer.class);
         Mockito.when(unit.getName()).thenReturn("name");
         Mockito.when(unit.getAbilities()).thenReturn(abilities);
         Mockito.when(unit.getAttributes()).thenReturn(attributes);
@@ -346,7 +346,7 @@ public final class TestSponsorTeamMixIn {
         Mockito.when(team.getMediBots()).thenReturn(3);
         Mockito.when(team.getNastySurpriseCards()).thenReturn(4);
         Mockito.when(team.getSpecialMoveCards()).thenReturn(5);
-        Mockito.when(team.getValoration()).thenReturn(6);
+        Mockito.when(team.getTotalCost()).thenReturn(6);
         Mockito.when(team.getWagers()).thenReturn(7);
         Mockito.when(team.getRankCost()).thenReturn(8);
 

@@ -14,50 +14,39 @@
  * the License.
  */
 
-package com.bernardomg.tabletop.dreadball.model.json.team;
+package com.bernardomg.tabletop.dreadball.model.json.player.stats;
 
-import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
-import com.bernardomg.tabletop.dreadball.model.player.AdvancementTeamPlayer;
-import com.bernardomg.tabletop.dreadball.model.team.AdvancementTeam;
+import com.bernardomg.tabletop.dreadball.model.player.stats.Attributes;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Jackson mix-in interface for {@link AdvancementTeam}.
+ * Jackson mix-in interface for {@link Attributes}.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface AdvancementTeamMixIn
-        extends AdvancementTeam, TeamMixIn<AdvancementTeamPlayer> {
+public interface AttributesMixIn extends Attributes {
 
     @Override
     @JsonProperty
-    public Integer getCash();
+    public Integer getArmor();
 
     @Override
     @JsonProperty
-    public Boolean getDefensiveCoachingStaff();
+    public Integer getMovement();
 
     @Override
     @JsonProperty
-    public Integer getDreadballCards();
+    public Integer getSkill();
 
     @Override
     @JsonProperty
-    public String getName();
+    public Integer getSpeed();
 
     @Override
     @JsonProperty
-    public Boolean getOffensiveCoachingStaff();
-
-    @Override
-    @JsonProperty
-    public Boolean getSupportCoachingStaff();
-
-    @Override
-    @JsonProperty
-    public TeamType getTeamType();
+    public Integer getStrength();
 
 }

@@ -14,50 +14,23 @@
  * the License.
  */
 
-package com.bernardomg.tabletop.dreadball.model.json.team;
+package com.bernardomg.tabletop.dreadball.model.json.player.component;
 
-import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
-import com.bernardomg.tabletop.dreadball.model.player.AdvancementTeamPlayer;
-import com.bernardomg.tabletop.dreadball.model.team.AdvancementTeam;
+import com.bernardomg.tabletop.dreadball.model.player.component.ComponentLocation;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Jackson mix-in interface for {@link AdvancementTeam}.
+ * Jackson mix-in interface for {@link ComponentLocation}.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface AdvancementTeamMixIn
-        extends AdvancementTeam, TeamMixIn<AdvancementTeamPlayer> {
-
-    @Override
-    @JsonProperty
-    public Integer getCash();
-
-    @Override
-    @JsonProperty
-    public Boolean getDefensiveCoachingStaff();
-
-    @Override
-    @JsonProperty
-    public Integer getDreadballCards();
+public interface ComponentLocationMixIn extends ComponentLocation {
 
     @Override
     @JsonProperty
     public String getName();
-
-    @Override
-    @JsonProperty
-    public Boolean getOffensiveCoachingStaff();
-
-    @Override
-    @JsonProperty
-    public Boolean getSupportCoachingStaff();
-
-    @Override
-    @JsonProperty
-    public TeamType getTeamType();
 
 }

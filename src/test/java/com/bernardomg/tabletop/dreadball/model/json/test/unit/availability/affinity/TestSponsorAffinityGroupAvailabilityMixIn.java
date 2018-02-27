@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.bernardomg.tabletop.dreadball.model.json.test.unit.faction;
+package com.bernardomg.tabletop.dreadball.model.json.test.unit.availability.affinity;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,8 +23,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import com.bernardomg.tabletop.dreadball.model.faction.Sponsor;
-import com.bernardomg.tabletop.dreadball.model.json.faction.SponsorMixIn;
+import com.bernardomg.tabletop.dreadball.model.availability.affinity.SponsorAffinityGroupAvailability;
+import com.bernardomg.tabletop.dreadball.model.json.availability.affinity.SponsorAffinityGroupAvailabilityMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.player.AffinityGroupMixIn;
 import com.bernardomg.tabletop.dreadball.model.player.stats.AffinityGroup;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -32,7 +32,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 
 /**
- * Unit tests for {@link UnitTemplateMixIn}.
+ * Unit tests for {@link SponsorAffinityGroupAvailabilityMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -41,23 +41,23 @@ import com.jayway.jsonpath.JsonPath;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestSponsorMixIn {
+public final class TestSponsorAffinityGroupAvailabilityMixIn {
 
     /**
      * Default constructor.
      */
-    public TestSponsorMixIn() {
+    public TestSponsorAffinityGroupAvailabilityMixIn() {
         super();
     }
 
     /**
-     * Tests that the JSON message is created with the correct affinity groups.
+     * Tests that the JSON message is created with the correct affinity group.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void test_AffinityGroups() throws JsonProcessingException {
+    public final void test_AffinityGroup() throws JsonProcessingException {
         final String json;  // Tested JSON
         final Object value; // Read value
 
@@ -66,24 +66,6 @@ public final class TestSponsorMixIn {
         value = JsonPath.read(json, "$.affinityGroups[0].name");
 
         Assert.assertEquals("affinity_group", value);
-    }
-
-    /**
-     * Tests that the JSON message is created with the correct cash.
-     * 
-     * @throws JsonProcessingException
-     *             never, this is a required declaration
-     */
-    @Test
-    public final void test_Cash() throws JsonProcessingException {
-        final String json;  // Tested JSON
-        final Object value; // Read value
-
-        json = getJson();
-
-        value = JsonPath.read(json, "$.cash");
-
-        Assert.assertEquals(10, value);
     }
 
     /**
@@ -101,25 +83,26 @@ public final class TestSponsorMixIn {
 
         value = JsonPath.read(json, "$.name");
 
-        Assert.assertEquals("sponsor_name", value);
+        Assert.assertEquals("group_name", value);
     }
 
     /**
-     * Tests that the JSON message is created with the correct rank.
+     * Tests that the JSON message is created with the correct rank increase
+     * value.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void test_Rank() throws JsonProcessingException {
+    public final void test_RankIncrease() throws JsonProcessingException {
         final String json;  // Tested JSON
         final Object value; // Read value
 
         json = getJson();
 
-        value = JsonPath.read(json, "$.rank");
+        value = JsonPath.read(json, "$.rankIncrease");
 
-        Assert.assertEquals(20, value);
+        Assert.assertFalse((boolean) value);
     }
 
     /**
@@ -130,14 +113,15 @@ public final class TestSponsorMixIn {
      *             never, this is a required declaration
      */
     private final String getJson() throws JsonProcessingException {
-        final ObjectMapper mapper;      // Mapper for the JSON
-        final Collection<AffinityGroup> affinities; // Sponsor affinities
-        final Sponsor sponsor;          // Mocked sponsor
+        final ObjectMapper mapper; // Mapper for the JSON
+        final Collection<AffinityGroup> affinities; // Ava affinities
         final AffinityGroup affinity;   // Mocked affinity
+        final SponsorAffinityGroupAvailability ava; // Mocked ava
 
         // Creates mapper
         mapper = new ObjectMapper();
-        mapper.addMixIn(Sponsor.class, SponsorMixIn.class);
+        mapper.addMixIn(SponsorAffinityGroupAvailability.class,
+                SponsorAffinityGroupAvailabilityMixIn.class);
         mapper.addMixIn(AffinityGroup.class, AffinityGroupMixIn.class);
 
         // Mocks affinities
@@ -146,14 +130,12 @@ public final class TestSponsorMixIn {
         Mockito.when(affinity.getName()).thenReturn("affinity_group");
         affinities.add(affinity);
 
-        // Mocks sponsor
-        sponsor = Mockito.mock(Sponsor.class);
-        Mockito.when(sponsor.getName()).thenReturn("sponsor_name");
-        Mockito.when(sponsor.getCash()).thenReturn(10);
-        Mockito.when(sponsor.getRank()).thenReturn(20);
-        Mockito.when(sponsor.getAffinityGroups()).thenReturn(affinities);
+        // Mocks availabilities
+        ava = Mockito.mock(SponsorAffinityGroupAvailability.class);
+        Mockito.when(ava.getName()).thenReturn("group_name");
+        Mockito.when(ava.getAffinityGroups()).thenReturn(affinities);
 
-        return mapper.writer().writeValueAsString(sponsor);
+        return mapper.writer().writeValueAsString(ava);
     }
 
 }

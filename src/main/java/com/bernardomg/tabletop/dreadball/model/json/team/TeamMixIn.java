@@ -18,8 +18,8 @@ package com.bernardomg.tabletop.dreadball.model.json.team;
 
 import java.util.Map;
 
+import com.bernardomg.tabletop.dreadball.model.player.TeamPlayer;
 import com.bernardomg.tabletop.dreadball.model.team.Team;
-import com.bernardomg.tabletop.dreadball.model.unit.Unit;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -27,12 +27,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Jackson mix-in interface for {@link Team}.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
- * @param <U>
+ * @param <P>
  *            the type of unit the {@code Team} contains
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface TeamMixIn<U extends Unit> extends Team<U> {
+public interface TeamMixIn<P extends TeamPlayer> extends Team<P> {
 
     @Override
     @JsonProperty
@@ -44,10 +44,10 @@ public interface TeamMixIn<U extends Unit> extends Team<U> {
 
     @Override
     @JsonProperty
-    public Map<Integer, U> getPlayers();
+    public Map<Integer, P> getPlayers();
 
     @Override
     @JsonProperty
-    public Integer getValoration();
+    public Integer getTotalCost();
 
 }
