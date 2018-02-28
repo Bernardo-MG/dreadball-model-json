@@ -19,7 +19,7 @@ package com.bernardomg.tabletop.dreadball.model.json.databind;
 import java.io.IOException;
 import java.util.Collection;
 
-import com.bernardomg.tabletop.dreadball.model.unit.Role;
+import com.bernardomg.tabletop.dreadball.model.player.Role;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanProperty;
 import com.fasterxml.jackson.databind.JsonMappingException;

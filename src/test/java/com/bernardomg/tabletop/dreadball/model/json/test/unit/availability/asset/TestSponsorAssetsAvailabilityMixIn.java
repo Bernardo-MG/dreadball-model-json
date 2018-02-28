@@ -83,26 +83,6 @@ public final class TestSponsorAssetsAvailabilityMixIn {
     }
 
     /**
-     * Tests that the JSON message is created with the correct cheerleader
-     * unlock cost.
-     * 
-     * @throws JsonProcessingException
-     *             never, this is a required declaration
-     */
-    @Test
-    public final void test_CheerleaderUnlockCost()
-            throws JsonProcessingException {
-        final String json;  // Tested JSON
-        final Object value; // Read value
-
-        json = getJson();
-
-        value = JsonPath.read(json, "$.cheerleaderUnlockCost");
-
-        Assert.assertEquals(3, value);
-    }
-
-    /**
      * Tests that the JSON message is created with the correct coaching die
      * cost.
      * 
@@ -118,7 +98,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.coachingDieCost");
 
-        Assert.assertEquals(4, value);
+        Assert.assertEquals(3, value);
     }
 
     /**
@@ -136,26 +116,26 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.mediBotCost");
 
-        Assert.assertEquals(5, value);
+        Assert.assertEquals(4, value);
     }
 
     /**
-     * Tests that the JSON message is created with the correct sabotage card
-     * cost.
+     * Tests that the JSON message is created with the correct nasty surprise
+     * card cost.
      * 
      * @throws JsonProcessingException
      *             never, this is a required declaration
      */
     @Test
-    public final void test_SabotageCardCost() throws JsonProcessingException {
+    public final void test_NastySurpriseCost() throws JsonProcessingException {
         final String json;  // Tested JSON
         final Object value; // Read value
 
         json = getJson();
 
-        value = JsonPath.read(json, "$.sabotageCardCost");
+        value = JsonPath.read(json, "$.nastySurpriseCardCost");
 
-        Assert.assertEquals(6, value);
+        Assert.assertEquals(5, value);
     }
 
     /**
@@ -173,28 +153,9 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         json = getJson();
 
-        value = JsonPath.read(json, "$.specialMovementCardCost");
+        value = JsonPath.read(json, "$.specialMoveCardCost");
 
-        Assert.assertEquals(7, value);
-    }
-
-    /**
-     * Tests that the JSON message is created with the correct team cost minimum
-     * value.
-     * 
-     * @throws JsonProcessingException
-     *             never, this is a required declaration
-     */
-    @Test
-    public final void test_TeamCostMin() throws JsonProcessingException {
-        final String json;  // Tested JSON
-        final Object value; // Read value
-
-        json = getJson();
-
-        value = JsonPath.read(json, "$.teamCostMin");
-
-        Assert.assertEquals(8, value);
+        Assert.assertEquals(6, value);
     }
 
     /**
@@ -212,25 +173,7 @@ public final class TestSponsorAssetsAvailabilityMixIn {
 
         value = JsonPath.read(json, "$.wagerCost");
 
-        Assert.assertEquals(9, value);
-    }
-
-    /**
-     * Tests that the JSON message is created with the correct wager max count.
-     * 
-     * @throws JsonProcessingException
-     *             never, this is a required declaration
-     */
-    @Test
-    public final void test_WagerMaxCount() throws JsonProcessingException {
-        final String json;  // Tested JSON
-        final Object value; // Read value
-
-        json = getJson();
-
-        value = JsonPath.read(json, "$.wagerMaxCount");
-
-        Assert.assertEquals(10, value);
+        Assert.assertEquals(7, value);
     }
 
     /**
@@ -253,14 +196,11 @@ public final class TestSponsorAssetsAvailabilityMixIn {
         ava = Mockito.mock(SponsorAssetsAvailability.class);
         Mockito.when(ava.getAffinityGroupCost()).thenReturn(1);
         Mockito.when(ava.getCheerleaderCost()).thenReturn(2);
-        Mockito.when(ava.getCheerleaderUnlockCost()).thenReturn(3);
-        Mockito.when(ava.getCoachingDieCost()).thenReturn(4);
-        Mockito.when(ava.getMediBotCost()).thenReturn(5);
-        Mockito.when(ava.getSabotageCardCost()).thenReturn(6);
-        Mockito.when(ava.getSpecialMovementCardCost()).thenReturn(7);
-        Mockito.when(ava.getTeamCostMin()).thenReturn(8);
-        Mockito.when(ava.getWagerCost()).thenReturn(9);
-        Mockito.when(ava.getWagerMaxCount()).thenReturn(10);
+        Mockito.when(ava.getCoachingDieCost()).thenReturn(3);
+        Mockito.when(ava.getMediBotCost()).thenReturn(4);
+        Mockito.when(ava.getNastySurpriseCardCost()).thenReturn(5);
+        Mockito.when(ava.getSpecialMoveCardCost()).thenReturn(6);
+        Mockito.when(ava.getWagerCost()).thenReturn(7);
 
         return mapper.writer().writeValueAsString(ava);
     }

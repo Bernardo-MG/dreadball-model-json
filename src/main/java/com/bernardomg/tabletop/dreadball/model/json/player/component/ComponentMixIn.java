@@ -14,35 +14,46 @@
  * the License.
  */
 
-package com.bernardomg.tabletop.dreadball.model.json.team;
+package com.bernardomg.tabletop.dreadball.model.json.player.component;
 
-import com.bernardomg.tabletop.dreadball.model.faction.TeamType;
-import com.bernardomg.tabletop.dreadball.model.player.AdvancementTeamPlayer;
-import com.bernardomg.tabletop.dreadball.model.team.AdvancementTeam;
+import java.util.Collection;
+
+import com.bernardomg.tabletop.dreadball.model.json.databind.RoleCollectionSerializer;
+import com.bernardomg.tabletop.dreadball.model.player.Role;
+import com.bernardomg.tabletop.dreadball.model.player.component.Component;
+import com.bernardomg.tabletop.dreadball.model.player.component.ComponentLocation;
+import com.bernardomg.tabletop.dreadball.model.player.stats.Ability;
+import com.bernardomg.tabletop.dreadball.model.player.stats.Attributes;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
- * Jackson mix-in interface for {@link AdvancementTeam}.
+ * Jackson mix-in interface for {@link Component}.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface AdvancementTeamMixIn
-        extends AdvancementTeam, TeamMixIn<AdvancementTeamPlayer> {
+public interface ComponentMixIn extends Component {
 
     @Override
     @JsonProperty
-    public Integer getCash();
+    public Collection<Ability> getAbilities();
 
     @Override
     @JsonProperty
-    public Boolean getDefensiveCoachingStaff();
+    @JsonUnwrapped
+    public Attributes getAttributes();
 
     @Override
     @JsonProperty
-    public Integer getDreadballCards();
+    public Integer getCost();
+
+    @Override
+    @JsonProperty
+    public ComponentLocation getLocation();
 
     @Override
     @JsonProperty
@@ -50,14 +61,7 @@ public interface AdvancementTeamMixIn
 
     @Override
     @JsonProperty
-    public Boolean getOffensiveCoachingStaff();
-
-    @Override
-    @JsonProperty
-    public Boolean getSupportCoachingStaff();
-
-    @Override
-    @JsonProperty
-    public TeamType getTeamType();
+    @JsonSerialize(using = RoleCollectionSerializer.class)
+    public Collection<Role> getRoles();
 
 }
