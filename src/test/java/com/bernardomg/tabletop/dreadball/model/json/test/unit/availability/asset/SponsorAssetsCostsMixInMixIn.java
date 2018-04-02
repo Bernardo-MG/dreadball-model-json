@@ -20,14 +20,14 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import com.bernardomg.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
-import com.bernardomg.tabletop.dreadball.model.json.availability.asset.SponsorAssetsAvailabilityMixIn;
+import com.bernardomg.tabletop.dreadball.model.availability.asset.SponsorAssetsCosts;
+import com.bernardomg.tabletop.dreadball.model.json.availability.asset.SponsorAssetsCostsMixIn;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 
 /**
- * Unit tests for {@link SponsorAssetsAvailabilityMixIn}.
+ * Unit tests for {@link SponsorAssetsCostsMixIn}.
  * <p>
  * Checks the following cases:
  * <ol>
@@ -36,12 +36,12 @@ import com.jayway.jsonpath.JsonPath;
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public final class TestSponsorAssetsAvailabilityMixIn {
+public final class SponsorAssetsCostsMixInMixIn {
 
     /**
      * Default constructor.
      */
-    public TestSponsorAssetsAvailabilityMixIn() {
+    public SponsorAssetsCostsMixInMixIn() {
         super();
     }
 
@@ -184,16 +184,16 @@ public final class TestSponsorAssetsAvailabilityMixIn {
      *             never, this is a required declaration
      */
     private final String getJson() throws JsonProcessingException {
-        final ObjectMapper mapper;           // Mapper for the JSON
-        final SponsorAssetsAvailability ava; // Mocked ava
+        final ObjectMapper mapper;    // Mapper for the JSON
+        final SponsorAssetsCosts ava; // Mocked ava
 
         // Creates mapper
         mapper = new ObjectMapper();
-        mapper.addMixIn(SponsorAssetsAvailability.class,
-                SponsorAssetsAvailabilityMixIn.class);
+        mapper.addMixIn(SponsorAssetsCosts.class,
+                SponsorAssetsCostsMixIn.class);
 
         // Mocks availabilities
-        ava = Mockito.mock(SponsorAssetsAvailability.class);
+        ava = Mockito.mock(SponsorAssetsCosts.class);
         Mockito.when(ava.getAffinityGroupCost()).thenReturn(1);
         Mockito.when(ava.getCheerleaderCost()).thenReturn(2);
         Mockito.when(ava.getCoachingDieCost()).thenReturn(3);
