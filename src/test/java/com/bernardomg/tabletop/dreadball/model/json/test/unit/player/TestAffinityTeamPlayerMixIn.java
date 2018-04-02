@@ -23,9 +23,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import com.bernardomg.tabletop.dreadball.model.json.player.AffinityGroupMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.player.AffinityTeamPlayerMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.player.stats.AbilityMixIn;
+import com.bernardomg.tabletop.dreadball.model.json.player.stats.AffinityGroupMixIn;
 import com.bernardomg.tabletop.dreadball.model.json.player.stats.AttributesMixIn;
 import com.bernardomg.tabletop.dreadball.model.player.AffinityTeamPlayer;
 import com.bernardomg.tabletop.dreadball.model.player.Role;

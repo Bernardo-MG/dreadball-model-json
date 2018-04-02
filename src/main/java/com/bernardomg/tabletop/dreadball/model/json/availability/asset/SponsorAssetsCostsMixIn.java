@@ -16,19 +16,18 @@
 
 package com.bernardomg.tabletop.dreadball.model.json.availability.asset;
 
-import com.bernardomg.tabletop.dreadball.model.availability.asset.SponsorAssetsAvailability;
+import com.bernardomg.tabletop.dreadball.model.availability.asset.SponsorAssetsCosts;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Jackson mix-in interface for {@link SponsorAssetsAvailability}.
+ * Jackson mix-in interface for {@link SponsorAssetsCosts}.
  * 
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE,
         isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public interface SponsorAssetsAvailabilityMixIn
-        extends SponsorAssetsAvailability {
+public interface SponsorAssetsCostsMixIn extends SponsorAssetsCosts {
 
     @Override
     @JsonProperty

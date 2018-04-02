@@ -25,7 +25,7 @@ import org.mockito.Mockito;
 
 import com.bernardomg.tabletop.dreadball.model.availability.affinity.SponsorAffinityGroupAvailability;
 import com.bernardomg.tabletop.dreadball.model.json.availability.affinity.SponsorAffinityGroupAvailabilityMixIn;
-import com.bernardomg.tabletop.dreadball.model.json.player.AffinityGroupMixIn;
+import com.bernardomg.tabletop.dreadball.model.json.player.stats.AffinityGroupMixIn;
 import com.bernardomg.tabletop.dreadball.model.player.stats.AffinityGroup;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

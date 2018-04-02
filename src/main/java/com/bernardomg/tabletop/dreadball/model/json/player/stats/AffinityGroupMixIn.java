@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.bernardomg.tabletop.dreadball.model.json.player;
+package com.bernardomg.tabletop.dreadball.model.json.player.stats;
 
 import com.bernardomg.tabletop.dreadball.model.player.stats.AffinityGroup;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
