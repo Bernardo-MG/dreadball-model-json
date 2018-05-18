@@ -24,10 +24,10 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanProperty;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
+import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
 import com.fasterxml.jackson.databind.ser.std.StaticListSerializerBase;
 
 /**
@@ -57,20 +57,18 @@ public final class RoleCollectionSerializer
      * 
      * @param src
      *            source
-     * @param ser
-     *            serializer
      * @param unwrapSingle
      *            unwrap single flag
      */
     protected RoleCollectionSerializer(final RoleCollectionSerializer src,
-            final JsonSerializer<?> ser, final Boolean unwrapSingle) {
-        super(src, ser, unwrapSingle);
+            final Boolean unwrapSingle) {
+        super(src, unwrapSingle);
     }
 
     @Override
     public final RoleCollectionSerializer _withResolved(final BeanProperty prop,
-            final JsonSerializer<?> ser, final Boolean unwrapSingle) {
-        return new RoleCollectionSerializer(this, ser, unwrapSingle);
+            final Boolean unwrapSingle) {
+        return new RoleCollectionSerializer(this, unwrapSingle);
     }
 
     @Override
@@ -78,6 +76,19 @@ public final class RoleCollectionSerializer
             final JsonGenerator gen, final SerializerProvider provider)
             throws IOException {
 
+        gen.writeStartArray(value.size());
+
+        for (final Object role : value) {
+            gen.writeString(String.valueOf(role).toLowerCase());
+        }
+
+        gen.writeEndArray();
+    }
+
+    @Override
+    public void serializeWithType(final Collection<Role> value,
+            final JsonGenerator gen, final SerializerProvider provider,
+            final TypeSerializer typeSer) throws IOException {
         gen.writeStartArray(value.size());
 
         for (final Object role : value) {
